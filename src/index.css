@@ -1,0 +1,197 @@
+:root {
+  --primary: #3D0B0A;          /* Rich deep burgundy / wine */
+  --primary-dark: #240504;
+  --primary-glow: #5C1210;
+  --secondary: #140504;        /* Dark brown-black */
+  --secondary-card: #220807;
+  --gold: #F5D061;             /* Vibrant metallic gold */
+  --light-gold: #FFF0B3;       /* Soft glowing gold */
+  --gold-dark: #C29B27;
+  --cream: #FFF6E5;            /* Cream off-white */
+  --text: #FBF2E3;             /* Light warm text */
+  --muted: #D8C7B5;            /* Muted warm grey/brown */
+  --whatsapp: #25D366;         /* WhatsApp green */
+  --whatsapp-hover: #20bd5a;
+  --border-gold: rgba(245, 208, 97, 0.4);
+  --border-gold-glow: rgba(245, 208, 97, 0.85);
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-brand: 'Cinzel', serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+}
+
+.brand-font {
+  font-family: var(--font-brand);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #FFF0B3 0%, #F5D061 45%, #D4AF37 75%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(245, 208, 97, 0.3));
+}
+
+.gold-border {
+  border: 1px solid var(--border-gold);
+}
+
+/* Section Title Ornament (Matching reference ― ✦ TITLE ✦ ―) */
+.section-title-wrapper {
+  text-align: center;
+  margin-bottom: 2.8rem;
+  position: relative;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.section-divider-line {
+  width: 70px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-family: var(--font-brand);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.6rem;
+  }
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn-gold-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.85rem 2rem;
+  border: 1px solid var(--gold);
+  background: rgba(20, 5, 4, 0.7);
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(245, 208, 97, 0.05);
+}
+
+.btn-gold-outline:hover {
+  background: var(--gold);
+  color: var(--secondary);
+  box-shadow: 0 0 25px rgba(245, 208, 97, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  padding: 0.65rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+}
+
+.btn-whatsapp-pill:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.65);
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Glassmorphic Cards */
+.luxury-card {
+  background: rgba(34, 8, 7, 0.85);
+  border: 1px solid var(--border-gold);
+  backdrop-filter: blur(10px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 208, 97, 0.25);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}

@@ -1,0 +1,248 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-transparent {
+  background: linear-gradient(180deg, rgba(15, 3, 3, 0.85) 0%, rgba(15, 3, 3, 0) 100%);
+  border-bottom: none;
+}
+
+.navbar-scrolled {
+  padding: 0.65rem 0;
+  background: rgba(24, 6, 5, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-gold);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.7)) brightness(1.1);
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 576px) {
+  .brand-logo-img {
+    height: 48px;
+    max-width: 160px;
+  }
+}
+
+/* Desktop Nav */
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: block;
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link.active {
+  color: var(--gold);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--gold);
+  box-shadow: 0 0 8px rgba(245, 208, 97, 0.6);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.dropdown-arrow {
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop-whatsapp {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-whatsapp {
+    display: inline-flex;
+  }
+}
+
+.btn-whatsapp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  padding: 0.55rem 1.3rem;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-pill:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-pill-text {
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
+}
+
+.mobile-menu-btn {
+  display: flex;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  cursor: pointer;
+  padding: 5px;
+}
+
+@media (min-width: 992px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* Mobile Drawer */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile-menu-content {
+  width: 85%;
+  max-width: 330px;
+  height: 100%;
+  background: var(--secondary-card);
+  border-left: 1px solid var(--border-gold);
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobile-logo-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(245, 208, 97, 0.2);
+}
+
+.mobile-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 2rem;
+}
+
+.mobile-nav-link {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--font-brand);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.mobile-nav-link:hover {
+  color: var(--gold);
+}
+
+.mobile-whatsapp-container {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.w-full {
+  width: 100%;
+  justify-content: center;
+}

@@ -1,0 +1,139 @@
+.about-section {
+  padding: 5rem 0;
+  background-color: var(--secondary);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4.5rem;
+  }
+}
+
+/* Image Frame */
+.about-image-column {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 4.8;
+  object-fit: cover;
+  display: block;
+}
+
+.about-image-border {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  pointer-events: none;
+}
+
+/* Content */
+.about-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-description {
+  margin: 1.5rem 0 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-lead {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--cream);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.about-text {
+  font-size: 0.98rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Stats */
+.about-stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .about-stats-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.stat-icon {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-brand);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.stat-separator {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .stat-separator {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
+  }
+}
