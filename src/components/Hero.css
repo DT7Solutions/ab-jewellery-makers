@@ -1,85 +1,113 @@
 .hero-section {
   position: relative;
   min-height: 100vh;
-  padding-top: 9rem;
-  padding-bottom: 5rem;
-  background: url('/images/hero-bg-full.png') center right / cover no-repeat;
+  padding-top: 8.5rem;
+  padding-bottom: 1.5rem;
   background-color: var(--secondary);
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-.hero-gradient-overlay {
+/* Background Image Slides Crossfade */
+.hero-bg-slide {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg, 
-    rgba(15, 3, 3, 0.95) 0%, 
-    rgba(15, 3, 3, 0.85) 35%, 
-    rgba(15, 3, 3, 0.5) 60%, 
-    rgba(15, 3, 3, 0.15) 80%, 
-    transparent 100%
-  );
+  background-position: center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 8s ease;
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.hero-bg-slide.active {
+  opacity: 1;
+  transform: scale(1);
   z-index: 1;
-  pointer-events: none;
+}
+
+/* Dark gradient overlay removed per user request */
+.hero-gradient-overlay {
+  display: none;
 }
 
 .hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
+/* Hero Content with left padding and refined sizing */
 .hero-content {
-  max-width: 600px;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 1.5rem;
+  animation: heroTextFadeIn 0.8s ease;
 }
 
+@media (min-width: 768px) {
+  .hero-content {
+    padding-left: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    padding-left: 3.5rem;
+  }
+}
+
+@keyframes heroTextFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title Styling */
 .hero-title {
-  font-size: 3.4rem;
-  line-height: 1.15;
+  font-size: 2.6rem;
+  line-height: 1.18;
   font-family: var(--font-heading);
   color: var(--cream);
   font-weight: 500;
   letter-spacing: 0.5px;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 4.5rem;
+    font-size: 3.4rem;
   }
 }
 
 @media (min-width: 1200px) {
   .hero-title {
-    font-size: 5rem;
+    font-size: 3.8rem;
   }
 }
 
+/* Description Styling */
 .hero-description {
-  font-size: 1.22rem;
-  color: var(--muted);
-  font-weight: 300;
-  line-height: 1.65;
-  max-width: 480px;
-  margin-bottom: 2.8rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.desktop-br {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .desktop-br {
-    display: inline;
-  }
+  font-size: 1.05rem;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 440px;
+  margin-bottom: 2.2rem;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.95), 0 1px 5px rgba(0, 0, 0, 0.9);
 }
 
 .hero-cta-wrapper {
@@ -87,29 +115,63 @@
   align-items: center;
 }
 
+/* Refined CTA Button Sizing */
 .hero-cta-btn {
-  padding: 0.95rem 2.4rem;
-  font-size: 0.88rem;
+  padding: 0.78rem 2rem;
+  font-size: 0.82rem;
   border-color: var(--gold);
-  background: rgba(15, 3, 3, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 3, 3, 0.82);
+  backdrop-filter: blur(8px);
 }
 
 .hero-cta-btn:hover {
   background: var(--gold);
   color: var(--secondary);
-  box-shadow: 0 0 25px rgba(245, 208, 97, 0.6);
+  box-shadow: 0 0 25px rgba(245, 208, 97, 0.7);
 }
 
 .whatsapp-icon-badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background-color: var(--whatsapp);
   color: #fff;
   box-shadow: 0 2px 10px rgba(37, 211, 102, 0.6);
   margin-left: 6px;
+}
+
+/* Slider Controls: Arrows */
+.hero-slider-arrows {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+}
+
+.hero-arrow {
+  background: rgba(15, 3, 3, 0.85);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.hero-arrow:hover {
+  background: var(--gold);
+  color: var(--secondary);
+  box-shadow: 0 0 15px rgba(245, 208, 97, 0.5);
+  transform: translateY(-2px);
 }

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'BegumSans-Variable';
+  src: local('BegumSans-Variable'), local('Begum Sans'), local('BegumSans');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #3D0B0A;          /* Rich deep burgundy / wine */
   --primary-dark: #240504;
@@ -15,9 +23,9 @@
   --border-gold: rgba(245, 208, 97, 0.4);
   --border-gold-glow: rgba(245, 208, 97, 0.85);
 
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-brand: 'Cinzel', serif;
-  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'BegumSans-Variable', 'Begum Sans', 'Cormorant Garamond', Georgia, serif;
+  --font-brand: 'BegumSans-Variable', 'Begum Sans', 'Cinzel', serif;
+  --font-body: 'BegumSans-Variable', 'Begum Sans', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -63,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-gold);
 }
 
-/* Section Title Ornament (Matching reference ― ✦ TITLE ✦ ―) */
+/* Section Title Ornament */
 .section-title-wrapper {
   text-align: center;
   margin-bottom: 2.8rem;

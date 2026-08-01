@@ -13,11 +13,12 @@
   border-bottom: none;
 }
 
+/* Scrolled Navbar without any bottom border */
 .navbar-scrolled {
   padding: 0.65rem 0;
   background: rgba(24, 6, 5, 0.96);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-gold);
+  border-bottom: none;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
 }
 

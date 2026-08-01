@@ -1,6 +1,19 @@
 .collections-section {
-  padding: 5rem 0 3rem 0;
+  padding: 4.5rem 0 3rem 0;
   background-color: var(--secondary);
+}
+
+/* Reduced section title font size for Collections per user request */
+.collections-section .section-title {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  .collections-section .section-title {
+    font-size: 1.95rem;
+  }
 }
 
 .collections-grid {
@@ -28,7 +41,6 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  group: collection-card;
 }
 
 .collection-image-wrapper {
@@ -70,7 +82,7 @@
 .collection-card:hover .collection-image-wrapper,
 .collection-card.active .collection-image-wrapper {
   border-color: var(--gold);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 20px rgba(245, 208, 97, 0.4);
   transform: translateY(-5px);
 }
 
