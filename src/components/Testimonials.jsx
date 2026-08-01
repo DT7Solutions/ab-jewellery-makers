@@ -41,14 +41,21 @@ export default function Testimonials() {
   return (
     <section className="testimonials-section" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
       <div className="container">
-        {/* Section Header */}
-        <div className="section-title-wrapper">
-          <div className="section-divider">
-            <span className="section-divider-line"></span>
-            <span>✦</span>
-            <span className="section-divider-line"></span>
+        {/* Section Header matching FEATURED JEWELLERY inline title */}
+        <div className="testimonials-header-container">
+          <div className="testimonials-title-inline">
+            <div className="title-divider-side left">
+              <span className="divider-line"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line-short"></span>
+            </div>
+            <h2 className="testimonials-title-text">LOVED BY OUR CUSTOMERS</h2>
+            <div className="title-divider-side right">
+              <span className="divider-line-short"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line"></span>
+            </div>
           </div>
-          <h2 className="section-title">LOVED BY OUR CUSTOMERS</h2>
         </div>
 
         {/* Carousel Container */}

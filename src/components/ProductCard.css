@@ -2,55 +2,57 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-radius: 3px;
-  overflow: hidden;
+  background-color: #170706;
+  border: 1px solid rgba(245, 208, 97, 0.35);
+  border-radius: 6px;
+  padding: 0.55rem;
   position: relative;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 208, 97, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 15px rgba(245, 208, 97, 0.15);
 }
 
 .product-image-container {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: var(--secondary);
+  border-radius: 4px;
   overflow: hidden;
+  background-color: #0f0403;
 }
 
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s ease;
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.08);
-}
-
-.product-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(24, 7, 6, 0.8) 100%);
-  pointer-events: none;
+  transform: scale(1.06);
 }
 
 .product-info {
-  padding: 1.25rem 1rem;
+  padding: 0.9rem 0.3rem 0.2rem 0.3rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  text-align: center;
   align-items: center;
-  background: rgba(30, 9, 8, 0.8);
+  text-align: center;
+  flex-grow: 1;
 }
 
 .product-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: #FBF2E3;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
 }
 
 .product-price-wrapper {
@@ -59,42 +61,48 @@
 
 .product-price {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  color: var(--gold);
+  color: #FFFFFF;
 }
 
-.product-specs {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 1.2rem;
+.btn-interested {
   width: 100%;
-  font-size: 0.75rem;
-  color: var(--muted);
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
-  padding-top: 0.75rem;
-}
-
-.spec-item {
   display: flex;
-  justify-content: center;
-  gap: 6px;
-}
-
-.spec-label {
-  color: var(--muted);
-}
-
-.spec-value {
-  color: var(--cream);
-  font-weight: 500;
-}
-
-.product-cta-btn {
-  width: 100%;
-  justify-content: center;
-  padding: 0.65rem 1rem;
-  font-size: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background-color: #1A0806;
+  border: 1px solid rgba(245, 208, 97, 0.45);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
   margin-top: auto;
+}
+
+.btn-interested:hover {
+  background-color: rgba(245, 208, 97, 0.12);
+  border-color: #F5D061;
+}
+
+.btn-text {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: #F5D061;
+  text-transform: uppercase;
+}
+
+.whatsapp-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

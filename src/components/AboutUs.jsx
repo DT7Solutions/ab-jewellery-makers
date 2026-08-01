@@ -1,5 +1,7 @@
 import React from 'react';
-import { GiDiamondRing, GiSparkles, GiLaurelCrown } from 'react-icons/gi';
+import { IoDiamondOutline } from 'react-icons/io5';
+import { HiOutlineUserGroup } from 'react-icons/hi2';
+import { GiNecklace } from 'react-icons/gi';
 import { FiAward } from 'react-icons/fi';
 import { SITE_CONFIG } from '../config';
 import './AboutUs.css';
@@ -7,24 +9,24 @@ import './AboutUs.css';
 export default function AboutUs() {
   const stats = [
     {
-      icon: <GiDiamondRing size={26} />,
+      icon: <IoDiamondOutline size={26} />,
       number: "25+",
-      label: "Years of Legacy"
+      label: "Years of\nLegacy"
     },
     {
-      icon: <GiLaurelCrown size={26} />,
+      icon: <HiOutlineUserGroup size={26} />,
       number: "10K+",
-      label: "Happy Customers"
+      label: "Happy\nCustomers"
     },
     {
-      icon: <GiSparkles size={26} />,
+      icon: <GiNecklace size={26} />,
       number: "5K+",
-      label: "Unique Designs"
+      label: "Unique\nDesigns"
     },
     {
       icon: <FiAward size={26} />,
       number: "100%",
-      label: "Hallmarked Jewellery"
+      label: "Hallmarked\nJewellery"
     }
   ];
 
@@ -32,47 +34,50 @@ export default function AboutUs() {
     <section id="about" className="about-section">
       <div className="container">
         <div className="about-grid">
-          {/* Left Column: Image */}
+          {/* Left Column: Image Frame */}
           <div className="about-image-column">
             <div className="about-image-frame">
               <img 
                 src="/images/about-model.png" 
-                alt="Althaf Jewellery Makers Heritage Craftsmanship Model"
+                alt="Indriya Jewellers Heritage Craftsmanship"
                 className="about-image"
                 loading="lazy"
               />
-              <div className="about-image-border"></div>
             </div>
           </div>
 
-          {/* Right Column: Narrative & Stats */}
+          {/* Right Column: Content */}
           <div className="about-content-column">
-            <div className="section-divider-left">
-              <span>✦</span>
-              <span className="section-divider-line-short"></span>
+            {/* Header Title with Right-aligned Gold Diamond Line Ornament */}
+            <div className="about-title-header">
+              <h2 className="about-title-text">ABOUT US</h2>
+              <div className="about-divider-side">
+                <span className="divider-line-short"></span>
+                <span className="divider-diamond">◈</span>
+                <span className="divider-line"></span>
+              </div>
             </div>
-            <h2 className="section-title text-left">ABOUT US</h2>
 
+            {/* Narrative Paragraphs with equalized line lengths matching the 2nd line */}
             <div className="about-description">
-              <p className="about-lead">
-                {SITE_CONFIG.brandName} is a celebration of heritage, craftsmanship and timeless beauty.
+              <p className="about-text">
+                {SITE_CONFIG.brandName} is a regal celebration of Indian heritage, royal craftsmanship, and timeless bridal beauty.
               </p>
               <p className="about-text">
                 Each piece is lovingly handcrafted by skilled artisans using finest materials, passed down through generations.
               </p>
               <p className="about-text">
-                Our creations are designed to be cherished today, tomorrow and forever.
+                Our bespoke creations are masterfully designed to be cherished today, carried into tomorrow, and loved forever.
               </p>
             </div>
 
-            {/* Stats Row */}
+            {/* Stats Row with 4 Columns & Vertical Gold Dividers */}
             <div className="about-stats-container">
               {stats.map((stat, idx) => (
                 <div key={idx} className="stat-card">
                   <div className="stat-icon">{stat.icon}</div>
                   <div className="stat-number">{stat.number}</div>
                   <div className="stat-label">{stat.label}</div>
-                  {idx < stats.length - 1 && <div className="stat-separator"></div>}
                 </div>
               ))}
             </div>

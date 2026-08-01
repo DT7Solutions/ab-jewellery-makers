@@ -16,15 +16,19 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
   return (
     <section id="collections" className="collections-section">
       <div className="container">
-        {/* Section Header */}
-        <div className="section-title-wrapper">
-          <div className="section-divider">
-            <span className="section-divider-line"></span>
-            <span>✦</span>
-            <span className="section-divider-line"></span>
+        {/* Inline Section Header matching user image */}
+        <div className="collections-header-inline">
+          <div className="collections-divider-side left">
+            <span className="divider-line"></span>
+            <span className="divider-diamond">◈</span>
+            <span className="divider-line-short"></span>
           </div>
-          <h2 className="section-title">EXPLORE OUR COLLECTIONS</h2>
-          <p className="section-subtitle">Discover jewellery crafted for every occasion.</p>
+          <h2 className="collections-title-text">EXPLORE OUR COLLECTIONS</h2>
+          <div className="collections-divider-side right">
+            <span className="divider-line-short"></span>
+            <span className="divider-diamond">◈</span>
+            <span className="divider-line"></span>
+          </div>
         </div>
 
         {/* Circular Categories Grid */}

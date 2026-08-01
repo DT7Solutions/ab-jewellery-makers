@@ -1,6 +1,6 @@
 .trust-bar-section {
   padding-top: 0;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   background-color: var(--secondary);
   position: relative;
   z-index: 10;

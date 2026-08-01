@@ -73,8 +73,8 @@ export const PRODUCTS = [
     metal: "Gold",
     purity: "22K",
     weight: "6.8g",
-    image: "/images/products/gold-bangles.png",
-    featured: false,
+    image: "/images/products/peacock-ring.png",
+    featured: true,
     description: "Intricately detailed peacock crest gold ring embellished with a central ruby gemstone."
   },
   {
@@ -86,8 +86,8 @@ export const PRODUCTS = [
     metal: "Gold",
     purity: "22K",
     weight: "9.4g",
-    image: "/images/products/polki-diamond-necklace.png",
-    featured: false,
+    image: "/images/products/emerald-pendant.png",
+    featured: true,
     description: "Solitaire Zambian emerald pendant enclosed in a sparkling pave gold setting."
   },
   {
@@ -100,7 +100,7 @@ export const PRODUCTS = [
     purity: "22K",
     weight: "31.2g",
     image: "/images/products/heritage-necklace.png",
-    featured: false,
+    featured: true,
     description: "Heritage antique finish long gold haar with nakshi work motifs."
   },
   {
@@ -112,8 +112,8 @@ export const PRODUCTS = [
     metal: "Gold",
     purity: "22K",
     weight: "14.1g",
-    image: "/images/products/gold-bangles.png",
-    featured: false,
+    image: "/images/products/filigree-bracelet.png",
+    featured: true,
     description: "Flexible gold filigree wrist cuff with secure luxury clasp."
   },
   {
@@ -126,7 +126,7 @@ export const PRODUCTS = [
     purity: "18K",
     weight: "8.5g",
     image: "/images/products/temple-jhumkas.png",
-    featured: false,
+    featured: true,
     description: "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant."
   },
   {
@@ -138,8 +138,8 @@ export const PRODUCTS = [
     metal: "Gold & Kundan",
     purity: "22K",
     weight: "15.0g",
-    image: "/images/products/temple-jhumkas.png",
-    featured: false,
+    image: "/images/products/chandbali-earrings.png",
+    featured: true,
     description: "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings."
   },
   {
@@ -152,7 +152,7 @@ export const PRODUCTS = [
     purity: "22K",
     weight: "42.0g",
     image: "/images/products/kundan-choker.png",
-    featured: false,
+    featured: true,
     description: "Opulent multi-tiered bridal choker set crafted for grand traditional weddings."
   }
 ];

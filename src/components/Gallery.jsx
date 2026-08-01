@@ -27,8 +27,8 @@ export default function Gallery({ onSelectImage }) {
     },
     {
       id: 5,
-      title: "Kundan Statement Ring",
-      image: "/images/products/kundan-choker.png"
+      title: "Gold Statement Ring",
+      image: "/images/products/peacock-ring.png"
     }
   ];
 
@@ -36,12 +36,12 @@ export default function Gallery({ onSelectImage }) {
     <section id="gallery" className="gallery-cta-section">
       <div className="container">
         <div className="gallery-cta-grid">
-          {/* Left Column: 5 Photo Masonry Grid */}
-          <div className="gallery-masonry-grid">
+          {/* Left Side: 5 Square Photos in a single row */}
+          <div className="gallery-row-5col">
             {galleryItems.map((item) => (
               <div 
                 key={item.id} 
-                className={`gallery-item item-${item.id}`}
+                className="gallery-item-card"
                 onClick={() => onSelectImage && onSelectImage(item)}
               >
                 <img src={item.image} alt={item.title} className="gallery-img" loading="lazy" />
@@ -53,23 +53,26 @@ export default function Gallery({ onSelectImage }) {
             ))}
           </div>
 
-          {/* Right Column: WhatsApp CTA Box matching reference layout */}
-          <div className="whatsapp-banner-card luxury-card">
-            <div className="whatsapp-banner-content">
-              <h3 className="whatsapp-banner-title">
+          {/* Right Side: Interested in any of these designs? WhatsApp CTA Box */}
+          <div className="whatsapp-cta-card">
+            <div className="whatsapp-card-pattern"></div>
+            <div className="whatsapp-card-content">
+              <h3 className="whatsapp-card-title">
                 Interested in any of<br />
                 these designs?
               </h3>
-              <p className="whatsapp-banner-text">
-                Get pricing, quotes & details instantly on WhatsApp.
+              <p className="whatsapp-card-text">
+                Get pricing, quotes & details<br />
+                instantly on WhatsApp.
               </p>
               <button 
-                className="btn-whatsapp-banner"
+                className="btn-whatsapp-cta"
                 onClick={openGeneralWhatsApp}
+                aria-label="Chat on WhatsApp"
               >
-                <span>CHAT ON WHATSAPP</span>
-                <span className="whatsapp-icon-badge">
-                  <FaWhatsapp size={16} />
+                <span className="cta-btn-text">CHAT ON WHATSAPP</span>
+                <span className="whatsapp-badge-icon">
+                  <FaWhatsapp size={14} />
                 </span>
               </button>
             </div>

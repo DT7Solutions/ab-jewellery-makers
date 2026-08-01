@@ -1,7 +1,98 @@
 .testimonials-section {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
   background-color: var(--secondary);
   position: relative;
+  border-top: 1px solid rgba(245, 208, 97, 0.25);
+}
+
+/* Header Container matching FEATURED JEWELLERY title size & ornaments */
+.testimonials-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.testimonials-title-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.testimonials-title-inline .title-divider-side {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.testimonials-title-inline .title-divider-side.left {
+  justify-content: flex-end;
+}
+
+.testimonials-title-inline .title-divider-side.right {
+  justify-content: flex-start;
+}
+
+.testimonials-title-inline .title-divider-side .divider-line {
+  height: 1px;
+  width: 22px;
+  flex: none;
+}
+
+.testimonials-title-inline .title-divider-side.left .divider-line {
+  background: linear-gradient(90deg, transparent 0%, #C29B27 40%, #F5D061 100%);
+}
+
+.testimonials-title-inline .title-divider-side.right .divider-line {
+  background: linear-gradient(90deg, #F5D061 0%, #C29B27 60%, transparent 100%);
+}
+
+.testimonials-title-inline .title-divider-side .divider-line-short {
+  height: 1px;
+  width: 10px;
+  background-color: #F5D061;
+}
+
+.testimonials-title-inline .title-divider-diamond {
+  color: #F5D061;
+  font-size: 0.55rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials-title-text {
+  font-family: var(--font-brand), serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #F5D061;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(245, 208, 97, 0.2);
+}
+
+@media (min-width: 768px) {
+  .testimonials-title-inline {
+    gap: 0.8rem;
+  }
+
+  .testimonials-title-inline .title-divider-side .divider-line {
+    width: 35px;
+  }
+
+  .testimonials-title-inline .title-divider-side .divider-line-short {
+    width: 12px;
+  }
+
+  .testimonials-title-text {
+    font-size: 1.65rem;
+    letter-spacing: 3.5px;
+  }
 }
 
 .testimonials-carousel-wrapper {
