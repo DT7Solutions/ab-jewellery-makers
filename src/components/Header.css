@@ -41,6 +41,8 @@
   max-width: 210px;
   object-fit: contain;
   filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.7)) brightness(1.1);
+  mix-blend-mode: lighten;
+  background-color: transparent;
   transition: transform 0.3s ease;
 }
 
@@ -216,6 +218,8 @@
   height: 50px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: lighten;
+  background-color: transparent;
 }
 
 .mobile-nav-list {
