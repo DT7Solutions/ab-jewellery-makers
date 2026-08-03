@@ -242,10 +242,15 @@
   margin-top: 0.25rem;
 }
 
-.faq-whatsapp-cta span {
+.faq-whatsapp-cta > span {
   font-size: 0.82rem;
   color: #E2C068;
   font-weight: 500;
+}
+
+.faq-whatsapp-cta .btn-whatsapp-pill,
+.faq-whatsapp-cta .btn-whatsapp-pill span {
+  color: #ffffff;
 }
 
 /* Right Image Showcase Column (Matching Why Choose Us Section exactly) */

@@ -109,7 +109,6 @@ const CalligraphicFloralCorner = ({ className }) => (
 export default function VisionMission() {
   const pillars = [
     {
-      numeral: "I",
       icon: <FiEye size={28} />,
       title: "OUR VISION",
       tagline: "ROYAL BENCHMARK OF JEWELLERY EXCELLENCE",
@@ -117,7 +116,6 @@ export default function VisionMission() {
       highlights: ["Global Heritage Standard", "Timeless Royal Designs", "Artisan Empowerment"]
     },
     {
-      numeral: "II",
       icon: <FiTarget size={28} />,
       title: "OUR MISSION",
       tagline: "PRESERVING CRAFT, HONOURING TRUST",
@@ -125,7 +123,6 @@ export default function VisionMission() {
       highlights: ["100% Certified 22KT Gold", "Bespoke Bridal Couture", "Hereditary Goldsmiths"]
     },
     {
-      numeral: "III",
       icon: <FiAward size={28} />,
       title: "CORE VALUES",
       tagline: "PURITY IS OUR PRIORITY",
@@ -160,11 +157,6 @@ export default function VisionMission() {
               <CalligraphicFloralCorner className="top-right" />
               <CalligraphicFloralCorner className="bottom-left" />
               <CalligraphicFloralCorner className="bottom-right" />
-
-              {/* Top Pointed Arch Badge with Roman Numeral */}
-              <div className="vm-v2-arch-badge">
-                <span className="arch-numeral">{pillar.numeral}</span>
-              </div>
 
               {/* Icon & Title Block */}
               <div className="vm-v2-card-header">

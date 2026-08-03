@@ -200,31 +200,51 @@
 .btn-whatsapp-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background-color: var(--whatsapp);
+  gap: 8px;
+  background: rgba(26, 7, 6, 0.85);
   color: #ffffff;
-  padding: 0.45rem 0.85rem; /* Decreased side padding */
+  padding: 0.42rem 0.85rem;
   border-radius: 30px;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
-  border: none;
+  border: 1px solid rgba(245, 208, 97, 0.4);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
   white-space: nowrap;
 }
 
 .btn-whatsapp-pill:hover {
-  background-color: var(--whatsapp-hover);
+  border-color: #F5D061;
+  color: #F5D061;
+  background: rgba(245, 208, 97, 0.12);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-pill-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(37, 211, 102, 0.85);
+  animation: iconPulseGlow 2s ease-in-out infinite alternate;
+  flex-shrink: 0;
+}
+
+@keyframes iconPulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(37, 211, 102, 0.6);
+    transform: scale(0.96);
+  }
+  100% {
+    box-shadow: 0 0 14px rgba(37, 211, 102, 1), 0 0 20px rgba(37, 211, 102, 0.6);
+    transform: scale(1.04);
+  }
 }
 
 .whatsapp-pill-text {

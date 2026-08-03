@@ -108,7 +108,9 @@ export default function FaqSection() {
           <div className="faq-whatsapp-cta">
             <span>Have more questions? Speak to our jewellery specialist.</span>
             <button className="btn-whatsapp-pill" onClick={openGeneralWhatsApp}>
-              <FaWhatsapp size={16} />
+              <span className="whatsapp-pill-icon">
+                <FaWhatsapp size={14} />
+              </span>
               <span>Ask on WhatsApp</span>
             </button>
           </div>

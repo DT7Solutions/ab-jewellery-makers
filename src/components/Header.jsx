@@ -42,7 +42,7 @@ export default function Header() {
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "ABOUT US", path: "/about" },
-    { name: "COLLECTIONS", path: "/collections", hasDropdown: true },
+    { name: "COLLECTIONS", path: "/collections" },
     { name: "CONTACT US", path: "/contact" }
   ];
 
@@ -69,7 +69,6 @@ export default function Header() {
                   end={link.path === '/'}
                 >
                   <span>{link.name}</span>
-                  {link.hasDropdown && <FaChevronDown size={10} className="dropdown-arrow" />}
                 </NavLink>
               </li>
             ))}
