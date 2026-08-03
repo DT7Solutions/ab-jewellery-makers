@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { SITE_CONFIG } from '../config';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 import './Header.css';
 
