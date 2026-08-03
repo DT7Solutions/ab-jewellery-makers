@@ -61,11 +61,10 @@ export default function ProductModal({ item, onClose }) {
               </p>
             )}
 
-            <button className="btn-gold-outline modal-cta-btn" onClick={handleEnquiry}>
-              <span>I'M INTERESTED</span>
-              <span className="whatsapp-icon-badge">
-                <FaWhatsapp size={16} />
-              </span>
+            {/* High Visibility WhatsApp Direct Action Button */}
+            <button className="btn-whatsapp-modal" onClick={handleEnquiry}>
+              <FaWhatsapp size={22} className="modal-whatsapp-icon" />
+              <span>ENQUIRE ON WHATSAPP</span>
             </button>
           </div>
         </div>

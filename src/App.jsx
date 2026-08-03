@@ -1,90 +1,65 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import TrustBar from './components/TrustBar';
-import Collections from './components/Collections';
-import FeaturedJewellery from './components/FeaturedJewellery';
-import BridalShowcase from './components/BridalShowcase';
-import Craftsmanship from './components/Craftsmanship';
-import AboutUs from './components/AboutUs';
-import Testimonials from './components/Testimonials';
-import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import ProductModal from './components/ProductModal';
+
+import HomePage from './pages/HomePage';
+import CollectionsPage from './pages/CollectionsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+
 import './index.css';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [activeModalItem, setActiveModalItem] = useState(null);
 
   const handleSelectCategory = (categoryName) => {
     setSelectedCategory(categoryName);
   };
 
-  const handleViewDetails = (item) => {
-    setActiveModalItem(item);
-  };
-
-  const handleCloseModal = () => {
-    setActiveModalItem(null);
-  };
-
   return (
-    <div className="app-root">
-      {/* Navigation Header */}
-      <Header />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="app-root">
+        {/* Navigation Header */}
+        <Header />
 
-      {/* Main Content Sections */}
-      <main>
-        {/* Cinematic Hero */}
-        <Hero />
+        {/* Multi-Page Routes */}
+        <main>
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <HomePage 
+                  selectedCategory={selectedCategory}
+                  onSelectCategory={handleSelectCategory}
+                />
+              } 
+            />
+            <Route 
+              path="/collections" 
+              element={
+                <CollectionsPage 
+                  selectedCategory={selectedCategory}
+                  onSelectCategory={handleSelectCategory}
+                />
+              } 
+            />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+          </Routes>
+        </main>
 
-        {/* 5-Column Trust Bar */}
-        <TrustBar />
+        {/* Luxury Footer */}
+        <Footer />
 
-        {/* Circular Collections Grid */}
-        <Collections 
-          selectedCategory={selectedCategory}
-          onSelectCategory={handleSelectCategory}
-        />
-
-        {/* Featured Jewellery Catalogue */}
-        <FeaturedJewellery 
-          selectedCategory={selectedCategory}
-          onSelectCategory={handleSelectCategory}
-          onViewDetails={handleViewDetails}
-        />
-
-        {/* 100% Replica Bridal Showcase Banner (Raasvi Gujarat Collection) */}
-        <BridalShowcase />
-
-        {/* Editorial Craftsmanship Banner */}
-        <Craftsmanship />
-
-        {/* About Us & Heritage Stats */}
-        <AboutUs />
-
-        {/* Customer Reviews Carousel */}
-        <Testimonials />
-
-        {/* Close-up Gallery & WhatsApp Enquiry Banner */}
-        <Gallery onSelectImage={handleViewDetails} />
-      </main>
-
-      {/* Luxury Footer */}
-      <Footer />
-
-      {/* Floating Sticky WhatsApp Button */}
-      <WhatsAppButton />
-
-      {/* Product Detail Modal */}
-      {activeModalItem && (
-        <ProductModal 
-          item={activeModalItem} 
-          onClose={handleCloseModal} 
-        />
-      )}
-    </div>
+        {/* Floating Sticky WhatsApp Button */}
+        <WhatsAppButton />
+      </div>
+    </BrowserRouter>
   );
 }

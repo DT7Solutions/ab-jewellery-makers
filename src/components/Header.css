@@ -119,7 +119,71 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+/* Live Gold Price Badge */
+.live-gold-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 208, 97, 0.08);
+  border: 1px solid rgba(245, 208, 97, 0.35);
+  padding: 0.42rem 0.85rem;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+@media (min-width: 680px) {
+  .live-gold-badge {
+    display: inline-flex;
+  }
+}
+
+.live-gold-badge:hover {
+  background: rgba(245, 208, 97, 0.18);
+  border-color: #F5D061;
+  box-shadow: 0 0 12px rgba(245, 208, 97, 0.3);
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #25D366;
+  box-shadow: 0 0 6px #25D366;
+  animation: livePulse 1.8s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gold-rate-label {
+  color: #E2C068;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.gold-rate-price {
+  color: #F5D061;
+  font-weight: 700;
 }
 
 .desktop-whatsapp {
@@ -132,27 +196,29 @@
   }
 }
 
+/* Decreased Side Padding WhatsApp Button */
 .btn-whatsapp-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background-color: var(--whatsapp);
   color: #ffffff;
-  padding: 0.55rem 1.3rem;
+  padding: 0.45rem 0.85rem; /* Decreased side padding */
   border-radius: 30px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  white-space: nowrap;
 }
 
 .btn-whatsapp-pill:hover {
   background-color: var(--whatsapp-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-pill-icon {

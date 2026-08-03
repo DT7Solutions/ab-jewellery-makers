@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaYoutube, FaPinterestP } from 'react-icons/fa';
 import { FiMail, FiClock, FiPhoneCall } from 'react-icons/fi';
 import { SITE_CONFIG } from '../config';
@@ -8,17 +9,26 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer id="footer" className="footer-section">
+      {/* Reduced Thickness Border with Center Diamond Symbols */}
+      <div className="footer-top-border-bar">
+        <span className="footer-border-line"></span>
+        <span className="footer-border-diamond">◈</span>
+        <span className="footer-border-diamond small">◆</span>
+        <span className="footer-border-diamond">◈</span>
+        <span className="footer-border-line"></span>
+      </div>
+
       <div className="container">
         <div className="footer-grid">
           {/* Column 1: Pure Logo Image & Socials */}
           <div className="footer-col brand-col">
-            <div className="footer-logo-wrapper">
+            <Link to="/" className="footer-logo-wrapper">
               <img 
                 src="/images/logo.png" 
                 alt="Althaf Jewellery Makers Logo" 
                 className="footer-logo-img"
               />
-            </div>
+            </Link>
 
             <p className="footer-brand-desc">
               Jewellery that celebrates tradition and elegance. Crafted for every you.
@@ -36,11 +46,10 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">QUICK LINKS</h4>
             <ul className="footer-links">
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#collections">Collections</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#craftsmanship">Our Story</a></li>
-              <li><a href="#footer">Contact Us</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/collections">Collections</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 

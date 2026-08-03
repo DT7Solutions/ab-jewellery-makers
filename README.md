@@ -1,6 +1,6 @@
-# AB Jewellery Makers - Luxury Showcase Application
+# Althaf Jewellery Makers - Heritage Luxury Showcase
 
-A web application for **AB Jewellery Makers** (Indriya Jewellers), crafted with React and Vite. It features a luxury showcase of handcrafted jewellery, collection filters, detailed product views, and direct WhatsApp enquiry integration.
+A web application for **Althaf Jewellery Makers** (AB Jewellery Makers), crafted with React and Vite. It features a luxury showcase of handcrafted 22K Gold, Polki, Kundan, and Antique Indian jewellery, collection filters, detailed product pages, live Guntur AP gold rates, and direct WhatsApp enquiry integration.
 
 ---
 

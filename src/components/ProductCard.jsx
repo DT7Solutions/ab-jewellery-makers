@@ -1,16 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { openProductWhatsApp } from '../utils/whatsapp';
 import './ProductCard.css';
 
 export default function ProductCard({ product, onViewDetails }) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    if (product && product.id) {
+      navigate(`/product/${product.id}`);
+    } else if (onViewDetails) {
+      onViewDetails(product);
+    }
+  };
+
   const handleWhatsAppClick = (e) => {
     e.stopPropagation();
     openProductWhatsApp(product);
   };
 
   return (
-    <div className="product-card luxury-card" onClick={() => onViewDetails && onViewDetails(product)}>
+    <div className="product-card luxury-card" onClick={handleCardClick}>
       {/* Product Image Container */}
       <div className="product-image-container">
         <img 

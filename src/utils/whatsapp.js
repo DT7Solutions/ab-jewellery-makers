@@ -64,3 +64,9 @@ export const openGeneralWhatsApp = () => {
   const url = generateGeneralWhatsAppUrl();
   window.open(url, '_blank', 'noopener,noreferrer');
 };
+
+export const openCustomWhatsApp = (customMessage) => {
+  const phone = getCleanPhoneNumber(SITE_CONFIG.whatsappNumber);
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(customMessage)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+};

@@ -1,7 +1,7 @@
 export const PRODUCTS = [
   {
     id: "IND-NK-001",
-    name: "Heritage Necklace Set",
+    name: "Heritage Royal Necklace Set",
     category: "Necklaces",
     price: 245000,
     formattedPrice: "₹2,45,000",
@@ -14,7 +14,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-ER-002",
-    name: "Temple Jhumkas",
+    name: "Temple Goddess Jhumkas",
     category: "Earrings",
     price: 72000,
     formattedPrice: "₹72,000",
@@ -27,7 +27,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-BG-003",
-    name: "Gold Bangles",
+    name: "Royal Flora Gold Bangles",
     category: "Bangles",
     price: 118000,
     formattedPrice: "₹1,18,000",
@@ -40,7 +40,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-NK-004",
-    name: "Polki Diamond Necklace",
+    name: "Uncut Polki Diamond Necklace",
     category: "Necklaces",
     price: 325000,
     formattedPrice: "₹3,25,000",
@@ -53,7 +53,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-CK-005",
-    name: "Kundan Choker",
+    name: "Imperial Kundan Choker Set",
     category: "Necklaces",
     price: 148000,
     formattedPrice: "₹1,48,000",
@@ -79,7 +79,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-PD-007",
-    name: "Emerald Grace Pendant",
+    name: "Emerald Grace Gold Pendant",
     category: "Pendants",
     price: 68000,
     formattedPrice: "₹68,000",
@@ -92,7 +92,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-AT-008",
-    name: "Antique Haar Necklace",
+    name: "Antique Heritage Nakshi Haar",
     category: "Antique",
     price: 285000,
     formattedPrice: "₹2,85,000",
@@ -105,7 +105,7 @@ export const PRODUCTS = [
   },
   {
     id: "IND-BR-009",
-    name: "Filigree Gold Bracelet",
+    name: "Filigree Regal Gold Cuff",
     category: "Bracelets",
     price: 89000,
     formattedPrice: "₹89,000",
@@ -125,13 +125,13 @@ export const PRODUCTS = [
     metal: "Gold & Diamond",
     purity: "18K",
     weight: "8.5g",
-    image: "/images/products/temple-jhumkas.png",
+    image: "/images/products/polki-diamond-necklace.png",
     featured: true,
     description: "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant."
   },
   {
     id: "IND-ER-011",
-    name: "Chandbali Earrings",
+    name: "Royal Crescent Chandbali",
     category: "Earrings",
     price: 84000,
     formattedPrice: "₹84,000",
@@ -143,9 +143,9 @@ export const PRODUCTS = [
     description: "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings."
   },
   {
-    id: "IND-NK-012",
+    id: "IND-AT-012",
     name: "Bridal Antique Choker Set",
-    category: "Necklaces",
+    category: "Antique",
     price: 360000,
     formattedPrice: "₹3,60,000",
     metal: "Gold",
@@ -154,5 +154,57 @@ export const PRODUCTS = [
     image: "/images/products/kundan-choker.png",
     featured: true,
     description: "Opulent multi-tiered bridal choker set crafted for grand traditional weddings."
+  },
+  {
+    id: "IND-RG-013",
+    name: "Kundan Solitaire Gold Ring",
+    category: "Rings",
+    price: 52000,
+    formattedPrice: "₹52,000",
+    metal: "Gold & Kundan",
+    purity: "22K",
+    weight: "7.5g",
+    image: "/images/products/peacock-ring.png",
+    featured: false,
+    description: "Handcrafted Kundan setting gold ring with floral engraving on the shank."
+  },
+  {
+    id: "IND-BG-014",
+    name: "Temple Antique Gold Kada",
+    category: "Bangles",
+    price: 135000,
+    formattedPrice: "₹1,35,000",
+    metal: "Gold",
+    purity: "22K",
+    weight: "21.0g",
+    image: "/images/products/gold-bangles.png",
+    featured: false,
+    description: "Heavy antique finish temple kada with intricate divine motifs and ruby stone eyes."
+  },
+  {
+    id: "IND-PD-015",
+    name: "Ruby Royal Floral Pendant",
+    category: "Pendants",
+    price: 58000,
+    formattedPrice: "₹58,000",
+    metal: "Gold",
+    purity: "22K",
+    weight: "8.2g",
+    image: "/images/products/emerald-pendant.png",
+    featured: false,
+    description: "A delicate floral ruby pendant encased in 22K yellow gold with pearl drops."
+  },
+  {
+    id: "IND-BR-016",
+    name: "Nakshi Antique Gold Bracelet",
+    category: "Bracelets",
+    price: 98000,
+    formattedPrice: "₹98,000",
+    metal: "Gold",
+    purity: "22K",
+    weight: "15.8g",
+    image: "/images/products/filigree-bracelet.png",
+    featured: false,
+    description: "Detailed Nakshi artisan carved antique gold bracelet with adjustable safety chain."
   }
 ];

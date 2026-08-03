@@ -20,31 +20,31 @@ export const CATEGORIES = [
   {
     id: "rings",
     name: "RINGS",
-    image: "/images/products/kundan-choker.png",
+    image: "/images/products/peacock-ring.png",
     count: "30 Designs"
   },
   {
     id: "pendants",
     name: "PENDANTS",
-    image: "/images/products/polki-diamond-necklace.png",
+    image: "/images/products/emerald-pendant.png",
     count: "18 Designs"
   },
   {
     id: "antique",
     name: "ANTIQUE",
-    image: "/images/products/heritage-necklace.png",
+    image: "/images/products/kundan-choker.png",
     count: "24 Designs"
   },
   {
     id: "bracelets",
     name: "BRACELETS",
-    image: "/images/products/gold-bangles.png",
+    image: "/images/products/filigree-bracelet.png",
     count: "20 Designs"
   },
   {
     id: "mangalsutra",
     name: "MANGALSUTRA",
-    image: "/images/products/temple-jhumkas.png",
+    image: "/images/products/polki-diamond-necklace.png",
     count: "15 Designs"
   }
 ];

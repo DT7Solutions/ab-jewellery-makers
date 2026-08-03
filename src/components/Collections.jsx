@@ -7,9 +7,9 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
     if (onSelectCategory) {
       onSelectCategory(categoryName);
     }
-    const featuredSection = document.getElementById('featured-jewellery');
-    if (featuredSection) {
-      featuredSection.scrollIntoView({ behavior: 'smooth' });
+    const targetSection = document.getElementById('collections-catalogue') || document.getElementById('featured-jewellery');
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

@@ -1,0 +1,331 @@
+.faq-section {
+  background: linear-gradient(180deg, #100303 0%, #170505 50%, #0D0202 100%);
+  padding: 3.5rem 0 0 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(245, 208, 97, 0.2);
+}
+
+/* Header Container matching LOVED BY OUR CUSTOMERS title size & ornaments */
+.faq-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.faq-title-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.faq-title-inline .title-divider-side {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.faq-title-inline .title-divider-side.left {
+  justify-content: flex-end;
+}
+
+.faq-title-inline .title-divider-side.right {
+  justify-content: flex-start;
+}
+
+.faq-title-inline .title-divider-side .divider-line {
+  height: 1px;
+  width: 22px;
+  flex: none;
+}
+
+.faq-title-inline .title-divider-side.left .divider-line {
+  background: linear-gradient(90deg, transparent 0%, #C29B27 40%, #F5D061 100%);
+}
+
+.faq-title-inline .title-divider-side.right .divider-line {
+  background: linear-gradient(90deg, #F5D061 0%, #C29B27 60%, transparent 100%);
+}
+
+.faq-title-inline .title-divider-side .divider-line-short {
+  height: 1px;
+  width: 10px;
+  background-color: #F5D061;
+}
+
+.faq-title-inline .title-divider-diamond {
+  color: #F5D061;
+  font-size: 0.55rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-title-text {
+  font-family: var(--font-brand), serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #F5D061;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(245, 208, 97, 0.2);
+}
+
+@media (min-width: 768px) {
+  .faq-title-inline {
+    gap: 0.8rem;
+  }
+
+  .faq-title-inline .title-divider-side .divider-line {
+    width: 35px;
+  }
+
+  .faq-title-inline .title-divider-side .divider-line-short {
+    width: 12px;
+  }
+
+  .faq-title-text {
+    font-size: 1.65rem;
+    letter-spacing: 3.5px;
+  }
+}
+
+/* Grid matching Why Choose Us section position: Left Content, Full-Bleed Edge Image Right */
+.faq-grid {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 1.5rem 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    padding: 0 0 0 calc(max(1.5rem, (100vw - 1240px) / 2));
+    align-items: stretch;
+  }
+}
+
+/* Left Accordion List */
+.faq-accordion-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 2.5rem 2.5rem 0;
+  height: 100%;
+}
+
+@media (max-width: 991px) {
+  .faq-accordion-col {
+    padding: 0;
+  }
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.faq-item {
+  background: rgba(26, 7, 6, 0.85);
+  border: 1px solid rgba(245, 208, 97, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+  border-color: rgba(245, 208, 97, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.faq-item.open {
+  border-color: #F5D061;
+  background: rgba(30, 8, 7, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(245, 208, 97, 0.05);
+}
+
+.faq-question-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-q-icon {
+  color: #F5D061;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.faq-question-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FBF2E3;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.faq-item.open .faq-question-text,
+.faq-question-btn:hover .faq-question-text {
+  color: #F5D061;
+}
+
+.faq-arrow-icon {
+  color: #F5D061;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.faq-arrow-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.faq-answer-box {
+  padding: 0 1.2rem 1rem 2.7rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.faq-answer-text {
+  font-size: 0.85rem;
+  color: #D4C3B3;
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+  border-top: 1px dashed rgba(245, 208, 97, 0.2);
+  padding-top: 0.6rem;
+}
+
+/* Compact WhatsApp CTA below list */
+.faq-whatsapp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.85rem 1.2rem;
+  background: rgba(245, 208, 97, 0.05);
+  border: 1px solid rgba(245, 208, 97, 0.25);
+  border-radius: 6px;
+  margin-top: 0.25rem;
+}
+
+.faq-whatsapp-cta span {
+  font-size: 0.82rem;
+  color: #E2C068;
+  font-weight: 500;
+}
+
+/* Right Image Showcase Column (Matching Why Choose Us Section exactly) */
+.faq-image-col {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.faq-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.faq-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.faq-image-card:hover .faq-showcase-img,
+.faq-image-frame:hover .faq-showcase-img {
+  transform: scale(1.03);
+}
+
+.faq-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 3, 3, 0.92) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.faq-badge-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.faq-badge-title {
+  font-family: var(--font-brand), serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #F5D061;
+  letter-spacing: 2px;
+}
+
+.faq-badge-sub {
+  font-size: 0.75rem;
+  color: #FBF2E3;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 991px) {
+  .faq-image-col {
+    min-height: 350px;
+  }
+
+  .faq-question-btn {
+    padding: 0.8rem;
+  }
+
+  .faq-answer-box {
+    padding: 0 0.8rem 0.8rem 0.8rem;
+  }
+
+  .faq-whatsapp-cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
