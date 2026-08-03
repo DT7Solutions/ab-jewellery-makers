@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import PagePreloader from './components/PagePreloader';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -22,6 +23,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {/* Luxury Dark Curtain Slide-Up Preloader */}
+      <PagePreloader />
+
       <ScrollToTop />
       <div className="app-root">
         {/* Navigation Header */}

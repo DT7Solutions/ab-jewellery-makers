@@ -29,6 +29,16 @@ const FAQ_DATA = [
     id: 5,
     question: "Where is your boutique located, and can I book an in-store trial?",
     answer: "Our flagship boutique is located at Main Gold Market, Lalapet, Guntur, Andhra Pradesh. We welcome you for personalized bridal trials and private consultations. You can also book a priority trial slot directly via WhatsApp."
+  },
+  {
+    id: 6,
+    question: "Do you provide insured home delivery for online orders across India?",
+    answer: "Yes! Every order from Althaf Jewellery Makers is packed in tamper-evident secure luxury boxes and shipped with 100% full transit insurance, ensuring total safety until delivered directly to your doorstep."
+  },
+  {
+    id: 7,
+    question: "What payment options are available, and do you accept old gold exchange?",
+    answer: "We accept UPI, Credit/Debit cards, Net Banking, and Bank Wire transfers. We also accept old gold jewellery exchange at 100% live Guntur 22K market value toward your new purchase with zero melting deduction."
   }
 ];
 
@@ -43,18 +53,21 @@ export default function FaqSection() {
     <section id="faq-section" className="faq-section">
       {/* Section Header matching LOVED BY OUR CUSTOMERS title size & ornaments */}
       <div className="faq-header-container">
-        <div className="faq-title-inline">
-          <div className="title-divider-side left">
-            <span className="divider-line"></span>
-            <span className="divider-diamond">◈</span>
-            <span className="divider-line-short"></span>
+        <div className="faq-header-center">
+          <div className="faq-title-inline">
+            <div className="title-divider-side left">
+              <span className="divider-line"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line-short"></span>
+            </div>
+            <h2 className="faq-title-text">FREQUENTLY ASKED QUESTIONS</h2>
+            <div className="title-divider-side right">
+              <span className="divider-line-short"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line"></span>
+            </div>
           </div>
-          <h2 className="faq-title-text">FREQUENTLY ASKED QUESTIONS</h2>
-          <div className="title-divider-side right">
-            <span className="divider-line-short"></span>
-            <span className="divider-diamond">◈</span>
-            <span className="divider-line"></span>
-          </div>
+          <p className="section-tagline">CLEAR ANSWERS ON GOLD PURITY, BESPOKE ORDERS & GUNTUR BOUTIQUE</p>
         </div>
       </div>
 

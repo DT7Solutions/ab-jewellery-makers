@@ -52,6 +52,26 @@ export default function BridalShowcase() {
 
   return (
     <section className="bridal-showcase-section">
+      {/* Section Header */}
+      <div className="bridal-header-container">
+        <div className="bridal-header-center">
+          <div className="bridal-title-inline">
+            <div className="title-divider-side left">
+              <span className="divider-line"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line-short"></span>
+            </div>
+            <h2 className="bridal-title-text">OUR SIGNATURE COLLECTIONS</h2>
+            <div className="title-divider-side right">
+              <span className="divider-line-short"></span>
+              <span className="divider-diamond">◈</span>
+              <span className="divider-line"></span>
+            </div>
+          </div>
+          <p className="section-tagline">IMPERIAL BRIDAL COUTURE CELEBRATING CENTURIES OF INDIAN REGAL HERITAGE</p>
+        </div>
+      </div>
+
       <div className="bridal-showcase-container">
         {/* Left Column: Narrative Content */}
         <div className="bridal-content-col">

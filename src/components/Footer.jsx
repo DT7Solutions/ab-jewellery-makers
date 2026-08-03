@@ -9,12 +9,8 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer id="footer" className="footer-section">
-      {/* Reduced Thickness Border with Center Diamond Symbols */}
+      {/* Clean Gold Top Border Bar */}
       <div className="footer-top-border-bar">
-        <span className="footer-border-line"></span>
-        <span className="footer-border-diamond">◈</span>
-        <span className="footer-border-diamond small">◆</span>
-        <span className="footer-border-diamond">◈</span>
         <span className="footer-border-line"></span>
       </div>
 

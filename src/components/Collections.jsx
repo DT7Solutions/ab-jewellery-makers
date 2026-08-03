@@ -30,6 +30,7 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
             <span className="divider-line"></span>
           </div>
         </div>
+        <p className="section-tagline">HANDCRAFTED 22K GOLD • ROYAL POLKI • KUNDAN • ANTIQUE TEMPLE HEIRLOOMS</p>
 
         {/* Circular Categories Grid */}
         <div className="collections-grid">

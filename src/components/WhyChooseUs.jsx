@@ -39,6 +39,7 @@ export default function WhyChooseUs() {
               <span className="divider-line-short"></span>
             </div>
           </div>
+          <p className="section-tagline left-align">5 GENERATIONS OF HEREDITARY GOLDSMITHING & UNCOMPROMISED TRUST</p>
 
           <p className="why-choose-intro">
             At Althaf Jewellery Makers, we combine centuries-old royal goldsmithing traditions with uncompromised purity and modern customer trust.

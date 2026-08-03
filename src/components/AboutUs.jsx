@@ -56,6 +56,7 @@ export default function AboutUs() {
                 <span className="divider-line"></span>
               </div>
             </div>
+            <p className="section-tagline left-align">OUR HERITAGE & LEGACY OF ETERNAL GOLD HEIRLOOMS</p>
 
             {/* Narrative Paragraphs with equalized line lengths matching the 2nd line */}
             <div className="about-description">

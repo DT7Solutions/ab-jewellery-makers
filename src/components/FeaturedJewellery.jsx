@@ -61,7 +61,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
                 <span className="divider-line"></span>
               </div>
             </div>
-            <p className="featured-subtitle">Exquisite designs, timeless craftsmanship.</p>
+            <p className="featured-subtitle">ROYAL CREATIONS HANDCRAFTED FOR YOUR ETERNAL CELEBRATIONS</p>
           </div>
 
           {/* Top Right Action Controls (VIEW ALL + Interactive Slider Navigation) */}

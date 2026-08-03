@@ -43,18 +43,21 @@ export default function Testimonials() {
       <div className="container">
         {/* Section Header matching FEATURED JEWELLERY inline title */}
         <div className="testimonials-header-container">
-          <div className="testimonials-title-inline">
-            <div className="title-divider-side left">
-              <span className="divider-line"></span>
-              <span className="divider-diamond">◈</span>
-              <span className="divider-line-short"></span>
+          <div className="testimonials-header-center">
+            <div className="testimonials-title-inline">
+              <div className="title-divider-side left">
+                <span className="divider-line"></span>
+                <span className="divider-diamond">◈</span>
+                <span className="divider-line-short"></span>
+              </div>
+              <h2 className="testimonials-title-text">LOVED BY OUR CUSTOMERS</h2>
+              <div className="title-divider-side right">
+                <span className="divider-line-short"></span>
+                <span className="divider-diamond">◈</span>
+                <span className="divider-line"></span>
+              </div>
             </div>
-            <h2 className="testimonials-title-text">LOVED BY OUR CUSTOMERS</h2>
-            <div className="title-divider-side right">
-              <span className="divider-line-short"></span>
-              <span className="divider-diamond">◈</span>
-              <span className="divider-line"></span>
-            </div>
+            <p className="section-tagline">REAL BRIDES & FAMILIES SHARING THEIR CHERISHED ALTHAF JEWELLERY EXPERIENCES</p>
           </div>
         </div>
 

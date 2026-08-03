@@ -9,37 +9,21 @@
   box-shadow: 0 -2px 15px rgba(245, 208, 97, 0.15);
 }
 
-/* Top Border Bar with Center Diamonds */
+/* Clean Top Border Bar */
 .footer-top-border-bar {
   position: absolute;
-  top: -8px;
+  top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
   z-index: 5;
-  padding: 0 1.5rem;
 }
 
 .footer-border-line {
   height: 1px;
-  flex-grow: 1;
-  background: linear-gradient(90deg, rgba(245, 208, 97, 0.1) 0%, rgba(245, 208, 97, 0.6) 50%, rgba(245, 208, 97, 0.1) 100%);
-}
-
-.footer-border-diamond {
-  color: #F5D061;
-  font-size: 0.82rem;
-  line-height: 1;
-  text-shadow: 0 0 8px rgba(245, 208, 97, 0.6);
-  background: #140504;
-  padding: 0 4px;
-}
-
-.footer-border-diamond.small {
-  font-size: 0.55rem;
+  width: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 208, 97, 0.5) 50%, transparent 100%);
 }
 
 .footer-section::before {
