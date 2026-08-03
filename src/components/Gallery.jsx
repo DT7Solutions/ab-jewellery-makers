@@ -32,25 +32,30 @@ export default function Gallery({ onSelectImage }) {
     }
   ];
 
+  // Duplicate items for infinite seamless slider animation
+  const sliderItems = [...galleryItems, ...galleryItems, ...galleryItems];
+
   return (
     <section id="gallery" className="gallery-cta-section">
       <div className="container">
         <div className="gallery-cta-grid">
-          {/* Left Side: 5 Square Photos in a single row */}
-          <div className="gallery-row-5col">
-            {galleryItems.map((item) => (
-              <div 
-                key={item.id} 
-                className="gallery-item-card"
-                onClick={() => onSelectImage && onSelectImage(item)}
-              >
-                <img src={item.image} alt={item.title} className="gallery-img" loading="lazy" />
-                <div className="gallery-hover-overlay">
-                  <span className="gallery-title">{item.title}</span>
-                  <span className="view-design-badge">View Design</span>
+          {/* Left Side: Continuous Auto Slider */}
+          <div className="gallery-slider-wrapper">
+            <div className="gallery-slider-track">
+              {sliderItems.map((item, idx) => (
+                <div 
+                  key={`${item.id}-${idx}`} 
+                  className="gallery-item-card"
+                  onClick={() => onSelectImage && onSelectImage(item)}
+                >
+                  <img src={item.image} alt={item.title} className="gallery-img" loading="lazy" />
+                  <div className="gallery-hover-overlay">
+                    <span className="gallery-title">{item.title}</span>
+                    <span className="view-design-badge">View Design</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Right Side: Interested in any of these designs? WhatsApp CTA Box */}

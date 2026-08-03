@@ -32,19 +32,18 @@ export default function AboutUs() {
 
   return (
     <section id="about" className="about-section">
-      <div className="container">
-        <div className="about-grid">
-          {/* Left Column: Image Frame */}
-          <div className="about-image-column">
-            <div className="about-image-frame">
-              <img 
-                src="/images/about-model.png" 
-                alt="Indriya Jewellers Heritage Craftsmanship"
-                className="about-image"
-                loading="lazy"
-              />
-            </div>
+      <div className="about-grid">
+        {/* Left Column: Image Frame */}
+        <div className="about-image-column">
+          <div className="about-image-frame">
+            <img 
+              src="/images/about-model.png" 
+              alt="Althaf Jewellery Makers Heritage Craftsmanship"
+              className="about-image"
+              loading="lazy"
+            />
           </div>
+        </div>
 
           {/* Right Column: Content */}
           <div className="about-content-column">
@@ -83,7 +82,6 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
 }

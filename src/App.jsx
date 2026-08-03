@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
 import Collections from './components/Collections';
 import FeaturedJewellery from './components/FeaturedJewellery';
+import BridalShowcase from './components/BridalShowcase';
 import Craftsmanship from './components/Craftsmanship';
 import AboutUs from './components/AboutUs';
 import Testimonials from './components/Testimonials';
@@ -54,6 +55,9 @@ export default function App() {
           onSelectCategory={handleSelectCategory}
           onViewDetails={handleViewDetails}
         />
+
+        {/* 100% Replica Bridal Showcase Banner (Raasvi Gujarat Collection) */}
+        <BridalShowcase />
 
         {/* Editorial Craftsmanship Banner */}
         <Craftsmanship />

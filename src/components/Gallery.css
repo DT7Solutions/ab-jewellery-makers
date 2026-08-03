@@ -1,8 +1,8 @@
 .gallery-cta-section {
-  padding: 3rem 0;
+  padding: 2.5rem 0 4.5rem 0;
+  margin: 0;
   background-color: var(--secondary);
   position: relative;
-  border-top: 1px solid rgba(245, 208, 97, 0.25);
 }
 
 .gallery-cta-section .container {
@@ -13,48 +13,65 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.2rem;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
   .gallery-cta-grid {
-    grid-template-columns: 2.6fr 1fr;
+    grid-template-columns: 2.5fr 1.1fr;
     gap: 1.2rem;
-    align-items: stretch;
+    align-items: center;
   }
 }
 
-/* 5 Square Photos Row */
-.gallery-row-5col {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+/* Slider Wrapper & Track */
+.gallery-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 2px 0;
 }
 
-@media (min-width: 576px) {
-  .gallery-row-5col {
-    grid-template-columns: repeat(3, 1fr);
+.gallery-slider-track {
+  display: flex;
+  gap: 0.8rem;
+  width: max-content;
+  animation: gallerySlide 22s linear infinite;
+}
+
+.gallery-slider-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gallerySlide {
+  0% {
+    transform: translateX(0);
   }
-}
-
-@media (min-width: 1024px) {
-  .gallery-row-5col {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.6rem;
+  100% {
+    transform: translateX(calc(-33.333% - 0.266rem));
   }
 }
 
 .gallery-item-card {
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 0;
   border: 1px solid rgba(245, 208, 97, 0.4);
   cursor: pointer;
   aspect-ratio: 1 / 1;
-  height: 100%;
-  min-height: 200px;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
   background-color: #170706;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   transition: all 0.4s ease;
+}
+
+@media (min-width: 768px) {
+  .gallery-item-card {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .gallery-img {
@@ -89,7 +106,7 @@
 .gallery-title {
   color: #FBF2E3;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
 }
@@ -101,14 +118,14 @@
   color: #F5D061;
   border: 1px solid #F5D061;
   padding: 3px 8px;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
-/* WhatsApp CTA Card */
+/* WhatsApp CTA Card - No border radius */
 .whatsapp-cta-card {
   background-color: #160605;
   border: 1px solid rgba(245, 208, 97, 0.35);
-  border-radius: 6px;
+  border-radius: 0;
   padding: 1.5rem 1.8rem;
   display: flex;
   flex-direction: column;
@@ -118,7 +135,6 @@
   height: 100%;
 }
 
-/* Subtle Right Decorative Mandala Pattern Overlay */
 .whatsapp-card-pattern {
   position: absolute;
   right: -20px;
@@ -140,7 +156,7 @@
 
 .whatsapp-card-title {
   font-family: var(--font-brand), serif;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 500;
   color: #F5D061;
   line-height: 1.25;
@@ -148,7 +164,7 @@
 }
 
 .whatsapp-card-text {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: #FBF2E3;
   font-weight: 300;
   line-height: 1.45;
@@ -163,7 +179,7 @@
   padding: 0.55rem 0.9rem;
   background-color: #1A0806;
   border: 1px solid rgba(245, 208, 97, 0.45);
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 220px;
