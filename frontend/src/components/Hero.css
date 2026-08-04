@@ -143,37 +143,40 @@
   margin-left: 6px;
 }
 
-/* Slider Controls: Arrows */
-.hero-slider-arrows {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 2.5rem;
+/* Slider Controls: Left-Aligned Navigation Dots below I'M INTERESTED button */
+.hero-slider-dots {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
-  z-index: 4;
+  margin-top: 1.8rem;
+  z-index: 10;
 }
 
-.hero-arrow {
-  background: rgba(15, 3, 3, 0.85);
-  border: 1px solid var(--border-gold);
-  color: var(--gold);
-  width: 42px;
-  height: 42px;
+.hero-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1.5px solid rgba(245, 208, 97, 0.65);
+  background: rgba(15, 3, 3, 0.6);
+  backdrop-filter: blur(4px);
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-arrow:hover {
+.hero-dot:hover {
+  border-color: #F5D061;
+  background: rgba(245, 208, 97, 0.4);
+  transform: scale(1.2);
+}
+
+.hero-dot.active {
   background: var(--gold);
-  color: var(--secondary);
-  box-shadow: 0 0 15px rgba(245, 208, 97, 0.5);
-  transform: translateY(-2px);
+  border-color: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(245, 208, 97, 0.7);
 }
 
 /* Mobile Responsive Adjustments */
@@ -229,13 +232,7 @@
     font-size: 0.8rem;
   }
 
-  .hero-slider-arrows {
-    right: 1.2rem;
-    bottom: 1.5rem;
-  }
-
-  .hero-arrow {
-    width: 38px;
-    height: 38px;
+  .hero-slider-dots {
+    margin-top: 1.2rem;
   }
 }

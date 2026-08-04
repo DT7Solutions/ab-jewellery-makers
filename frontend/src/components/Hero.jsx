@@ -97,24 +97,18 @@ export default function Hero() {
               </span>
             </button>
           </div>
-        </div>
 
-        {/* Hero Slider Navigation Arrows */}
-        <div className="hero-slider-arrows">
-          <button 
-            className="hero-arrow prev-hero-arrow" 
-            onClick={prevSlide}
-            aria-label="Previous Slide"
-          >
-            <FiChevronLeft size={24} />
-          </button>
-          <button 
-            className="hero-arrow next-hero-arrow" 
-            onClick={nextSlide}
-            aria-label="Next Slide"
-          >
-            <FiChevronRight size={24} />
-          </button>
+          {/* Hero Slider Navigation Dots (Left-aligned below I'M INTERESTED button) */}
+          <div className="hero-slider-dots">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                className={`hero-dot ${currentSlide === idx ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
