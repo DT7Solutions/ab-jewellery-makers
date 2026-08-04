@@ -105,8 +105,11 @@ USE_TZ = True
 
 
 # Static and Media files
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -164,7 +167,8 @@ JAZZMIN_SETTINGS = {
     "default_icon_children": "fas fa-circle",
     "related_modal_active": True,
     "custom_css": None,
-    "custom_js": None,
+    "custom_js": "js/theme-toggle.js",
+    "show_theme_chooser": True,
     "show_ui_builder": False,
     "changeform_format": "horizontal_tabs",
     "override_modal": True,
@@ -186,7 +190,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar": "sidebar-dark-warning",
     "sidebar_nav_small_text": False,
     "theme": "darkly",
-    "dark_mode_theme": "darkly",
+    "default_theme_mode": "dark",
     "button_classes": {
         "primary": "btn-outline-warning",
         "secondary": "btn-outline-secondary",
