@@ -8,56 +8,87 @@ export const getCleanPhoneNumber = (phone) => {
 };
 
 /**
- * Generate WhatsApp URL for a specific product enquiry
+ * Generate full absolute URL for an image asset
+ * Converts localhost paths to public Hostinger domain for WhatsApp compatibility
  */
-export const generateProductWhatsAppUrl = (product) => {
-  const phone = getCleanPhoneNumber(SITE_CONFIG.whatsappNumber);
+export const getAbsoluteImageUrl = (imagePath) => {
+  if (!imagePath) return '';
   
-  const message = `Hello ${SITE_CONFIG.brandName},
-
-I'm interested in the following jewellery:
-
-Product: ${product.name}
-Product ID: ${product.id}
-Category: ${product.category}
-Displayed Price: ${product.formattedPrice || `₹${product.price?.toLocaleString('en-IN')}`}
-Metal: ${product.metal}
-Purity: ${product.purity}
-Approx Weight: ${product.weight}
-
-Please send me:
-- Today's gold rate
-- Price breakdown
-- Making charges
-- Taxes if applicable
-- Availability
-- Final quotation
-
-Thank you.`;
-
-  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const PUBLIC_DOMAIN = 'https://paleturquoise-dove-798660.hostingersite.com';
+  
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    if (imagePath.includes('localhost') || imagePath.includes('127.0.0.1')) {
+      const relativePath = imagePath.replace(/^https?:\/\/[^\/]+/, '');
+      return `${PUBLIC_DOMAIN}${relativePath}`;
+    }
+    return imagePath;
+  }
+  
+  const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+  const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  const base = isLocal ? PUBLIC_DOMAIN : window.location.origin;
+  
+  return `${base}${cleanPath}`;
 };
 
 /**
- * Generate general WhatsApp enquiry URL
+ * Generate clean WhatsApp message for a product without any '*' symbols
+ */
+export const generateProductWhatsAppMessage = (product) => {
+  if (!product) return '';
+
+  const fullImageUrl = getAbsoluteImageUrl(product.image);
+  const priceText = product.formattedPrice || (product.price ? `₹${Number(product.price).toLocaleString('en-IN')}` : 'Price on Request');
+
+  return `ALTHAF JEWELLERY MAKERS — HERITAGE LUXURY ENQUIRY
+
+Hello ${SITE_CONFIG.brandName},
+
+I am interested in purchasing/enquiring about this jewellery design:
+
+Product: ${product.name}
+Product Code: #${product.id}
+Category: ${product.category || 'Luxury Collection'}
+Price: ${priceText}
+Metal & Purity: ${product.metal || 'Gold'} ${product.purity || '(22K 916 Hallmark)'}
+Approx Weight: ${product.weight || 'N/A'}
+
+Product Link:
+${fullImageUrl}
+
+Please share:
+1. Today's live Gold Rate (Guntur AP)
+2. Detailed Price Breakdown & Making Charges
+3. Availability & Customization Timeline
+
+Thank you!`;
+};
+
+/**
+ * Open WhatsApp with pre-filled product details and a single clean link
+ */
+export const openProductWhatsApp = (product) => {
+  const phone = getCleanPhoneNumber(SITE_CONFIG.whatsappNumber);
+  const message = generateProductWhatsAppMessage(product);
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
+
+/**
+ * Generate general WhatsApp enquiry URL without any '*' symbols
  */
 export const generateGeneralWhatsAppUrl = () => {
   const phone = getCleanPhoneNumber(SITE_CONFIG.whatsappNumber);
   
   const message = `Hello ${SITE_CONFIG.brandName},
 
-I am browsing your collection online and would like to get more information regarding your designs, today's gold rate, making charges, and custom orders.
+I am browsing your luxury jewellery collection online and would like to get information regarding your latest designs, today's gold rates, making charges, and custom bridal orders.
 
 Please connect me with a luxury jewellery consultant.
 
-Thank you.`;
+Thank you!`;
 
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-};
-
-export const openProductWhatsApp = (product) => {
-  const url = generateProductWhatsAppUrl(product);
-  window.open(url, '_blank', 'noopener,noreferrer');
 };
 
 export const openGeneralWhatsApp = () => {
