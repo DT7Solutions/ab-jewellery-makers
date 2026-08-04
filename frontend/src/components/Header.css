@@ -266,6 +266,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .desktop-whatsapp {
+    display: none !important;
+  }
+}
+
 /* Mobile Drawer */
 .mobile-menu-overlay {
   position: fixed;

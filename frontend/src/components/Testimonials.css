@@ -216,3 +216,20 @@
   width: 24px;
   border-radius: 4px;
 }
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .testimonials-carousel-wrapper {
+    gap: 0.5rem;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem 1.2rem;
+    min-height: 210px;
+  }
+}

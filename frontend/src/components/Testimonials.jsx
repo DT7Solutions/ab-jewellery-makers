@@ -7,8 +7,18 @@ import './Testimonials.css';
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const totalReviews = TESTIMONIALS.length;
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalReviews);
@@ -25,12 +35,13 @@ export default function Testimonials() {
       nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex, isPaused]);
+  }, [currentIndex, isPaused, isMobile]);
 
-  // Determine visible items based on index
+  // Determine visible items: 1 item on mobile, 3 items on desktop
   const getVisibleItems = () => {
+    const count = isMobile ? 1 : 3;
     const items = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < count; i++) {
       items.push(TESTIMONIALS[(currentIndex + i) % totalReviews]);
     }
     return items;

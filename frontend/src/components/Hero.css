@@ -175,3 +175,67 @@
   box-shadow: 0 0 15px rgba(245, 208, 97, 0.5);
   transform: translateY(-2px);
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 90vh;
+    padding-top: 6.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-bg-slide {
+    background-position: right center !important;
+    object-position: right center !important;
+    background-size: cover !important;
+  }
+
+  /* Luxury gradient overlay on mobile for crystal clear text readability */
+  .hero-gradient-overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg, 
+      rgba(15, 3, 3, 0.35) 0%, 
+      rgba(15, 3, 3, 0.7) 50%, 
+      rgba(15, 3, 3, 0.92) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.22;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    max-width: 95%;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-cta-btn {
+    padding: 0.72rem 1.6rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-slider-arrows {
+    right: 1.2rem;
+    bottom: 1.5rem;
+  }
+
+  .hero-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}

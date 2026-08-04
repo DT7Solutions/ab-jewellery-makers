@@ -151,6 +151,18 @@ export default function BridalShowcase() {
               className="bridal-hero-image" 
             />
           </div>
+
+          {/* Mobile Slide Dots Navigation */}
+          <div className="mobile-bridal-dots">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                className={`mobile-dot ${idx === activeIndex ? 'active' : ''}`}
+                onClick={() => setActiveIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -184,3 +184,14 @@
     font-size: 1.75rem;
   }
 }
+
+@media (max-width: 768px) {
+  .why-choose-grid {
+    padding: 1.8rem 1.2rem 0.5rem 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .why-choose-image-col {
+    min-height: 250px;
+  }
+}
