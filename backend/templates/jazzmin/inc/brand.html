@@ -1,8 +1,12 @@
 {% load static jazzmin %}
 {% get_jazzmin_settings request as jazzmin_settings %}
 <a href="{% url 'admin:index' %}" class="brand-link {{ jazzmin_ui.brand_classes }}" id="jazzy-logo" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px;">
-    {% if jazzmin_settings.site_logo and "http" in jazzmin_settings.site_logo %}
-        <img src="{{ jazzmin_settings.site_logo }}" alt="Althaf Jewellery Makers Logo" class="brand-image" style="max-height: 46px; max-width: 200px; width: auto; object-fit: contain;" />
+    {% if jazzmin_settings.site_logo %}
+        {% if "http" in jazzmin_settings.site_logo %}
+            <img src="{{ jazzmin_settings.site_logo }}" alt="Althaf Jewellery Makers Logo" class="brand-image" style="max-height: 46px; max-width: 200px; width: auto; object-fit: contain;" />
+        {% else %}
+            <img src="{% static jazzmin_settings.site_logo %}" alt="Althaf Jewellery Makers Logo" class="brand-image" style="max-height: 46px; max-width: 200px; width: auto; object-fit: contain;" />
+        {% endif %}
     {% else %}
         <img src="{% static 'images/logo.png' %}" alt="Althaf Jewellery Makers Logo" class="brand-image" style="max-height: 46px; max-width: 200px; width: auto; object-fit: contain;" />
     {% endif %}

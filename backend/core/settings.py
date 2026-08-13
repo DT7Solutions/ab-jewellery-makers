@@ -198,7 +198,7 @@ JAZZMIN_SETTINGS = {
     "site_logo_classes": "img-fluid",
     "site_icon": "images/logo.png",
     "welcome_sign": "Welcome to Althaf Jewellery Makers Admin Portal",
-    "copyright": "Althaf Jewellery Makers — Heritage Luxury",
+    "copyright": "Copyright © 2026 Althaf Jewellery Makers. All rights reserved.",
     "user_avatar": None,
     "topmenu_links": [
         {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},

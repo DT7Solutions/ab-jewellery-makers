@@ -120,4 +120,61 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // Helper to get cookies (needed for CSRF token retrieval)
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Add a Logout Button to the Admin footer (supports Django 5.0+ POST logouts)
+    const footer = document.querySelector('footer.main-footer, .main-footer');
+    if (footer) {
+        const csrfToken = getCookie('csrftoken') || '';
+        const logoutForm = document.createElement('form');
+        logoutForm.action = '/admin/logout/';
+        logoutForm.method = 'post';
+        logoutForm.style.display = 'inline-block';
+        logoutForm.innerHTML = `
+            <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
+            <button type="submit" class="btn btn-xs btn-danger" style="font-weight: 600; padding: 2px 8px; font-size: 0.75rem; border-radius: 4px; margin-top: -3px;">
+                <i class="fas fa-sign-out-alt mr-1"></i> Log Out
+            </button>
+        `;
+
+        const floatRight = footer.querySelector('.float-right');
+        if (floatRight) {
+            logoutForm.style.marginRight = '15px';
+            floatRight.insertBefore(logoutForm, floatRight.firstChild);
+        } else {
+            logoutForm.style.float = 'right';
+            footer.appendChild(logoutForm);
+        }
+    }
+
+    // Intercept default GET logout links and submit them as POST requests (needed for Django 5.0+)
+    const logoutLinks = document.querySelectorAll('a[href*="/logout/"], a[href*="/logout"]');
+    logoutLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const csrfToken = getCookie('csrftoken') || '';
+            const form = document.createElement('form');
+            form.action = link.getAttribute('href');
+            form.method = 'post';
+            form.style.display = 'none';
+            form.innerHTML = `<input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">`;
+            document.body.appendChild(form);
+            form.submit();
+        });
+    });
 });
