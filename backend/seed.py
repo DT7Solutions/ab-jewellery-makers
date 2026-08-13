@@ -16,20 +16,25 @@ gold_rate, created = GoldRate.objects.get_or_create(
     }
 )
 if created:
-    print("[+] Initial Gold Rate created in PostgreSQL.")
+    print("[+] Initial Gold Rate created.")
 else:
+    # Update rates to keep fresh
+    gold_rate.gold_22k_per_gram = 6850.00
+    gold_rate.gold_24k_per_gram = 7470.00
+    gold_rate.silver_per_gram = 91.00
+    gold_rate.save()
     print("[+] Live Gold Rate updated.")
 
 # 2. Seed All 8 Categories
 categories_data = [
-    {"name": "NECKLACES", "slug": "necklaces", "description": "Exquisite 22K gold, Kundan, and Polki necklace sets for royal elegance.", "image": "/images/categories/necklaces.png"},
-    {"name": "EARRINGS", "slug": "earrings", "description": "Traditional temple work Jhumkas, Chandbalis, and gold studs.", "image": "/images/categories/earrings.png"},
-    {"name": "BANGLES", "slug": "bangles", "description": "Intricately carved 22K gold Kadas, Kangan, and floral bangles.", "image": "/images/categories/bangles.png"},
-    {"name": "RINGS", "slug": "rings", "description": "Peacock motif and Kundan solitaire statement gold rings.", "image": "/images/categories/rings.png"},
-    {"name": "PENDANTS", "slug": "pendants", "description": "Zambian emerald and ruby gold pendants.", "image": "/images/categories/pendants.png"},
-    {"name": "ANTIQUE", "slug": "antique", "description": "Regal antique finish Nakshi and royal heritage heirlooms.", "image": "/images/categories/antique.png"},
-    {"name": "BRACELETS", "slug": "bracelets", "description": "Filigree gold cuffs and Nakshi artisan bracelets.", "image": "/images/categories/bracelets.png"},
-    {"name": "MANGALSUTRA", "slug": "mangalsutra", "description": "Royal solitaire and polki diamond mangalsutras.", "image": "/images/categories/mangalsutra.png"}
+    {"name": "NECKLACES", "slug": "necklaces", "description": "Exquisite 22K gold, Kundan, and Polki necklace sets for royal elegance.", "image": "categories/necklaces.png"},
+    {"name": "EARRINGS", "slug": "earrings", "description": "Traditional temple work Jhumkas, Chandbalis, and gold studs.", "image": "categories/earrings.png"},
+    {"name": "BANGLES", "slug": "bangles", "description": "Intricately carved 22K gold Kadas, Kangan, and floral bangles.", "image": "categories/bangles.png"},
+    {"name": "RINGS", "slug": "rings", "description": "Peacock motif and Kundan solitaire statement gold rings.", "image": "categories/rings.png"},
+    {"name": "PENDANTS", "slug": "pendants", "description": "Zambian emerald and ruby gold pendants.", "image": "categories/pendants.png"},
+    {"name": "ANTIQUE", "slug": "antique", "description": "Regal antique finish Nakshi and royal heritage heirlooms.", "image": "categories/antique.png"},
+    {"name": "BRACELETS", "slug": "bracelets", "description": "Filigree gold cuffs and Nakshi artisan bracelets.", "image": "categories/bracelets.png"},
+    {"name": "MANGALSUTRA", "slug": "mangalsutra", "description": "Royal solitaire and polki diamond mangalsutras.", "image": "categories/mangalsutra.png"}
 ]
 
 category_objs = {}
@@ -39,6 +44,7 @@ for cat in categories_data:
         defaults={"name": cat["name"], "description": cat["description"], "image": cat["image"]}
     )
     category_objs[cat["name"].upper()] = obj
+print("[+] Seeding categories completed.")
 
 # 3. Seed All 16 Products
 products_data = [
@@ -49,7 +55,7 @@ products_data = [
     "price": 245000.00,
     "purity": "22K",
     "weight": "28.4g",
-    "image": "/images/products/heritage-necklace.png",
+    "image": "products/heritage-necklace.png",
     "is_featured": True,
     "is_bestseller": True,
     "description": "An iconic handcrafted 22K gold heritage necklace set adorned with ruby cabochons and natural emerald droplets."
@@ -61,7 +67,7 @@ products_data = [
     "price": 72000.00,
     "purity": "22K",
     "weight": "12.6g",
-    "image": "/images/products/temple-jhumkas.png",
+    "image": "products/temple-jhumkas.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Traditional temple work gold jhumkas featuring Goddess motif carvings and pearl drop finish."
@@ -73,7 +79,7 @@ products_data = [
     "price": 118000.00,
     "purity": "22K",
     "weight": "18.2g",
-    "image": "/images/products/gold-bangles.png",
+    "image": "products/gold-bangles.png",
     "is_featured": True,
     "is_bestseller": True,
     "description": "Set of exquisite floral relief carved 22K gold kada bangles designed for festive elegance."
@@ -85,7 +91,7 @@ products_data = [
     "price": 325000.00,
     "purity": "22K",
     "weight": "34.1g",
-    "image": "/images/products/polki-diamond-necklace.png",
+    "image": "products/polki-diamond-necklace.png",
     "is_featured": True,
     "is_bestseller": True,
     "description": "Uncut royal Polki diamond neckpiece embedded with vibrant emerald stone beads."
@@ -97,7 +103,7 @@ products_data = [
     "price": 148000.00,
     "purity": "22K",
     "weight": "22.5g",
-    "image": "/images/products/kundan-choker.png",
+    "image": "products/kundan-choker.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Regal Kundan choker with detailed back meenakari art and lustrous seed pearl drops."
@@ -109,7 +115,7 @@ products_data = [
     "price": 45000.00,
     "purity": "22K",
     "weight": "6.8g",
-    "image": "/images/products/peacock-ring.png",
+    "image": "products/peacock-ring.png",
     "is_featured": True,
     "is_bestseller": True,
     "description": "Intricately detailed peacock crest gold ring embellished with a central ruby gemstone."
@@ -121,7 +127,7 @@ products_data = [
     "price": 68000.00,
     "purity": "22K",
     "weight": "9.4g",
-    "image": "/images/products/emerald-pendant.png",
+    "image": "products/emerald-pendant.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Solitaire Zambian emerald pendant enclosed in a sparkling pave gold setting."
@@ -133,7 +139,7 @@ products_data = [
     "price": 285000.00,
     "purity": "22K",
     "weight": "31.2g",
-    "image": "/images/products/heritage-necklace.png",
+    "image": "products/heritage-necklace.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Heritage antique finish long gold haar with nakshi work motifs."
@@ -145,7 +151,7 @@ products_data = [
     "price": 89000.00,
     "purity": "22K",
     "weight": "14.1g",
-    "image": "/images/products/filigree-bracelet.png",
+    "image": "products/filigree-bracelet.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Flexible gold filigree wrist cuff with secure luxury clasp."
@@ -157,7 +163,7 @@ products_data = [
     "price": 95000.00,
     "purity": "18K",
     "weight": "8.5g",
-    "image": "/images/products/polki-diamond-necklace.png",
+    "image": "products/polki-diamond-necklace.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant."
@@ -169,7 +175,7 @@ products_data = [
     "price": 84000.00,
     "purity": "22K",
     "weight": "15.0g",
-    "image": "/images/products/chandbali-earrings.png",
+    "image": "products/chandbali-earrings.png",
     "is_featured": True,
     "is_bestseller": False,
     "description": "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings."
@@ -181,7 +187,7 @@ products_data = [
     "price": 360000.00,
     "purity": "22K",
     "weight": "42.0g",
-    "image": "/images/products/kundan-choker.png",
+    "image": "products/kundan-choker.png",
     "is_featured": True,
     "is_bestseller": True,
     "description": "Opulent multi-tiered bridal choker set crafted for grand traditional weddings."
@@ -193,7 +199,7 @@ products_data = [
     "price": 52000.00,
     "purity": "22K",
     "weight": "7.5g",
-    "image": "/images/products/peacock-ring.png",
+    "image": "products/peacock-ring.png",
     "is_featured": False,
     "is_bestseller": False,
     "description": "Handcrafted Kundan setting gold ring with floral engraving on the shank."
@@ -205,7 +211,7 @@ products_data = [
     "price": 135000.00,
     "purity": "22K",
     "weight": "21.0g",
-    "image": "/images/products/gold-bangles.png",
+    "image": "products/gold-bangles.png",
     "is_featured": False,
     "is_bestseller": False,
     "description": "Heavy antique finish temple kada with intricate divine motifs and ruby stone eyes."
@@ -217,7 +223,7 @@ products_data = [
     "price": 58000.00,
     "purity": "22K",
     "weight": "8.2g",
-    "image": "/images/products/emerald-pendant.png",
+    "image": "products/emerald-pendant.png",
     "is_featured": False,
     "is_bestseller": False,
     "description": "A delicate floral ruby pendant encased in 22K yellow gold with pearl drops."
@@ -229,7 +235,7 @@ products_data = [
     "price": 98000.00,
     "purity": "22K",
     "weight": "15.8g",
-    "image": "/images/products/filigree-bracelet.png",
+    "image": "products/filigree-bracelet.png",
     "is_featured": False,
     "is_bestseller": False,
     "description": "Detailed Nakshi artisan carved antique gold bracelet with adjustable safety chain."
@@ -238,7 +244,7 @@ products_data = [
 
 for prod in products_data:
     cat_obj = category_objs.get(prod["category"].upper())
-    obj, c = Product.objects.get_or_create(
+    obj, created = Product.objects.update_or_create(
         slug=prod["slug"],
         defaults={
             "name": prod["name"],
@@ -250,10 +256,17 @@ for prod in products_data:
             "image": prod["image"],
             "is_featured": prod["is_featured"],
             "is_bestseller": prod["is_bestseller"],
-            "is_active": True
+            "is_active": True,
+            "status": "PUBLISHED",
+            "product_code": prod["slug"],
+            "certification": "BIS 916 Hallmarked & Certified",
+            "tags": f"{prod['category'].capitalize()}, Handmade, Traditional, Popular" if prod["is_featured"] else f"{prod['category'].capitalize()}, Handmade, Traditional",
+            "custom_flags": "Featured, Bestseller" if (prod["is_featured"] and prod["is_bestseller"]) else "Featured" if prod["is_featured"] else "Bestseller" if prod["is_bestseller"] else ""
         }
     )
-    if c:
+    if created:
         print(f"  + Created Product: '{prod['name']}' ({prod['slug']})")
+    else:
+        print(f"  * Updated Product: '{prod['name']}' ({prod['slug']})")
 
-print("\n[+] Full Database Seeding Completed Successfully in PostgreSQL!")
+print("\n[+] Full Database Seeding and Binding Completed Successfully!")

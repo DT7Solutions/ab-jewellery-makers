@@ -3,28 +3,22 @@ from .models import Category, Product, GoldRate, Inquiry
 
 class CategorySerializer(serializers.ModelSerializer):
     product_count = serializers.IntegerField(source='products.count', read_only=True)
-    image = serializers.SerializerMethodField()
+    image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = Category
         fields = ['id', 'name', 'slug', 'description', 'image', 'status', 'product_count']
 
-    def get_image(self, obj):
-        if obj.image:
-            url = str(obj.image.url if hasattr(obj.image, 'url') else obj.image)
-            if url.startswith('http://') or url.startswith('https://'):
-                return url
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(url if url.startswith('/media/') else f"/media/{url}")
-            clean_url = url if url.startswith('/media/') else f"/media/{url.lstrip('/')}"
-            return f"https://www.api.abgoldjewelery.com{clean_url}"
-        return "/images/products/heritage-necklace.png"
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if not representation.get('image'):
+            representation['image'] = "/images/products/heritage-necklace.png"
+        return representation
 
 
 class ProductSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
-    image = serializers.SerializerMethodField()
+    image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = Product
@@ -32,20 +26,15 @@ class ProductSerializer(serializers.ModelSerializer):
             'id', 'name', 'slug', 'category', 'category_name', 
             'price', 'weight', 'purity', 'description', 
             'image', 'status', 'is_featured', 'is_bestseller', 'is_active', 
+            'product_code', 'certification', 'tags', 'custom_flags',
             'created_at'
         ]
 
-    def get_image(self, obj):
-        if obj.image:
-            url = str(obj.image.url if hasattr(obj.image, 'url') else obj.image)
-            if url.startswith('http://') or url.startswith('https://'):
-                return url
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(url if url.startswith('/media/') else f"/media/{url}")
-            clean_url = url if url.startswith('/media/') else f"/media/{url.lstrip('/')}"
-            return f"https://www.api.abgoldjewelery.com{clean_url}"
-        return "/images/products/heritage-necklace.png"
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if not representation.get('image'):
+            representation['image'] = "/images/products/heritage-necklace.png"
+        return representation
 
 
 class GoldRateSerializer(serializers.ModelSerializer):

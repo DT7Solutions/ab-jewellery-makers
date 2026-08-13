@@ -12,14 +12,15 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 
-import './index.css';
+// Admin Dashboard Components
+import AdminLoginPage from './pages/admin/AdminLoginPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminCategories from './pages/admin/AdminCategories';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminGoldRates from './pages/admin/AdminGoldRates';
+import AdminInquiries from './pages/admin/AdminInquiries';
 
-const AdminRedirect = () => {
-  React.useEffect(() => {
-    window.location.replace("https://www.api.abgoldjewelery.com/admin/login/?next=/admin/");
-  }, []);
-  return null;
-};
+import './index.css';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -34,43 +35,54 @@ export default function App() {
       <PagePreloader />
 
       <ScrollToTop />
+      
       <div className="app-root">
-        {/* Navigation Header */}
-        <Header />
+        <Routes>
+          {/* Admin routes (isolated from public layout) */}
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/categories" element={<AdminCategories />} />
+          <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/admin/gold-rates" element={<AdminGoldRates />} />
+          <Route path="/admin/inquiries" element={<AdminInquiries />} />
 
-        {/* Multi-Page Routes */}
-        <main>
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <HomePage 
-                  selectedCategory={selectedCategory}
-                  onSelectCategory={handleSelectCategory}
-                />
-              } 
-            />
-            <Route 
-              path="/collections" 
-              element={
-                <CollectionsPage 
-                  selectedCategory={selectedCategory}
-                  onSelectCategory={handleSelectCategory}
-                />
-              } 
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/admin" element={<AdminRedirect />} />
-          </Routes>
-        </main>
-
-        {/* Luxury Footer */}
-        <Footer />
-
-        {/* Floating Sticky WhatsApp Button */}
-        <WhatsAppButton />
+          {/* Public website routes wrapped in the public layout */}
+          <Route 
+            path="/*" 
+            element={
+              <>
+                <Header />
+                <main>
+                  <Routes>
+                    <Route 
+                      path="/" 
+                      element={
+                        <HomePage 
+                          selectedCategory={selectedCategory}
+                          onSelectCategory={handleSelectCategory}
+                        />
+                      } 
+                    />
+                    <Route 
+                      path="/collections" 
+                      element={
+                        <CollectionsPage 
+                          selectedCategory={selectedCategory}
+                          onSelectCategory={handleSelectCategory}
+                        />
+                      } 
+                    />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/product/:id" element={<ProductDetailPage />} />
+                  </Routes>
+                </main>
+                <Footer />
+                <WhatsAppButton />
+              </>
+            } 
+          />
+        </Routes>
       </div>
     </BrowserRouter>
   );

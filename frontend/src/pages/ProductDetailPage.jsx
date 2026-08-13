@@ -188,9 +188,9 @@ export default function ProductDetailPage() {
   };
 
   // Filter 4 similar products from the same or other categories
-  const relatedProducts = allProducts.filter(p => p.id !== product.id && (p.category || '').toUpperCase() === (product.category || '').toUpperCase()).slice(0, 4);
+  const relatedProducts = allProducts.filter(p => p.id !== product.id && String(p.category || '').toUpperCase() === String(product.category || '').toUpperCase()).slice(0, 4);
   const fallbackRelated = relatedProducts.length < 4 
-    ? [...relatedProducts, ...allProducts.filter(p => p.id !== product.id && (p.category || '').toUpperCase() !== (product.category || '').toUpperCase())].slice(0, 4)
+    ? [...relatedProducts, ...allProducts.filter(p => p.id !== product.id && String(p.category || '').toUpperCase() !== String(product.category || '').toUpperCase())].slice(0, 4)
     : relatedProducts;
 
   const handleWhatsAppClick = () => {
@@ -283,8 +283,60 @@ export default function ProductDetailPage() {
 
             {/* Right Column: In-Depth Product Specifications & Actions */}
             <div className="pdp-info-column">
-              <div className="pdp-category-tag">{(product.category || '').toUpperCase()} COLLECTION</div>
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '10px' }}>
+                <div className="pdp-category-tag" style={{ margin: 0 }}>{(product.category || '').toUpperCase()} COLLECTION</div>
+                {(product.custom_flags || '').split(',').map((flag, idx) => {
+                  const cleanFlag = flag.trim();
+                  if (!cleanFlag) return null;
+                  return (
+                    <span 
+                      key={idx} 
+                      style={{
+                        backgroundColor: '#b38f24',
+                        color: '#ffffff',
+                        fontSize: '0.65rem',
+                        fontWeight: '700',
+                        padding: '3px 8px',
+                        borderRadius: '4px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      {cleanFlag}
+                    </span>
+                  );
+                })}
+              </div>
               <h1 className="pdp-title">{product.name}</h1>
+
+              {/* Dynamic Tags */}
+              {product.tags && (
+                <div className="pdp-tags-wrapper" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '10px 0 15px 0' }}>
+                  {product.tags.split(',').map((tag, idx) => {
+                    const cleanTag = tag.trim();
+                    if (!cleanTag) return null;
+                    return (
+                      <span 
+                        key={idx} 
+                        className="pdp-tag-badge"
+                        style={{
+                          backgroundColor: 'rgba(179, 143, 36, 0.08)',
+                          color: '#b38f24',
+                          border: '1px solid rgba(179, 143, 36, 0.2)',
+                          padding: '4px 10px',
+                          borderRadius: '12px',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.5px'
+                        }}
+                      >
+                        {cleanTag}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
 
               <div className="pdp-price-row">
                 <span className="pdp-price">{product.formattedPrice || `₹${(product.price || 0).toLocaleString('en-IN')}`}</span>
@@ -299,7 +351,7 @@ export default function ProductDetailPage() {
                 <div className="pdp-specs-grid">
                   <div className="pdp-spec-item">
                     <span className="spec-label">Product Code</span>
-                    <span className="spec-val highlight">{product.id}</span>
+                    <span className="spec-val highlight">{product.product_code || product.id}</span>
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Jewellery Category</span>
@@ -315,7 +367,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Certification</span>
-                    <span className="spec-val">{product.hallmark || 'BIS 916 Hallmarked & Certified'}</span>
+                    <span className="spec-val">{product.certification || product.hallmark || 'BIS 916 Hallmarked & Certified'}</span>
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Store Location</span>
