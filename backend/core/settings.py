@@ -30,7 +30,6 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',  # Must be placed before django.contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -187,74 +186,4 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
 }
 
-# Jazzmin Dashboard Configuration
-JAZZMIN_SETTINGS = {
-    "site_title": "Althaf Jewellery Makers Admin",
-    "site_header": "Althaf Jewellery Makers",
-    "site_brand": "Althaf Jewellery",
-    "site_logo": "images/logo.png",
-    "login_logo": "images/logo.png",
-    "login_logo_dark": "images/logo.png",
-    "site_logo_classes": "img-fluid",
-    "site_icon": "images/logo.png",
-    "welcome_sign": "Welcome to Althaf Jewellery Makers Admin Portal",
-    "copyright": "Copyright © 2026 Althaf Jewellery Makers. All rights reserved.",
-    "user_avatar": None,
-    "topmenu_links": [
-        {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "View Web Store", "url": "https://abgoldjewelery.com/", "new_window": True},
-        {"app": "store"},
-    ],
-    "usermenu_links": [
-        {"name": "View Web Store", "url": "https://abgoldjewelery.com/", "new_window": True},
-    ],
-    "show_sidebar": True,
-    "navigation_expanded": True,
-    "hide_apps": [],
-    "hide_models": [],
-    "icons": {
-        "auth": "fas fa-users-cog",
-        "auth.user": "fas fa-user-shield",
-        "auth.Group": "fas fa-users",
-        "store.Category": "fas fa-folder-open",
-        "store.Product": "fas fa-gem",
-        "store.GoldRate": "fas fa-coins",
-        "store.Inquiry": "fas fa-envelope-open-text",
-    },
-    "default_icon_parents": "fas fa-chevron-circle-right",
-    "default_icon_children": "fas fa-circle",
-    "related_modal_active": True,
-    "custom_css": "css/custom_admin.css",
-    "custom_js": "js/theme-toggle.js",
-    "show_theme_chooser": True,
-    "show_ui_builder": False,
-    "changeform_format": "horizontal_tabs",
-    "override_modal": True,
-}
 
-JAZZMIN_UI_TWEAKS = {
-    "navbar_small_text": False,
-    "footer_small_text": False,
-    "body_small_text": False,
-    "brand_small_text": False,
-    "brand_colour": "navbar-light",
-    "accent": "accent-warning",
-    "navbar": "navbar-white navbar-light",
-    "no_navbar_border": True,
-    "navbar_fixed": True,
-    "layout_boxed": False,
-    "footer_fixed": False,
-    "sidebar_fixed": True,
-    "sidebar": "sidebar-light-warning",
-    "sidebar_nav_small_text": False,
-    "theme": "flatly",
-    "default_theme_mode": "light",
-    "button_classes": {
-        "primary": "btn-warning",
-        "secondary": "btn-secondary",
-        "info": "btn-info",
-        "warning": "btn-warning",
-        "danger": "btn-danger",
-        "success": "btn-success"
-    }
-}
