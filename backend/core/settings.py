@@ -202,11 +202,11 @@ JAZZMIN_SETTINGS = {
     "user_avatar": None,
     "topmenu_links": [
         {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "View Web Store", "url": "http://abgoldjewelery.com/", "new_window": True},
+        {"name": "View Web Store", "url": "https://abgoldjewelery.com/", "new_window": True},
         {"app": "store"},
     ],
     "usermenu_links": [
-        {"name": "View Web Store", "url": "http://abgoldjewelery.com/", "new_window": True},
+        {"name": "View Web Store", "url": "https://abgoldjewelery.com/", "new_window": True},
     ],
     "show_sidebar": True,
     "navigation_expanded": True,
