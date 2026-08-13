@@ -111,10 +111,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-if DEBUG:
-    STATICFILES_DIRS = [
-        BASE_DIR / 'static',
-    ]
+STATICFILES_DIRS = [
+    BASE_DIR / 'staticfiles',
+]
 
 # CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True
@@ -167,7 +166,7 @@ JAZZMIN_SETTINGS = {
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
     "related_modal_active": True,
-    "custom_css": None,
+    "custom_css": "css/custom_admin.css",
     "custom_js": "js/theme-toggle.js",
     "show_theme_chooser": True,
     "show_ui_builder": False,
@@ -180,21 +179,21 @@ JAZZMIN_UI_TWEAKS = {
     "footer_small_text": False,
     "body_small_text": False,
     "brand_small_text": False,
-    "brand_colour": "navbar-dark",
+    "brand_colour": "navbar-light",
     "accent": "accent-warning",
-    "navbar": "navbar-dark navbar-dark",
+    "navbar": "navbar-white navbar-light",
     "no_navbar_border": True,
     "navbar_fixed": True,
     "layout_boxed": False,
     "footer_fixed": False,
     "sidebar_fixed": True,
-    "sidebar": "sidebar-dark-warning",
+    "sidebar": "sidebar-light-warning",
     "sidebar_nav_small_text": False,
-    "theme": "darkly",
-    "default_theme_mode": "dark",
+    "theme": "flatly",
+    "default_theme_mode": "light",
     "button_classes": {
-        "primary": "btn-outline-warning",
-        "secondary": "btn-outline-secondary",
+        "primary": "btn-warning",
+        "secondary": "btn-secondary",
         "info": "btn-info",
         "warning": "btn-warning",
         "danger": "btn-danger",

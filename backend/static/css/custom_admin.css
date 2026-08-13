@@ -1,0 +1,4 @@
+/* Hide the user panel (avatar + username "admin") in the sidebar navbar */
+.user-panel {
+    display: none !important;
+}

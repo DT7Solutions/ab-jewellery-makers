@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Initial load check
-    const savedMode = localStorage.getItem('jazzmin-theme-mode') || 'dark';
+    // Initial load check (default to light mode)
+    const savedMode = localStorage.getItem('jazzmin-theme-mode') || 'light';
     applyThemeMode(savedMode);
 
     // Toggle event listener

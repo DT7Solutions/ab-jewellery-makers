@@ -14,6 +14,13 @@ import ProductDetailPage from './pages/ProductDetailPage';
 
 import './index.css';
 
+const AdminRedirect = () => {
+  React.useEffect(() => {
+    window.location.replace("https://www.api.abgoldjewelery.com/admin/login/?next=/admin/");
+  }, []);
+  return null;
+};
+
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -55,6 +62,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/admin" element={<AdminRedirect />} />
           </Routes>
         </main>
 
