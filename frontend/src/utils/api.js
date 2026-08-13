@@ -2,7 +2,7 @@ import { PRODUCTS as FALLBACK_PRODUCTS } from '../data/products';
 import { CATEGORIES as FALLBACK_CATEGORIES } from '../data/categories';
 import { BASE_GUNTUR_GOLD_RATES } from './goldRate';
 
-export const API_BASE_URL = 'http://127.0.0.1:8000/api';
+export const API_BASE_URL = 'https://www.api.abgoldjewelery.com/api';
 
 /**
  * Fetch all categories from Django REST Framework API with fallback
