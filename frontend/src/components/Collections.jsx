@@ -64,6 +64,10 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
                     alt={`Althaf Jewellery Makers - ${cat.name} 22K Gold Collection Guntur`} 
                     className="collection-image" 
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/products/heritage-necklace.png";
+                    }}
                   />
                 </div>
                 <h3 className="collection-name">{cat.name}</h3>

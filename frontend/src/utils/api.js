@@ -3,6 +3,35 @@ import { CATEGORIES as FALLBACK_CATEGORIES } from '../data/categories';
 import { BASE_GUNTUR_GOLD_RATES } from './goldRate';
 
 export const API_BASE_URL = 'https://www.api.abgoldjewelery.com/api';
+export const MEDIA_BASE_URL = 'https://www.api.abgoldjewelery.com';
+
+/**
+ * Format image URL properly - converts relative Django media paths (/media/...)
+ * or uploaded product paths to full backend media URLs (https://www.api.abgoldjewelery.com/media/...)
+ */
+export function getFullImageUrl(imagePath, fallback = '/images/products/heritage-necklace.png') {
+  if (!imagePath) return fallback;
+
+  const strPath = String(imagePath).trim();
+  if (!strPath) return fallback;
+
+  if (strPath.startsWith('http://') || strPath.startsWith('https://')) {
+    return strPath;
+  }
+
+  if (strPath.startsWith('/media/')) {
+    return `${MEDIA_BASE_URL}${strPath}`;
+  }
+  if (strPath.startsWith('media/')) {
+    return `${MEDIA_BASE_URL}/${strPath}`;
+  }
+  if (strPath.startsWith('products/') || strPath.startsWith('categories/')) {
+    return `${MEDIA_BASE_URL}/media/${strPath}`;
+  }
+
+  // Static frontend assets starting with /images/
+  return strPath;
+}
 
 /**
  * Fetch all categories from Django REST Framework API with fallback
@@ -20,7 +49,7 @@ export async function fetchApiCategories() {
       return results.map(cat => ({
         id: cat.slug || String(cat.id),
         name: cat.name.toUpperCase(),
-        image: cat.image || `/images/products/heritage-necklace.png`,
+        image: getFullImageUrl(cat.image, `/images/products/heritage-necklace.png`),
         count: `${cat.product_count || 12} Designs`
       }));
     }
@@ -56,7 +85,7 @@ export async function fetchApiProducts(categoryName = null) {
         metal: "Gold",
         purity: prod.purity || "22K",
         weight: prod.weight || "N/A",
-        image: prod.image || "/images/products/heritage-necklace.png",
+        image: getFullImageUrl(prod.image, "/images/products/heritage-necklace.png"),
         featured: prod.is_featured,
         bestseller: prod.is_bestseller,
         description: prod.description

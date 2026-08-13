@@ -57,7 +57,16 @@ export default function Gallery({ onSelectImage }) {
                   onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onSelectImage && onSelectImage(item)}
                   aria-label={`View design ${item.title}`}
                 >
-                  <img src={item.image} alt={item.alt || item.title} className="gallery-img" loading="lazy" />
+                  <img 
+                    src={item.image} 
+                    alt={item.alt || item.title} 
+                    className="gallery-img" 
+                    loading="lazy" 
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/products/heritage-necklace.png";
+                    }}
+                  />
                   <div className="gallery-hover-overlay">
                     <span className="gallery-title">{item.title}</span>
                     <span className="view-design-badge">View Design</span>

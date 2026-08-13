@@ -27,9 +27,13 @@ class Category(models.Model):
     def image_url(self):
         if self.image:
             url = str(self.image)
-            if url.startswith('http://') or url.startswith('https://') or url.startswith('/'):
+            if url.startswith('http://') or url.startswith('https://'):
                 return url
-            return f"/media/{url}"
+            if url.startswith('/media/'):
+                return f"https://www.api.abgoldjewelery.com{url}"
+            if url.startswith('/'):
+                return url
+            return f"https://www.api.abgoldjewelery.com/media/{url.lstrip('/')}"
         return "/images/products/heritage-necklace.png"
 
 
@@ -66,9 +70,13 @@ class Product(models.Model):
     def image_url(self):
         if self.image:
             url = str(self.image)
-            if url.startswith('http://') or url.startswith('https://') or url.startswith('/'):
+            if url.startswith('http://') or url.startswith('https://'):
                 return url
-            return f"/media/{url}"
+            if url.startswith('/media/'):
+                return f"https://www.api.abgoldjewelery.com{url}"
+            if url.startswith('/'):
+                return url
+            return f"https://www.api.abgoldjewelery.com/media/{url.lstrip('/')}"
         return "/images/products/heritage-necklace.png"
 
 

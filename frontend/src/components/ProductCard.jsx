@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { openProductWhatsApp } from '../utils/whatsapp';
+import { getFullImageUrl } from '../utils/api';
 import './ProductCard.css';
 
 export default function ProductCard({ product, onViewDetails }) {
@@ -20,6 +21,8 @@ export default function ProductCard({ product, onViewDetails }) {
     openProductWhatsApp(product);
   };
 
+  const imageUrl = getFullImageUrl(product?.image);
+
   return (
     <div 
       className="product-card luxury-card" 
@@ -32,10 +35,14 @@ export default function ProductCard({ product, onViewDetails }) {
       {/* Product Image Container */}
       <div className="product-image-container">
         <img 
-          src={product.image} 
+          src={imageUrl} 
           alt={`${product.name} - ${product.purity || '22K'} Hallmarked Gold Jewellery Althaf Guntur`} 
           className="product-image"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = "/images/products/heritage-necklace.png";
+          }}
         />
       </div>
 

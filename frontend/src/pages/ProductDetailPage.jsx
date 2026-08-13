@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 import SubpageBanner from '../components/SubpageBanner';
 import ProductCard from '../components/ProductCard';
 import { PRODUCTS as FALLBACK_PRODUCTS } from '../data/products';
-import { fetchApiProducts } from '../utils/api';
+import { fetchApiProducts, getFullImageUrl } from '../utils/api';
 import { openProductWhatsApp } from '../utils/whatsapp';
 import { SITE_CONFIG } from '../config';
 import './ProductDetailPage.css';
@@ -16,6 +16,7 @@ const ImageMagnifier = ({ src, alt }) => {
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [[x, y], setXY] = useState([0, 0]);
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
+  const resolvedSrc = getFullImageUrl(src);
 
   const handleMouseEnter = (e) => {
     const elem = e.currentTarget;
@@ -47,7 +48,16 @@ const ImageMagnifier = ({ src, alt }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={src} alt={alt} className="pdp-main-image" loading="eager" />
+      <img 
+        src={resolvedSrc} 
+        alt={alt} 
+        className="pdp-main-image" 
+        loading="eager"
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = "/images/products/heritage-necklace.png";
+        }}
+      />
 
       {/* Circular Magnifying Glass Loupe Lens */}
       {showMagnifier && (
@@ -56,7 +66,7 @@ const ImageMagnifier = ({ src, alt }) => {
           style={{
             top: `${y - 80}px`,
             left: `${x - 80}px`,
-            backgroundImage: `url(${src})`,
+            backgroundImage: `url(${resolvedSrc})`,
             backgroundPosition: `${xPercent}% ${yPercent}%`,
             backgroundSize: `${imgWidth * 2.8}px ${imgHeight * 2.8}px`
           }}
@@ -106,6 +116,8 @@ export default function ProductDetailPage() {
     );
   }
 
+  const productImage = getFullImageUrl(product.image);
+
   // Schema.org Structured Data for Product & BreadcrumbList
   const productSchema = {
     "@context": "https://schema.org/",
@@ -114,7 +126,7 @@ export default function ProductDetailPage() {
         "@type": "Product",
         "@id": `https://althafjewellery.com/product/${product.id}#product`,
         "name": product.name,
-        "image": product.image.startsWith('http') ? product.image : `https://althafjewellery.com${product.image}`,
+        "image": productImage.startsWith('http') ? productImage : `https://althafjewellery.com${productImage}`,
         "description": product.description,
         "sku": product.id,
         "mpn": product.id,
@@ -210,7 +222,7 @@ export default function ProductDetailPage() {
         description={pageDesc}
         keywords={product.keywords || `${product.name}, ${product.category} gold guntur, 22k jewellery andhra pradesh, bis 916 hallmark`}
         canonical={`https://althafjewellery.com/product/${product.id}`}
-        ogImage={product.image.startsWith('http') ? product.image : `https://althafjewellery.com${product.image}`}
+        ogImage={productImage.startsWith('http') ? productImage : `https://althafjewellery.com${productImage}`}
         ogType="product"
         schema={productSchema}
       />
@@ -249,7 +261,7 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Interactive Hover Magnifier View */}
-                <ImageMagnifier src={product.image} alt={`${product.name} - ${product.purity || '22K'} Gold Jewellery Althaf Guntur`} />
+                <ImageMagnifier src={productImage} alt={`${product.name} - ${product.purity || '22K'} Gold Jewellery Althaf Guntur`} />
               </div>
 
               {/* Trust Badges Bar below image */}

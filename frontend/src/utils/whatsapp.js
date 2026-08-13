@@ -15,6 +15,7 @@ export const getAbsoluteImageUrl = (imagePath) => {
   if (!imagePath) return '';
   
   const PUBLIC_DOMAIN = 'https://paleturquoise-dove-798660.hostingersite.com';
+  const MEDIA_BASE_URL = 'https://www.api.abgoldjewelery.com';
   
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
     if (imagePath.includes('localhost') || imagePath.includes('127.0.0.1')) {
@@ -25,6 +26,13 @@ export const getAbsoluteImageUrl = (imagePath) => {
   }
   
   const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+  if (cleanPath.startsWith('/media/')) {
+    return `${MEDIA_BASE_URL}${cleanPath}`;
+  }
+  if (cleanPath.startsWith('/products/') || cleanPath.startsWith('/categories/')) {
+    return `${MEDIA_BASE_URL}/media${cleanPath}`;
+  }
+  
   const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
   const base = isLocal ? PUBLIC_DOMAIN : window.location.origin;
   

@@ -3,12 +3,13 @@ import { FaWhatsapp, FaTimes } from 'react-icons/fa';
 import { openProductWhatsApp, openGeneralWhatsApp } from '../utils/whatsapp';
 import './ProductModal.css';
 
-import { submitApiInquiry } from '../utils/api';
+import { submitApiInquiry, getFullImageUrl } from '../utils/api';
 
 export default function ProductModal({ item, onClose }) {
   if (!item) return null;
 
   const isProduct = Boolean(item.id && item.metal);
+  const modalImageUrl = getFullImageUrl(item.image);
 
   const handleEnquiry = () => {
     // Record inquiry in Django backend DB
@@ -33,7 +34,15 @@ export default function ProductModal({ item, onClose }) {
 
         <div className="modal-body">
           <div className="modal-image-container">
-            <img src={item.image} alt={item.name || item.title} className="modal-image" />
+            <img 
+              src={modalImageUrl} 
+              alt={item.name || item.title} 
+              className="modal-image"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/images/products/heritage-necklace.png";
+              }}
+            />
           </div>
 
           <div className="modal-info">
