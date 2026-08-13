@@ -107,13 +107,14 @@ USE_TZ = True
 # Static and Media files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+    ]
 
 # CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True
@@ -144,11 +145,11 @@ JAZZMIN_SETTINGS = {
     "user_avatar": None,
     "topmenu_links": [
         {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "View Web Store", "url": "http://localhost:3000", "new_window": True},
+        {"name": "View Web Store", "url": "http://abgoldjewelery.com/", "new_window": True},
         {"app": "store"},
     ],
     "usermenu_links": [
-        {"name": "View Web Store", "url": "http://localhost:3000", "new_window": True},
+        {"name": "View Web Store", "url": "http://abgoldjewelery.com/", "new_window": True},
     ],
     "show_sidebar": True,
     "navigation_expanded": True,
