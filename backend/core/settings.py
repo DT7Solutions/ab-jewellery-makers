@@ -138,6 +138,46 @@ else:
 CORS_ALLOW_CREDENTIALS = True
 
 
+# CSRF Trusted Origins (Required for Django 4.0+)
+csrf_trusted_origins_env = os.getenv('CSRF_TRUSTED_ORIGINS', '')
+if csrf_trusted_origins_env:
+    CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_trusted_origins_env.split(',') if origin.strip()]
+else:
+    csrf_origins = set()
+    # Default local development origins
+    csrf_origins.update([
+        'http://localhost:3000',
+        'http://127.0.0.1:3000',
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'http://localhost:8000',
+        'http://127.0.0.1:8000',
+        'https://www.abgoldjewelery.com',
+    ])
+    
+    # Add from ALLOWED_HOSTS
+    if allowed_hosts_env and allowed_hosts_env != '*':
+        for host in allowed_hosts_env.split(','):
+            host = host.strip()
+            if host and '*' not in host:
+                csrf_origins.add(f'https://{host}')
+                csrf_origins.add(f'http://{host}')
+                
+    # Add from CORS_ALLOWED_ORIGINS
+    if cors_origins_env:
+        for origin in cors_origins_env.split(','):
+            origin = origin.strip()
+            if origin:
+                csrf_origins.add(origin)
+                
+    CSRF_TRUSTED_ORIGINS = list(csrf_origins)
+
+# If the project runs behind a reverse proxy (like Nginx) terminating SSL, 
+# this allows Django to detect HTTPS requests correctly.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
 # Django REST Framework Settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

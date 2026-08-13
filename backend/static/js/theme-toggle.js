@@ -99,4 +99,25 @@ document.addEventListener('DOMContentLoaded', function () {
             applyThemeMode(nextMode);
         });
     }
+
+    // Prevent double form submission (especially on login/admin pages to avoid CSRF token rotation issues)
+    const adminForms = document.querySelectorAll('form');
+    adminForms.forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+            if (e.defaultPrevented) {
+                return;
+            }
+            // Check native HTML5 validation
+            if (typeof form.checkValidity === 'function' && !form.checkValidity()) {
+                return;
+            }
+            const submitButtons = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+            submitButtons.forEach(function (btn) {
+                // Use setTimeout to allow the submit event to propagate before disabling
+                setTimeout(function () {
+                    btn.disabled = true;
+                }, 10);
+            });
+        });
+    });
 });
