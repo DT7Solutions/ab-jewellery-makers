@@ -1,6 +1,11 @@
 import os
+import mimetypes
 from pathlib import Path
 from dotenv import load_dotenv
+
+# Fix Windows MIME types issue for CSS/JS files
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("application/javascript", ".js", True)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -12,9 +17,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-dev-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't', 'yes')
 
-ALLOWED_HOSTS = ['91.108.110.206', 'api.abgoldjewelery.com', 'www.api.abgoldjewelery.com']
+# Parse ALLOWED_HOSTS from .env (comma-separated list, e.g., localhost,127.0.0.1)
+allowed_hosts_env = os.getenv('ALLOWED_HOSTS', '*')
+if allowed_hosts_env == '*':
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_env.split(',') if host.strip()]
 
 
 # Application definition
@@ -39,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # CORS middleware placed at top
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,16 +117,31 @@ USE_TZ = True
 
 # Static and Media files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'staticfiles',
+    BASE_DIR / 'static',
 ]
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 # CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = True
+cors_origins_env = os.getenv('CORS_ALLOWED_ORIGINS', '')
+if cors_origins_env:
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins_env.split(',') if origin.strip()]
+    CORS_ALLOW_ALL_ORIGINS = False
+else:
+    CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_CREDENTIALS = True
 
 
