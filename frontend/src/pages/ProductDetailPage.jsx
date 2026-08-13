@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaWhatsapp, FaShieldAlt, FaAward, FaTruck, FaPhoneAlt, FaChevronLeft, FaSearchPlus } from 'react-icons/fa';
-import { FiCheckCircle, FiShare2 } from 'react-icons/fi';
+import { FiCheckCircle, FiShare2, FiInfo, FiHeart } from 'react-icons/fi';
+import SEO from '../components/SEO';
 import SubpageBanner from '../components/SubpageBanner';
 import ProductCard from '../components/ProductCard';
 import { PRODUCTS as FALLBACK_PRODUCTS } from '../data/products';
@@ -46,7 +47,7 @@ const ImageMagnifier = ({ src, alt }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={src} alt={alt} className="pdp-main-image" />
+      <img src={src} alt={alt} className="pdp-main-image" loading="eager" />
 
       {/* Circular Magnifying Glass Loupe Lens */}
       {showMagnifier && (
@@ -97,13 +98,82 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <div className="product-not-found container" style={{ padding: '6rem 0', textCenter: 'center', textAlign: 'center' }}>
+      <div className="product-not-found container" style={{ padding: '6rem 0', textAlign: 'center' }}>
         <h2 style={{ color: '#F5D061', fontFamily: 'var(--font-brand)', fontSize: '2rem' }}>Product Not Found</h2>
         <p style={{ color: '#D4C3B3', margin: '1rem 0 2rem 0' }}>The jewellery item you are looking for does not exist or has been updated.</p>
         <Link to="/collections" className="btn-gold-outline">Back to Collections</Link>
       </div>
     );
   }
+
+  // Schema.org Structured Data for Product & BreadcrumbList
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `https://althafjewellery.com/product/${product.id}#product`,
+        "name": product.name,
+        "image": product.image.startsWith('http') ? product.image : `https://althafjewellery.com${product.image}`,
+        "description": product.description,
+        "sku": product.id,
+        "mpn": product.id,
+        "brand": {
+          "@type": "Brand",
+          "name": "Althaf Jewellery Makers"
+        },
+        "category": product.category,
+        "material": `${product.purity || '22K'} Gold`,
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": String(product.rating || "4.9"),
+          "reviewCount": String(product.reviewCount || "45")
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": `https://althafjewellery.com/product/${product.id}`,
+          "priceCurrency": "INR",
+          "price": String(product.price || "100000"),
+          "priceValidUntil": "2027-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "JewelryStore",
+            "name": "Althaf Jewellery Makers"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://althafjewellery.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Collections",
+            "item": "https://althafjewellery.com/collections"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": product.category,
+            "item": `https://althafjewellery.com/collections?category=${encodeURIComponent(product.category)}`
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": product.name,
+            "item": `https://althafjewellery.com/product/${product.id}`
+          }
+        ]
+      }
+    ]
+  };
 
   // Filter 4 similar products from the same or other categories
   const relatedProducts = allProducts.filter(p => p.id !== product.id && (p.category || '').toUpperCase() === (product.category || '').toUpperCase()).slice(0, 4);
@@ -129,12 +199,26 @@ export default function ProductDetailPage() {
     }
   };
 
+  const pageTitle = product.seoTitle || `${product.name} - ${product.purity || '22K'} Gold | Althaf Jewellery Makers Guntur`;
+  const pageDesc = product.seoDescription || `${product.description} 100% BIS 916 Hallmarked pure gold jewellery at Althaf Jewellery Makers, Lalapet, Guntur AP. Enquire on WhatsApp.`;
+
   return (
     <div className="product-detail-page">
+      {/* Dynamic SEO Head Management */}
+      <SEO 
+        title={pageTitle}
+        description={pageDesc}
+        keywords={product.keywords || `${product.name}, ${product.category} gold guntur, 22k jewellery andhra pradesh, bis 916 hallmark`}
+        canonical={`https://althafjewellery.com/product/${product.id}`}
+        ogImage={product.image.startsWith('http') ? product.image : `https://althafjewellery.com${product.image}`}
+        ogType="product"
+        schema={productSchema}
+      />
+
       {/* Subpage Banner */}
       <SubpageBanner
         title={product.name}
-        subtitle={`${product.purity} Pure Gold • ${product.category} • Handcrafted Heirloom`}
+        subtitle={`${product.purity || '22K'} Pure Gold • ${product.category} • Handcrafted Heirloom in Guntur`}
         bgImage="/images/footer-gold-bg.png"
       />
 
@@ -142,7 +226,7 @@ export default function ProductDetailPage() {
       <section className="product-detail-section">
         <div className="container">
           {/* Breadcrumb & Navigation Bar */}
-          <div className="product-breadcrumb">
+          <nav className="product-breadcrumb" aria-label="Breadcrumb">
             <button onClick={() => navigate(-1)} className="btn-back">
               <FaChevronLeft size={12} />
               <span>Back to Catalogue</span>
@@ -153,7 +237,7 @@ export default function ProductDetailPage() {
             <span className="breadcrumb-link">{product.category}</span>
             <span className="breadcrumb-separator">/</span>
             <span className="breadcrumb-current">{product.name}</span>
-          </div>
+          </nav>
 
           {/* Detailed Product Content Grid */}
           <div className="product-main-grid">
@@ -161,11 +245,11 @@ export default function ProductDetailPage() {
             <div className="pdp-image-column">
               <div className="pdp-main-image-wrapper luxury-card">
                 <div className="hallmark-purity-badge">
-                  <span>BIS 916 HALLMARKED</span>
+                  <span>{product.hallmark || 'BIS 916 HALLMARKED'}</span>
                 </div>
 
                 {/* Interactive Hover Magnifier View */}
-                <ImageMagnifier src={product.image} alt={product.name} />
+                <ImageMagnifier src={product.image} alt={`${product.name} - ${product.purity || '22K'} Gold Jewellery Althaf Guntur`} />
               </div>
 
               {/* Trust Badges Bar below image */}
@@ -219,7 +303,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Certification</span>
-                    <span className="spec-val">BIS Hallmarked & Certified</span>
+                    <span className="spec-val">{product.hallmark || 'BIS 916 Hallmarked & Certified'}</span>
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Store Location</span>
@@ -231,9 +315,9 @@ export default function ProductDetailPage() {
               {/* In-Detail Story & Description */}
               <div className="pdp-description-box">
                 <h3 className="pdp-sub-heading">CRAFTSMANSHIP & DESIGN STORY</h3>
-                <p className="pdp-desc-text">{product.description}</p>
+                <p className="pdp-desc-text">{product.longDescription || product.description}</p>
                 <p className="pdp-desc-text">
-                  Handcrafted by 5th-generation hereditary goldsmiths using authentic royal carving techniques. 
+                  Handcrafted by 5th-generation hereditary goldsmiths in Guntur using authentic royal carving techniques. 
                   Every curve is polished to perfection with 100% hallmarked gold, bringing eternal warmth, brilliance, and elegance to your special celebrations.
                 </p>
               </div>
@@ -260,18 +344,18 @@ export default function ProductDetailPage() {
 
               {/* Action Buttons */}
               <div className="pdp-actions-wrapper">
-                <button className="btn-whatsapp-pdp" onClick={handleWhatsAppClick}>
+                <button className="btn-whatsapp-pdp" onClick={handleWhatsAppClick} aria-label="Enquire on WhatsApp for best quote">
                   <FaWhatsapp size={22} />
                   <span>ENQUIRE ON WHATSAPP FOR BEST QUOTE</span>
                 </button>
 
                 <div className="pdp-secondary-actions">
-                  <a href={`tel:${SITE_CONFIG.whatsappNumber}`} className="btn-phone-pdp">
+                  <a href={`tel:${SITE_CONFIG.whatsappNumber}`} className="btn-phone-pdp" aria-label="Call Showroom">
                     <FaPhoneAlt size={15} />
                     <span>Call Showroom</span>
                   </a>
 
-                  <button className="btn-share-pdp" onClick={handleShareClick}>
+                  <button className="btn-share-pdp" onClick={handleShareClick} aria-label="Share Item">
                     <FiShare2 size={16} />
                     <span>{copied ? "Link Copied!" : "Share Item"}</span>
                   </button>

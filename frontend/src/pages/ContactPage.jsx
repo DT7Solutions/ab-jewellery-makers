@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import SubpageBanner from '../components/SubpageBanner';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FiMail, FiPhoneCall, FiClock, FiMapPin, FiCheckCircle } from 'react-icons/fi';
@@ -39,8 +40,53 @@ export default function ContactPage() {
     openCustomWhatsApp(customMsg);
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://althafjewellery.com/contact#webpage",
+    "url": "https://althafjewellery.com/contact",
+    "name": "Contact Althaf Jewellery Makers | Showroom Address & WhatsApp in Guntur AP",
+    "description": "Contact Althaf Jewellery Makers (AB Jewellery Makers) in Guntur, Andhra Pradesh. Get directions to our Lalapet boutique, book private bridal trials, or enquire directly on WhatsApp.",
+    "mainEntity": {
+      "@type": "JewelryStore",
+      "name": "Althaf Jewellery Makers",
+      "telephone": "+91-9876543210",
+      "email": "hello@althafjewellery.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Gold Market, Lalapet",
+        "addressLocality": "Guntur",
+        "addressRegion": "Andhra Pradesh",
+        "postalCode": "522001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 16.3067,
+        "longitude": 80.4365
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="contact-page">
+      {/* Dynamic SEO Head Management */}
+      <SEO 
+        title="Contact Althaf Jewellery Makers | Boutique Address & Phone in Guntur AP"
+        description="Visit Althaf Jewellery Makers at Main Gold Market, Lalapet, Guntur, AP - 522001. Enquire on WhatsApp for instant 22K gold rate quotes, custom bridal trials, and showroom directions."
+        keywords="contact althaf jewellery guntur, gold shop lalapet guntur address, ab jewellery makers phone number, guntur gold market directions, book bridal trial guntur"
+        canonical="https://althafjewellery.com/contact"
+        schema={contactSchema}
+      />
+
       {/* Subpage Banner */}
       <SubpageBanner 
         title="CONTACT & ENQUIRIES"
@@ -276,7 +322,7 @@ export default function ContactPage() {
               display: 'inline-block',
               marginBottom: '0.5rem'
             }}>
-              FIND OUR BOUTIQUE
+              FIND OUR BOUTIQUE IN GUNTUR
             </span>
             <h2 style={{
               fontFamily: 'var(--font-brand)',
@@ -287,7 +333,7 @@ export default function ContactPage() {
               marginBottom: '0.8rem',
               fontWeight: '500'
             }}>
-              STORE LOCATION & MAP
+              STORE LOCATION & DIRECTIONS
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
               <span style={{ height: '1px', width: '90px', background: 'linear-gradient(90deg, transparent 0%, rgba(245, 208, 97, 0.7) 50%, transparent 100%)' }}></span>
@@ -295,7 +341,7 @@ export default function ContactPage() {
               <span style={{ height: '1px', width: '90px', background: 'linear-gradient(90deg, transparent 0%, rgba(245, 208, 97, 0.7) 50%, transparent 100%)' }}></span>
             </div>
             <p style={{ fontSize: '0.95rem', color: '#FBF2E3', fontWeight: '300', margin: 0, opacity: 0.9 }}>
-              Visit our flagship jewellery showroom for personalized bridal trials and custom consultations.
+              Located conveniently at Lalapet Main Gold Market, easily accessible from Guntur Junction Railway Station and Jinnah Tower Centre.
             </p>
           </div>
 
@@ -309,7 +355,7 @@ export default function ContactPage() {
             position: 'relative'
           }}>
             <iframe
-              title="Althaf Jewellery Makers Location Map - Guntur"
+              title="Althaf Jewellery Makers Location Map - Main Gold Market, Lalapet, Guntur AP"
               src={SITE_CONFIG.mapEmbedUrl}
               width="100%"
               height="450"

@@ -1,0 +1,25 @@
+{
+  "name": "Althaf Jewellery Makers",
+  "short_name": "Althaf Jewellery",
+  "description": "Handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery in Guntur, Andhra Pradesh. 100% BIS Hallmarked Purity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#140504",
+  "theme_color": "#1A0706",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "luxury"]
+}

@@ -25,7 +25,7 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
   };
 
   return (
-    <section id="collections" className="collections-section">
+    <section id="collections" className="collections-section" aria-label="Jewellery Categories">
       <div className="container">
         {/* Inline Section Header */}
         <div className="collections-header-inline">
@@ -34,14 +34,14 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
             <span className="divider-diamond">◈</span>
             <span className="divider-line-short"></span>
           </div>
-          <h2 className="collections-title-text">EXPLORE OUR COLLECTIONS</h2>
+          <h2 className="collections-title-text">EXPLORE OUR SIGNATURE COLLECTIONS</h2>
           <div className="collections-divider-side right">
             <span className="divider-line-short"></span>
             <span className="divider-diamond">◈</span>
             <span className="divider-line"></span>
           </div>
         </div>
-        <p className="section-tagline">HANDCRAFTED 22K GOLD • ROYAL POLKI • KUNDAN • ANTIQUE TEMPLE HEIRLOOMS</p>
+        <p className="section-tagline">HANDCRAFTED 22K GOLD • ROYAL POLKI • KUNDAN • ANTIQUE TEMPLE HEIRLOOMS IN GUNTUR</p>
 
         {/* Circular Categories Grid */}
         <div className="collections-grid">
@@ -52,14 +52,16 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
                 key={cat.id} 
                 className={`collection-card ${isSelected ? 'active' : ''}`}
                 onClick={() => handleCategoryClick(cat.name)}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleCategoryClick(cat.name)}
                 role="button"
                 tabIndex={0}
+                aria-label={`Explore ${cat.name} Collection`}
               >
                 <div className="collection-image-wrapper">
                   <div className="gold-ring-glow"></div>
                   <img 
                     src={cat.image} 
-                    alt={cat.name} 
+                    alt={`Althaf Jewellery Makers - ${cat.name} 22K Gold Collection Guntur`} 
                     className="collection-image" 
                     loading="lazy"
                   />

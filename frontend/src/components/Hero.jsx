@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 import './Hero.css';
 
@@ -15,7 +14,7 @@ export default function Hero() {
       titleLine1: "Timeless Beauty.",
       titleLine2: "Crafted with",
       goldWord: "Tradition.",
-      description: "Handcrafted jewellery that reflects your inner elegance."
+      description: "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP."
     },
     {
       id: 2,
@@ -23,7 +22,7 @@ export default function Hero() {
       titleLine1: "Royal Heritage.",
       titleLine2: "Designed for",
       goldWord: "Royalty.",
-      description: "Opulent 22K Gold and Temple masterpiece collections."
+      description: "Handcrafted Temple Nakshi Gold & Imperial Bridal Jewellery by 5th-generation goldsmiths."
     },
     {
       id: 3,
@@ -31,7 +30,7 @@ export default function Hero() {
       titleLine1: "Pure Elegance.",
       titleLine2: "Handcrafted to",
       goldWord: "Perfection.",
-      description: "Purity is our priority. Crafted for generations to cherish."
+      description: "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders."
     }
   ];
 
@@ -60,6 +59,7 @@ export default function Hero() {
       className="hero-section"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      aria-label="Althaf Jewellery Makers Showcase"
     >
       {/* Background Image Slides */}
       {slides.map((slide, idx) => (
@@ -67,6 +67,8 @@ export default function Hero() {
           key={slide.id}
           className={`hero-bg-slide ${idx === currentSlide ? 'active' : ''}`}
           style={{ backgroundImage: `url(${slide.image})` }}
+          role="img"
+          aria-label={`Althaf Jewellery Makers Heritage Banner - ${slide.goldWord}`}
         />
       ))}
 
@@ -90,6 +92,7 @@ export default function Hero() {
             <button 
               className="btn-gold-outline hero-cta-btn"
               onClick={openGeneralWhatsApp}
+              aria-label="Enquire about jewellery on WhatsApp"
             >
               <span>I'M INTERESTED</span>
               <span className="whatsapp-icon-badge">

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Core Static Pages -->
+  <url>
+    <loc>https://althafjewellery.com/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/collections</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/about</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/contact</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Product Deep Links -->
+  <url>
+    <loc>https://althafjewellery.com/product/IND-NK-001</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/heritage-necklace.png</image:loc>
+      <image:title>Heritage Royal Necklace Set - 22K Hallmarked Gold</image:title>
+      <image:caption>Handcrafted 22K gold heritage necklace set with ruby cabochons and emerald droplets</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-ER-002</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/temple-jhumkas.png</image:loc>
+      <image:title>Temple Goddess Jhumkas - 22K Gold Antique Ornaments</image:title>
+      <image:caption>Traditional South Indian temple work gold jhumkas with Goddess motif</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-BG-003</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/gold-bangles.png</image:loc>
+      <image:title>Royal Flora Gold Bangles - 22K Kada Bangles</image:title>
+      <image:caption>Floral relief carved 22K gold kada bangles for bridal and festive wear</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-NK-004</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/polki-diamond-necklace.png</image:loc>
+      <image:title>Uncut Polki Diamond Necklace - Heritage Bridal Choker</image:title>
+      <image:caption>Uncut royal Polki diamond neckpiece embedded with emerald beads</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-CK-005</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/kundan-choker.png</image:loc>
+      <image:title>Imperial Kundan Choker Set - Meenakari Royal Jewellery</image:title>
+      <image:caption>Regal Kundan choker with back meenakari art and seed pearl drops</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-RG-006</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/peacock-ring.png</image:loc>
+      <image:title>Royal Peacock Gold Ring - 22K Statement Ring</image:title>
+      <image:caption>Detailed peacock crest 22K gold ring with central ruby gemstone</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-PD-007</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/emerald-pendant.png</image:loc>
+      <image:title>Emerald Grace Gold Pendant - Solitaire Emerald 22K</image:title>
+      <image:caption>Solitaire Zambian emerald pendant enclosed in pavé gold setting</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-AT-008</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/heritage-necklace.png</image:loc>
+      <image:title>Antique Heritage Nakshi Haar - Long Bridal Gold Haram</image:title>
+      <image:caption>Heritage antique finish long gold haar with nakshi work motifs</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-BR-009</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/filigree-bracelet.png</image:loc>
+      <image:title>Filigree Regal Gold Cuff - 22K Handcrafted Wrist Bracelet</image:title>
+      <image:caption>Flexible gold filigree wrist cuff with secure luxury clasp</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-MS-010</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/polki-diamond-necklace.png</image:loc>
+      <image:title>Royal Solitaire Mangalsutra - 18K Diamond Gold</image:title>
+      <image:caption>Luxury double-chain black bead mangalsutra with diamond solitaire</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-ER-011</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/chandbali-earrings.png</image:loc>
+      <image:title>Royal Crescent Chandbali - Kundan & Pearl Gold Earrings</image:title>
+      <image:caption>Crescent moon shaped Chandbali earrings with pearl tassels</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-AT-012</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/kundan-choker.png</image:loc>
+      <image:title>Bridal Antique Choker Set - 22K Grand Wedding Gold</image:title>
+      <image:caption>Multi-tiered bridal choker set crafted for traditional Indian weddings</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-RG-013</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/peacock-ring.png</image:loc>
+      <image:title>Kundan Solitaire Gold Ring - 22K Floral Engraved Ring</image:title>
+      <image:caption>Handcrafted Kundan setting gold ring with floral engraving</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-BG-014</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/gold-bangles.png</image:loc>
+      <image:title>Temple Antique Gold Kada - Heavy 22K Divine Bangle</image:title>
+      <image:caption>Antique finish temple kada with divine motifs and ruby accents</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-PD-015</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/emerald-pendant.png</image:loc>
+      <image:title>Ruby Royal Floral Pendant - 22K Yellow Gold Locket</image:title>
+      <image:caption>Delicate floral ruby pendant encased in 22K yellow gold with pearl drops</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://althafjewellery.com/product/IND-BR-016</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://althafjewellery.com/images/products/filigree-bracelet.png</image:loc>
+      <image:title>Nakshi Antique Gold Bracelet - Artisan Carved Wrist Wear</image:title>
+      <image:caption>Nakshi artisan carved antique gold bracelet with safety chain</image:caption>
+    </image:image>
+  </url>
+</urlset>

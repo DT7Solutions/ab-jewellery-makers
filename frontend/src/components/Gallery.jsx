@@ -8,27 +8,32 @@ export default function Gallery({ onSelectImage }) {
     {
       id: 1,
       title: "Heritage Royal Necklace",
-      image: "/images/products/heritage-necklace.png"
+      image: "/images/products/heritage-necklace.png",
+      alt: "Heritage Royal 22K Gold Necklace Set - Althaf Jewellery Guntur"
     },
     {
       id: 2,
       title: "Antique Gold Kada",
-      image: "/images/products/gold-bangles.png"
+      image: "/images/products/gold-bangles.png",
+      alt: "Temple Antique 22K Gold Kada Bangle - Althaf Jewellery Guntur"
     },
     {
       id: 3,
       title: "Emerald Polki Haar",
-      image: "/images/products/polki-diamond-necklace.png"
+      image: "/images/products/polki-diamond-necklace.png",
+      alt: "Uncut Polki Diamond Emerald Haar - Althaf Jewellery Guntur"
     },
     {
       id: 4,
       title: "Temple Work Jhumkas",
-      image: "/images/products/temple-jhumkas.png"
+      image: "/images/products/temple-jhumkas.png",
+      alt: "Traditional Temple Work 22K Gold Jhumkas - Althaf Jewellery Guntur"
     },
     {
       id: 5,
       title: "Gold Statement Ring",
-      image: "/images/products/peacock-ring.png"
+      image: "/images/products/peacock-ring.png",
+      alt: "Royal Peacock 22K Gold Statement Ring - Althaf Jewellery Guntur"
     }
   ];
 
@@ -36,7 +41,7 @@ export default function Gallery({ onSelectImage }) {
   const sliderItems = [...galleryItems, ...galleryItems, ...galleryItems];
 
   return (
-    <section id="gallery" className="gallery-cta-section">
+    <section id="gallery" className="gallery-cta-section" aria-label="Close-up Jewellery Showcase">
       <div className="container">
         <div className="gallery-cta-grid">
           {/* Left Side: Continuous Auto Slider */}
@@ -47,8 +52,12 @@ export default function Gallery({ onSelectImage }) {
                   key={`${item.id}-${idx}`} 
                   className="gallery-item-card"
                   onClick={() => onSelectImage && onSelectImage(item)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onSelectImage && onSelectImage(item)}
+                  aria-label={`View design ${item.title}`}
                 >
-                  <img src={item.image} alt={item.title} className="gallery-img" loading="lazy" />
+                  <img src={item.image} alt={item.alt || item.title} className="gallery-img" loading="lazy" />
                   <div className="gallery-hover-overlay">
                     <span className="gallery-title">{item.title}</span>
                     <span className="view-design-badge">View Design</span>
@@ -67,13 +76,13 @@ export default function Gallery({ onSelectImage }) {
                 these designs?
               </h3>
               <p className="whatsapp-card-text">
-                Get pricing, quotes & details<br />
+                Get pricing, live gold rate quotes & custom details<br />
                 instantly on WhatsApp.
               </p>
               <button 
                 className="btn-whatsapp-cta"
                 onClick={openGeneralWhatsApp}
-                aria-label="Chat on WhatsApp"
+                aria-label="Chat on WhatsApp for instant quote"
               >
                 <span className="cta-btn-text">CHAT ON WHATSAPP</span>
                 <span className="whatsapp-badge-icon">

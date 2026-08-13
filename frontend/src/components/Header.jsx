@@ -54,13 +54,13 @@ export default function Header() {
         <Link to="/" className="brand-logo" aria-label="Althaf Jewellery Makers Home">
           <img 
             src="/images/logo.png" 
-            alt="Althaf Jewellery Makers Logo"
+            alt="Althaf Jewellery Makers - 22K Gold & Bridal Jewellery Showroom Guntur"
             className="brand-logo-img"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav" aria-label="Main Navigation">
           <ul className="nav-list">
             {navLinks.map((link, idx) => (
               <li key={idx} className="nav-item">
@@ -81,7 +81,7 @@ export default function Header() {
           {/* Live Dynamic Gold Price Badge for Guntur AP */}
           <div 
             className="live-gold-badge" 
-            title={`Live Gold Rate in ${goldRates.location} (Updated ${goldRates.lastUpdated})`}
+            title={`Live 22K Gold Rate in ${goldRates.location} (Updated ${goldRates.lastUpdated})`}
           >
             <span className="live-dot"></span>
             <span className="gold-rate-label">GUNTUR 22K:</span>
@@ -91,7 +91,7 @@ export default function Header() {
           <button 
             className="btn-whatsapp-pill desktop-whatsapp"
             onClick={openGeneralWhatsApp}
-            aria-label="Chat on WhatsApp"
+            aria-label="Chat on WhatsApp with Althaf Jewellery Makers"
           >
             <span className="whatsapp-pill-icon">
               <FaWhatsapp size={15} />
@@ -103,7 +103,7 @@ export default function Header() {
           <button 
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -115,7 +115,7 @@ export default function Header() {
         <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
           <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-logo-header">
-              <img src="/images/logo.png" alt="Althaf Jewellery Makers Logo" className="mobile-logo-img" />
+              <img src="/images/logo.png" alt="Althaf Jewellery Makers - 22K Gold Guntur" className="mobile-logo-img" />
             </div>
 
             <ul className="mobile-nav-list">
@@ -140,6 +140,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                   openGeneralWhatsApp();
                 }}
+                aria-label="Chat on WhatsApp"
               >
                 <span className="whatsapp-pill-icon">
                   <FaWhatsapp size={18} />

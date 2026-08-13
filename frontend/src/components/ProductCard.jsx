@@ -21,12 +21,19 @@ export default function ProductCard({ product, onViewDetails }) {
   };
 
   return (
-    <div className="product-card luxury-card" onClick={handleCardClick}>
+    <div 
+      className="product-card luxury-card" 
+      onClick={handleCardClick}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleCardClick()}
+      aria-label={`View details of ${product.name}`}
+    >
       {/* Product Image Container */}
       <div className="product-image-container">
         <img 
           src={product.image} 
-          alt={product.name} 
+          alt={`${product.name} - ${product.purity || '22K'} Hallmarked Gold Jewellery Althaf Guntur`} 
           className="product-image"
           loading="lazy"
         />

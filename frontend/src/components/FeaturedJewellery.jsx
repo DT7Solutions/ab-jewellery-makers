@@ -48,7 +48,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
   });
 
   return (
-    <section id="featured-jewellery" className="featured-section">
+    <section id="featured-jewellery" className="featured-section" aria-label="Featured Jewellery Catalogue">
       <div className="container">
         {/* Header */}
         <div className="featured-header-container">
@@ -60,14 +60,14 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
                 <span className="divider-diamond">◈</span>
                 <span className="divider-line-short"></span>
               </div>
-              <h2 className="featured-title-text">FEATURED JEWELLERY</h2>
+              <h2 className="featured-title-text">FEATURED 22K GOLD JEWELLERY</h2>
               <div className="title-divider-side right">
                 <span className="divider-line-short"></span>
                 <span className="divider-diamond">◈</span>
                 <span className="divider-line"></span>
               </div>
             </div>
-            <p className="featured-subtitle">ROYAL CREATIONS HANDCRAFTED FOR YOUR ETERNAL CELEBRATIONS</p>
+            <p className="featured-subtitle">ROYAL BIS 916 HALLMARKED CREATIONS HANDCRAFTED FOR YOUR CELEBRATIONS IN GUNTUR</p>
           </div>
 
           {/* Top Right Action Controls */}
@@ -75,6 +75,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
             <button 
               className="btn-view-all-rect"
               onClick={handleViewAllClick}
+              aria-label="View all featured jewellery designs"
             >
               VIEW ALL
             </button>
@@ -110,7 +111,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
 
         {/* Disclaimer Note */}
         <div className="price-disclaimer">
-          <p>*Prices are indicative and may vary. Final price & quotation will be shared on WhatsApp.</p>
+          <p>*Prices are indicative and calculated using live Guntur AP gold rates. Final itemized quote shared via WhatsApp.</p>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaYoutube, FaPinterestP } from 'react-icons/fa';
-import { FiMail, FiClock, FiPhoneCall } from 'react-icons/fi';
+import { FiMail, FiClock, FiPhoneCall, FiMapPin, FiShield } from 'react-icons/fi';
 import { SITE_CONFIG } from '../config';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 import './Footer.css';
@@ -18,68 +18,78 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Column 1: Pure Logo Image & Socials */}
           <div className="footer-col brand-col">
-            <Link to="/" className="footer-logo-wrapper">
+            <Link to="/" className="footer-logo-wrapper" aria-label="Althaf Jewellery Makers Home">
               <img 
                 src="/images/logo.png" 
-                alt="Althaf Jewellery Makers Logo" 
+                alt="Althaf Jewellery Makers - Heritage 22K Gold & Bridal Jewellery Guntur" 
                 className="footer-logo-img"
               />
             </Link>
 
             <p className="footer-brand-desc">
-              Jewellery that celebrates tradition and elegance. Crafted for every you.
+              <strong>{SITE_CONFIG.brandName}</strong> (AB Jewellery Makers) — 5 generations of royal Indian goldsmithing. Handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery in Guntur, Andhra Pradesh.
             </p>
 
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: '0.8rem 0', color: '#F5D061', fontSize: '0.82rem' }}>
+              <FiShield size={16} />
+              <span>100% BIS 916 Hallmarked & HUID Certified</span>
+            </div>
+
             <div className="footer-socials">
-              <a href="#instagram" className="social-icon" aria-label="Instagram"><FaInstagram /></a>
-              <a href="#facebook" className="social-icon" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="#youtube" className="social-icon" aria-label="YouTube"><FaYoutube /></a>
-              <a href="#pinterest" className="social-icon" aria-label="Pinterest"><FaPinterestP /></a>
+              <a href="#instagram" className="social-icon" aria-label="Follow Althaf Jewellery on Instagram"><FaInstagram /></a>
+              <a href="#facebook" className="social-icon" aria-label="Follow Althaf Jewellery on Facebook"><FaFacebookF /></a>
+              <a href="#youtube" className="social-icon" aria-label="Watch Althaf Jewellery on YouTube"><FaYoutube /></a>
+              <a href="#pinterest" className="social-icon" aria-label="Explore Althaf Jewellery on Pinterest"><FaPinterestP /></a>
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="footer-col">
-            <h4 className="footer-heading">QUICK LINKS</h4>
+            <h4 className="footer-heading">EXPLORE PAGES</h4>
             <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/collections">Collections</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/about">About Our Legacy</Link></li>
+              <li><Link to="/collections">Jewellery Collections</Link></li>
+              <li><Link to="/contact">Contact & Store Map</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Help & Support */}
+          {/* Column 3: Collections Link */}
           <div className="footer-col">
-            <h4 className="footer-heading">HELP & SUPPORT</h4>
+            <h4 className="footer-heading">COLLECTIONS</h4>
             <ul className="footer-links">
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#care">Jewellery Care</a></li>
-              <li><a href="#size">Size Guide</a></li>
-              <li><a href="#exchange">Exchange Policy</a></li>
-              <li><a href="#shipping">Shipping Policy</a></li>
-              <li><a href="#returns">Returns & Refunds</a></li>
+              <li><Link to="/collections">22K Gold Necklaces</Link></li>
+              <li><Link to="/collections">Uncut Polki & Kundan</Link></li>
+              <li><Link to="/collections">Temple Jhumkas & Earrings</Link></li>
+              <li><Link to="/collections">Antique Nakshi Bangles</Link></li>
+              <li><Link to="/collections">Diamond Mangalsutras</Link></li>
+              <li><Link to="/collections">Bespoke Bridal Couture</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Policies */}
+          {/* Column 4: Trust & Guarantees */}
           <div className="footer-col">
-            <h4 className="footer-heading">POLICIES</h4>
+            <h4 className="footer-heading">PURITY & SERVICE</h4>
             <ul className="footer-links">
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#terms">Terms & Conditions</a></li>
-              <li><a href="#payment">Payment Options</a></li>
-              <li><a href="#track">Track Order</a></li>
+              <li><Link to="/about">BIS 916 Hallmark Standard</Link></li>
+              <li><Link to="/about">Hereditary Goldsmithing</Link></li>
+              <li><Link to="/contact">Live Guntur Gold Rates</Link></li>
+              <li><Link to="/contact">Insured All-India Shipping</Link></li>
+              <li><Link to="/contact">Lifetime Exchange & Buyback</Link></li>
             </ul>
           </div>
 
           {/* Column 5: Contact Us */}
           <div className="footer-col contact-col">
-            <h4 className="footer-heading">CONTACT US</h4>
+            <h4 className="footer-heading">GUNTUR BOUTIQUE</h4>
             <div className="contact-list">
-              <div className="contact-item cursor-pointer" onClick={openGeneralWhatsApp}>
+              <div className="contact-item cursor-pointer" onClick={openGeneralWhatsApp} role="button" tabIndex={0}>
                 <FaWhatsapp className="contact-icon whatsapp-color" />
-                <span>Chat with us on WhatsApp</span>
+                <span>Chat on WhatsApp: {SITE_CONFIG.displayPhone}</span>
+              </div>
+              <div className="contact-item">
+                <FiMapPin className="contact-icon" />
+                <span>{SITE_CONFIG.shortAddress}</span>
               </div>
               <div className="contact-item">
                 <FiPhoneCall className="contact-icon" />
@@ -99,7 +109,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>© 2026 {SITE_CONFIG.brandName}. All Rights Reserved.</p>
+          <p>© 2026 {SITE_CONFIG.brandName}. All Rights Reserved. | 100% BIS Hallmarked 22K Gold Jewellery in Guntur, Andhra Pradesh.</p>
         </div>
       </div>
     </footer>

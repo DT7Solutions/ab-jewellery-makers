@@ -1,0 +1,12 @@
+# Robots.txt for Althaf Jewellery Makers (AB Jewellery Makers)
+# Website: https://althafjewellery.com/
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout/
+Disallow: /private/
+
+# Sitemap Location
+Sitemap: https://althafjewellery.com/sitemap.xml

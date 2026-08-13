@@ -1,0 +1,64 @@
+# =====================================
+# Git Ignore - Althaf Jewellery Makers
+# =====================================
+
+# 1. Environment & Secrets
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+backend/.env
+frontend/.env
+!*.env.example
+
+# 2. SQLite & Database files
+*.sqlite
+*.sqlite3
+*.db
+db.sqlite3
+backend/db.sqlite3
+*.sqlite3-journal
+
+# 3. Python Virtual Environments & Env Folders
+*env/
+env/
+venv/
+.env/
+.venv/
+ab-env/
+backend/ab-env/
+ENV/
+env.bak/
+venv.bak/
+
+# 4. Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+backend/**/__pycache__/
+
+# 5. Node.js & Frontend Build Outputs
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 6. IDE, Editors & OS Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

@@ -11,7 +11,8 @@ export default function BridalShowcase() {
       subtitle: "BRIDAL COLLECTION OF GUJARAT",
       description: "Be the bride of your dreams adorned in a 22KT gold masterpiece carrying the splendour of Gujarat’s rich, vibrant culture. Across its three resplendent layers, Raasvi celebrates the bride you dreamt of becoming, rooted in the joy, colour, and spirited festivities of the land.",
       buttonText: "Discover the Collection",
-      image: "/images/raasvi-bride.png"
+      image: "/images/raasvi-bride.png",
+      alt: "Raasvi Gujarat Bridal Collection - 22K Gold Multi-Tiered Necklace Althaf Jewellery Guntur"
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ export default function BridalShowcase() {
       subtitle: "ROYAL HERITAGE OF RAJASTHAN",
       description: "Embrace imperial royalty handcrafted in antique Kundan and Meenakari gold. Svarnam honors centuries of royal Rajasthan artistry, crafted for the bride who reigns with eternal elegance and regal majesty.",
       buttonText: "Discover the Collection",
-      image: "/images/about-model.png"
+      image: "/images/about-model.png",
+      alt: "Svarnam Rajasthan Royal Kundan & Meenakari Bridal Jewellery Althaf Jewellery Guntur"
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ export default function BridalShowcase() {
       subtitle: "TEMPLE GOLD OF SOUTH INDIA",
       description: "Sacred motifs carved by master artisans in pure 22KT temple gold. Nitya captures the timeless devotion, divine heritage, and grand celebration of traditional South Indian bridal ceremonies.",
       buttonText: "Discover the Collection",
-      image: "/images/products/heritage-necklace.png"
+      image: "/images/products/heritage-necklace.png",
+      alt: "Nitya South Indian Temple Gold Bridal Jewellery Althaf Jewellery Guntur"
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ export default function BridalShowcase() {
       subtitle: "BRIDAL COUTURE OF BENGAL",
       description: "Intricate filigree work woven in featherlight pure gold. Kalyani brings alive the vintage charm, poetic romanticism, and regal craftsmanship of authentic Bengali bridal heritage.",
       buttonText: "Discover the Collection",
-      image: "/images/hero-model.png"
+      image: "/images/hero-model.png",
+      alt: "Kalyani Bengali Gold Filigree Bridal Jewellery Althaf Jewellery Guntur"
     }
   ];
 
@@ -51,7 +55,7 @@ export default function BridalShowcase() {
   const currentSlide = slides[activeIndex];
 
   return (
-    <section className="bridal-showcase-section">
+    <section className="bridal-showcase-section" aria-label="Imperial Bridal Couture Collections">
       {/* Section Header */}
       <div className="bridal-header-container">
         <div className="bridal-header-center">
@@ -61,28 +65,28 @@ export default function BridalShowcase() {
               <span className="divider-diamond">◈</span>
               <span className="divider-line-short"></span>
             </div>
-            <h2 className="bridal-title-text">OUR SIGNATURE COLLECTIONS</h2>
+            <h2 className="bridal-title-text">OUR SIGNATURE BRIDAL COLLECTIONS</h2>
             <div className="title-divider-side right">
               <span className="divider-line-short"></span>
               <span className="divider-diamond">◈</span>
               <span className="divider-line"></span>
             </div>
           </div>
-          <p className="section-tagline">IMPERIAL BRIDAL COUTURE CELEBRATING CENTURIES OF INDIAN REGAL HERITAGE</p>
+          <p className="section-tagline">IMPERIAL BRIDAL COUTURE CELEBRATING CENTURIES OF INDIAN REGAL HERITAGE IN GUNTUR</p>
         </div>
       </div>
 
       <div className="bridal-showcase-container">
         {/* Left Column: Narrative Content */}
         <div className="bridal-content-col">
-          <h2 className="bridal-collection-title">{currentSlide.title}</h2>
+          <h3 className="bridal-collection-title">{currentSlide.title}</h3>
           <p className="bridal-collection-desc">
             {currentSlide.description}
           </p>
           <button 
             className="btn-discover-collection"
             onClick={openGeneralWhatsApp}
-            aria-label="Discover the Collection on WhatsApp"
+            aria-label={`Discover the ${currentSlide.title} Collection on WhatsApp`}
           >
             {currentSlide.buttonText}
           </button>
@@ -94,14 +98,12 @@ export default function BridalShowcase() {
           <div className="bridal-arch-card">
             {/* SVG Pointed Arch Double Border & Background */}
             <svg className="arch-svg-shape" viewBox="0 0 240 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Outer Crisp White/Gold Border Path */}
               <path 
                 d="M 120,4 C 185,48 236,115 236,220 C 236,325 185,392 120,436 C 55,392 4,325 4,220 C 4,115 55,48 120,4 Z" 
                 fill="#1A0706" 
                 stroke="#F5D061" 
                 strokeWidth="2.5" 
               />
-              {/* Inner Gold Line Border Accent */}
               <path 
                 d="M 120,10 C 180,52 230,117 230,220 C 230,323 180,388 120,430 C 60,388 10,323 10,220 C 10,117 60,52 120,10 Z" 
                 fill="none" 
@@ -136,7 +138,7 @@ export default function BridalShowcase() {
                     key={idx}
                     className={`arch-dot ${idx === activeIndex ? 'active' : ''}`}
                     onClick={() => setActiveIndex(idx)}
-                    aria-label={`Go to slide ${idx + 1}`}
+                    aria-label={`Go to slide ${idx + 1}: ${slides[idx].title}`}
                   />
                 ))}
               </div>
@@ -147,8 +149,9 @@ export default function BridalShowcase() {
           <div className="bridal-hero-image-wrapper">
             <img 
               src={currentSlide.image} 
-              alt={`${currentSlide.title} ${currentSlide.subtitle}`}
+              alt={currentSlide.alt}
               className="bridal-hero-image" 
+              loading="lazy"
             />
           </div>
 
@@ -159,7 +162,7 @@ export default function BridalShowcase() {
                 key={idx}
                 className={`mobile-dot ${idx === activeIndex ? 'active' : ''}`}
                 onClick={() => setActiveIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
+                aria-label={`Go to slide ${idx + 1}: ${slides[idx].title}`}
               />
             ))}
           </div>
