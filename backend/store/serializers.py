@@ -16,9 +16,29 @@ class CategorySerializer(serializers.ModelSerializer):
         return representation
 
 
+class CategoryRelatedField(serializers.PrimaryKeyRelatedField):
+    def to_internal_value(self, data):
+        if isinstance(data, str) and not data.isdigit():
+            try:
+                return Category.objects.get(slug=data)
+            except Category.DoesNotExist:
+                try:
+                    return Category.objects.get(name__iexact=data)
+                except Category.DoesNotExist:
+                    raise serializers.ValidationError(f"Category '{data}' does not exist.")
+        return super().to_internal_value(data)
+
+
 class ProductSerializer(serializers.ModelSerializer):
+    category = CategoryRelatedField(queryset=Category.objects.all())
     category_name = serializers.CharField(source='category.name', read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
+    description = serializers.CharField(required=False, allow_blank=True, default='')
+    weight = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+    product_code = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+    certification = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+    tags = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+    custom_flags = serializers.CharField(required=False, allow_blank=True, allow_null=True)
 
     class Meta:
         model = Product

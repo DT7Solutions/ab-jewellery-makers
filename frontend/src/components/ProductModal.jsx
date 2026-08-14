@@ -55,7 +55,6 @@ export default function ProductModal({ item, onClose }) {
 
             {isProduct ? (
               <>
-                <p className="modal-price">{item.formattedPrice}</p>
                 <div className="modal-specs-list">
                   <div className="modal-spec-row">
                     <span>Product ID:</span> <strong>{item.id}</strong>

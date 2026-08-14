@@ -57,7 +57,6 @@ I am interested in purchasing/enquiring about this jewellery design:
 Product: ${product.name}
 Product Code: #${product.id}
 Category: ${product.category || 'Luxury Collection'}
-Price: ${priceText}
 Metal & Purity: ${product.metal || 'Gold'} ${product.purity || '(22K 916 Hallmark)'}
 Approx Weight: ${product.weight || 'N/A'}
 

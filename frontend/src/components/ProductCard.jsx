@@ -50,10 +50,6 @@ export default function ProductCard({ product, onViewDetails }) {
       <div className="product-info">
         <h3 className="product-title">{product.name}</h3>
 
-        <div className="product-price-wrapper">
-          <span className="product-price">{product.formattedPrice}</span>
-        </div>
-
         {/* CTA Button with WhatsApp Green Badge */}
         <button 
           className="btn-interested"

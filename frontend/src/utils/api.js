@@ -3,15 +3,20 @@ import { CATEGORIES as FALLBACK_CATEGORIES } from '../data/categories';
 import { BASE_TENALI_GOLD_RATES } from './goldRate';
 
 // Dynamically target local backend in development vs production backend in deployed site
-const isLocalhost = typeof window !== 'undefined' && 
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+const isLocalhost = typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' ||
+   window.location.hostname === '127.0.0.1' ||
+   window.location.hostname.startsWith('192.168.') ||
+   window.location.hostname.startsWith('10.') ||
+   window.location.hostname.startsWith('172.') ||
+   window.location.hostname.endsWith('.local'));
 
-export const API_BASE_URL = isLocalhost 
-  ? 'http://127.0.0.1:8000/api' 
+export const API_BASE_URL = isLocalhost
+  ? `http://${window.location.hostname || '127.0.0.1'}:8000/api`
   : 'https://www.api.abgoldjewelery.com/api';
 
-export const MEDIA_BASE_URL = isLocalhost 
-  ? 'http://127.0.0.1:8000' 
+export const MEDIA_BASE_URL = isLocalhost
+  ? `http://${window.location.hostname || '127.0.0.1'}:8000`
   : 'https://www.api.abgoldjewelery.com';
 
 /**
@@ -27,6 +32,49 @@ function getAuthHeaders(extraHeaders = {}) {
 }
 
 /**
+ * Handle unauthorized responses
+ */
+function handleAuthResponse(response) {
+  if (response.status === 401) {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_user');
+    if (typeof window !== 'undefined' && !window.location.pathname.includes('/admin/login')) {
+      window.location.href = '/admin/login';
+    }
+  }
+  return response;
+}
+
+/**
+ * Safe JSON parsing helper that prevents "Unexpected token < in JSON at position 0"
+ */
+async function safeParseJson(response) {
+  const contentType = response.headers.get('content-type') || '';
+  const text = await response.text();
+
+  if (!text || !text.trim()) {
+    return null;
+  }
+
+  // If content-type is JSON or string looks like JSON object/array
+  if (contentType.includes('application/json') || text.trim().startsWith('{') || text.trim().startsWith('[')) {
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      console.warn('Failed to parse JSON string:', text.substring(0, 100));
+      throw new Error(`Invalid JSON received (Status ${response.status})`);
+    }
+  }
+
+  // If response is HTML, provide a clear informative error
+  if (text.trim().startsWith('<') || contentType.includes('text/html')) {
+    throw new Error(`Server returned HTML instead of JSON (HTTP ${response.status}). Please check API URL.`);
+  }
+
+  return text;
+}
+
+/**
  * Format image URL properly
  */
 export function getFullImageUrl(imagePath, fallback = '/images/products/heritage-necklace.png') {
@@ -36,6 +84,10 @@ export function getFullImageUrl(imagePath, fallback = '/images/products/heritage
   if (!strPath) return fallback;
 
   if (strPath.startsWith('http://') || strPath.startsWith('https://')) {
+    return strPath;
+  }
+
+  if (strPath.startsWith('/images/')) {
     return strPath;
   }
 
@@ -56,21 +108,37 @@ export function getFullImageUrl(imagePath, fallback = '/images/products/heritage
  * AUTHENTICATION API CALLS
  */
 export async function adminLogin(username, password) {
-  const response = await fetch(`${API_BASE_URL}/admin/login/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-  });
-
-  if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(errData.error || errData.detail || 'Login failed');
+  let response;
+  try {
+    response = await fetch(`${API_BASE_URL}/admin/login/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+  } catch (err) {
+    console.error('Admin login network failure:', err);
+    throw new Error(`Unable to connect to backend server at ${API_BASE_URL}. Please verify the Django server is running.`);
   }
 
-  const data = await response.json();
+  if (!response.ok) {
+    let errMsg = 'Login failed';
+    try {
+      const errData = await safeParseJson(response);
+      errMsg = (errData && (errData.error || errData.detail)) || `Server error (HTTP ${response.status})`;
+    } catch (_) {
+      errMsg = `Server error (HTTP ${response.status})`;
+    }
+    throw new Error(errMsg);
+  }
+
+  const data = await safeParseJson(response);
+  if (!data || !data.token) {
+    throw new Error('Invalid authentication response from server.');
+  }
+
   localStorage.setItem('admin_token', data.token);
   localStorage.setItem('admin_user', JSON.stringify({
     username: data.username,
@@ -100,20 +168,31 @@ export async function adminLogout() {
 }
 
 export async function adminChangePassword(oldPassword, newPassword) {
-  const response = await fetch(`${API_BASE_URL}/admin/change-password/`, {
-    method: 'POST',
-    headers: getAuthHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }),
-    body: JSON.stringify({ old_password: oldPassword, new_password: newPassword })
-  });
+  let response;
+  try {
+    response = await fetch(`${API_BASE_URL}/admin/change-password/`, {
+      method: 'POST',
+      headers: getAuthHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }),
+      body: JSON.stringify({ old_password: oldPassword, new_password: newPassword })
+    });
+  } catch (err) {
+    throw new Error(`Connection error: ${err.message}`);
+  }
+
+  handleAuthResponse(response);
 
   if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(errData.error || errData.detail || 'Password change failed');
+    let errMsg = 'Password change failed';
+    try {
+      const errData = await safeParseJson(response);
+      errMsg = (errData && (errData.error || errData.detail)) || `Error ${response.status}`;
+    } catch (_) {}
+    throw new Error(errMsg);
   }
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 /**
@@ -125,8 +204,8 @@ export async function fetchApiCategories() {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    const data = await response.json();
-    const results = Array.isArray(data) ? data : (data.results || []);
+    const data = await safeParseJson(response);
+    const results = Array.isArray(data) ? data : (data?.results || []);
 
     if (results.length > 0) {
       return results.map(cat => ({
@@ -156,8 +235,8 @@ export async function fetchApiProducts(categoryName = null) {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    const data = await response.json();
-    const results = Array.isArray(data) ? data : (data.results || []);
+    const data = await safeParseJson(response);
+    const results = Array.isArray(data) ? data : (data?.results || []);
 
     if (results.length > 0) {
       return results.map(prod => ({
@@ -199,7 +278,7 @@ export async function fetchApiGoldRates() {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    const data = await response.json();
+    const data = await safeParseJson(response);
     if (data && data.gold_22k_per_gram) {
       return {
         id: data.id,
@@ -229,7 +308,7 @@ export async function submitApiInquiry(inquiryData) {
       body: JSON.stringify(inquiryData)
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    return await response.json();
+    return await safeParseJson(response);
   } catch (err) {
     console.warn("Django Inquiry API submission fallback:", err.message);
     return { success: true, message: "Inquiry saved locally." };
@@ -240,8 +319,13 @@ export async function submitApiInquiry(inquiryData) {
  * ADMIN DATA API CALLS (Requires Auth Token)
  */
 
-export async function fetchAdminCategories(search = '', statusFilter = '', page = 1) {
-  let url = `${API_BASE_URL}/categories/?page=${page}&`;
+export async function fetchAdminCategories(search = '', statusFilter = '', page = 1, noPagination = false) {
+  let url = `${API_BASE_URL}/categories/?`;
+  if (noPagination) {
+    url += 'no_pagination=true&';
+  } else {
+    url += `page=${page}&`;
+  }
   if (search) url += `search=${encodeURIComponent(search)}&`;
   if (statusFilter) url += `status=${encodeURIComponent(statusFilter)}`;
 
@@ -249,27 +333,40 @@ export async function fetchAdminCategories(search = '', statusFilter = '', page 
     headers: getAuthHeaders({ 'Accept': 'application/json' })
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Fetch categories failed: ${response.status}`);
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function saveCategory(id, formData) {
   const isNew = !id;
   const url = isNew ? `${API_BASE_URL}/categories/` : `${API_BASE_URL}/categories/${id}/`;
-  
-  // Note: For multipart/form-data (uploads), we must NOT set Content-Type header manually.
-  // The browser will set it with the correct boundary parameters automatically.
+
   const response = await fetch(url, {
     method: isNew ? 'POST' : 'PATCH',
     headers: getAuthHeaders(),
     body: formData
   });
 
+  handleAuthResponse(response);
   if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(JSON.stringify(errData) || 'Failed to save category');
+    let errMsg = 'Failed to save category';
+    try {
+      const errData = await safeParseJson(response);
+      if (typeof errData === 'object' && errData !== null) {
+        const messages = [];
+        for (const [key, val] of Object.entries(errData)) {
+          const detail = Array.isArray(val) ? val.join(' ') : String(val);
+          messages.push(`${key}: ${detail}`);
+        }
+        errMsg = messages.join(', ') || 'Validation failed';
+      } else {
+        errMsg = String(errData);
+      }
+    } catch (_) {}
+    throw new Error(errMsg);
   }
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function deleteCategory(id) {
@@ -278,6 +375,7 @@ export async function deleteCategory(id) {
     headers: getAuthHeaders()
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Delete category failed: ${response.status}`);
   return true;
 }
@@ -294,8 +392,9 @@ export async function fetchAdminProducts(filters = {}) {
     headers: getAuthHeaders({ 'Accept': 'application/json' })
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Fetch products failed: ${response.status}`);
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function saveProduct(id, formData) {
@@ -308,11 +407,25 @@ export async function saveProduct(id, formData) {
     body: formData
   });
 
+  handleAuthResponse(response);
   if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(JSON.stringify(errData) || 'Failed to save product');
+    let errMsg = 'Failed to save product';
+    try {
+      const errData = await safeParseJson(response);
+      if (typeof errData === 'object' && errData !== null) {
+        const messages = [];
+        for (const [key, val] of Object.entries(errData)) {
+          const detail = Array.isArray(val) ? val.join(' ') : String(val);
+          messages.push(`${key}: ${detail}`);
+        }
+        errMsg = messages.join(', ') || 'Validation failed';
+      } else {
+        errMsg = String(errData);
+      }
+    } catch (_) {}
+    throw new Error(errMsg);
   }
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function deleteProduct(id) {
@@ -321,6 +434,7 @@ export async function deleteProduct(id) {
     headers: getAuthHeaders()
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Delete product failed: ${response.status}`);
   return true;
 }
@@ -330,8 +444,9 @@ export async function fetchAdminGoldRates(page = 1) {
     headers: getAuthHeaders({ 'Accept': 'application/json' })
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Fetch gold rates failed: ${response.status}`);
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function saveGoldRate(id, rateData) {
@@ -347,11 +462,16 @@ export async function saveGoldRate(id, rateData) {
     body: JSON.stringify(rateData)
   });
 
+  handleAuthResponse(response);
   if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(errData.detail || 'Failed to save gold rate');
+    let errMsg = 'Failed to save gold rate';
+    try {
+      const errData = await safeParseJson(response);
+      errMsg = (errData && (errData.detail || errData.error)) || `Error ${response.status}`;
+    } catch (_) {}
+    throw new Error(errMsg);
   }
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function deleteGoldRate(id) {
@@ -360,6 +480,7 @@ export async function deleteGoldRate(id) {
     headers: getAuthHeaders()
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Delete gold rate failed: ${response.status}`);
   return true;
 }
@@ -373,8 +494,9 @@ export async function fetchAdminInquiries(search = '', product = '', page = 1) {
     headers: getAuthHeaders({ 'Accept': 'application/json' })
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Fetch inquiries failed: ${response.status}`);
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function deleteInquiry(id) {
@@ -383,6 +505,7 @@ export async function deleteInquiry(id) {
     headers: getAuthHeaders()
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Delete inquiry failed: ${response.status}`);
   return true;
 }
@@ -397,8 +520,8 @@ export async function fetchApiHeroBanners() {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    const data = await response.json();
-    return Array.isArray(data) ? data : (data.results || []);
+    const data = await safeParseJson(response);
+    return Array.isArray(data) ? data : (data?.results || []);
   } catch (err) {
     console.warn("Django Hero Banners API offline, using static fallback:", err.message);
     return [];
@@ -409,8 +532,10 @@ export async function fetchAdminHeroBanners(page = 1) {
   const response = await fetch(`${API_BASE_URL}/hero-banners/?page=${page}`, {
     headers: getAuthHeaders({ 'Accept': 'application/json' })
   });
+
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Fetch hero banners failed: ${response.status}`);
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function saveHeroBanner(id, formData) {
@@ -423,11 +548,16 @@ export async function saveHeroBanner(id, formData) {
     body: formData
   });
 
+  handleAuthResponse(response);
   if (!response.ok) {
-    const errData = await response.json();
-    throw new Error(JSON.stringify(errData) || 'Failed to save hero banner');
+    let errMsg = 'Failed to save hero banner';
+    try {
+      const errData = await safeParseJson(response);
+      errMsg = typeof errData === 'object' ? JSON.stringify(errData) : errData;
+    } catch (_) {}
+    throw new Error(errMsg);
   }
-  return await response.json();
+  return await safeParseJson(response);
 }
 
 export async function deleteHeroBanner(id) {
@@ -436,6 +566,7 @@ export async function deleteHeroBanner(id) {
     headers: getAuthHeaders()
   });
 
+  handleAuthResponse(response);
   if (!response.ok) throw new Error(`Delete hero banner failed: ${response.status}`);
   return true;
 }

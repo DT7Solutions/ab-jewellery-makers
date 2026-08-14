@@ -135,6 +135,11 @@ if cors_origins_env:
 else:
     CORS_ALLOW_ALL_ORIGINS = True
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http://localhost:\d+$",
+    r"^http://127\.0\.0\.1:\d+$",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 
@@ -148,11 +153,14 @@ else:
     csrf_origins.update([
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'http://localhost:3001',
+        'http://127.0.0.1:3001',
         'http://localhost:5173',
         'http://127.0.0.1:5173',
         'http://localhost:8000',
         'http://127.0.0.1:8000',
         'https://www.abgoldjewelery.com',
+        'https://abgoldjewelery.com',
     ])
     
     # Add from ALLOWED_HOSTS

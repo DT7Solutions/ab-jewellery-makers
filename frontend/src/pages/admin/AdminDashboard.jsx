@@ -26,15 +26,25 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function loadStats() {
       try {
-        const catsRes = await fetchAdminCategories();
-        const prodsRes = await fetchAdminProducts();
-        const ratesRes = await fetchAdminGoldRates();
-        const inqsRes = await fetchAdminInquiries();
+        const [catsRes, prodsRes, ratesRes, inqsRes] = await Promise.allSettled([
+          fetchAdminCategories(),
+          fetchAdminProducts(),
+          fetchAdminGoldRates(),
+          fetchAdminInquiries()
+        ]);
 
-        setCategories(catsRes.results || (Array.isArray(catsRes) ? catsRes : []));
-        setProducts(prodsRes.results || (Array.isArray(prodsRes) ? prodsRes : []));
-        setGoldRates(ratesRes.results || (Array.isArray(ratesRes) ? ratesRes : []));
-        setInquiries(inqsRes.results || (Array.isArray(inqsRes) ? inqsRes : []));
+        if (catsRes.status === 'fulfilled' && catsRes.value) {
+          setCategories(catsRes.value.results || (Array.isArray(catsRes.value) ? catsRes.value : []));
+        }
+        if (prodsRes.status === 'fulfilled' && prodsRes.value) {
+          setProducts(prodsRes.value.results || (Array.isArray(prodsRes.value) ? prodsRes.value : []));
+        }
+        if (ratesRes.status === 'fulfilled' && ratesRes.value) {
+          setGoldRates(ratesRes.value.results || (Array.isArray(ratesRes.value) ? ratesRes.value : []));
+        }
+        if (inqsRes.status === 'fulfilled' && inqsRes.value) {
+          setInquiries(inqsRes.value.results || (Array.isArray(inqsRes.value) ? inqsRes.value : []));
+        }
       } catch (err) {
         console.error("Failed to load dashboard data:", err);
       } finally {

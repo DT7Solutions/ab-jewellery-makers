@@ -379,11 +379,6 @@ export default function ProductDetailPage() {
                 </div>
               )}
 
-              <div className="pdp-price-row">
-                <span className="pdp-price">{product.formattedPrice || `₹${(product.price || 0).toLocaleString('en-IN')}`}</span>
-                <span className="pdp-price-disclaimer">*Indicative Price (Live rate Tenali AP)</span>
-              </div>
-
               <div className="pdp-divider"></div>
 
               {/* Comprehensive Product Specification Table */}

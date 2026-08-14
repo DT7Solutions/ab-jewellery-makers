@@ -93,9 +93,8 @@ export default function CollectionsGrid({ selectedCategory, onSelectCategory, on
 
       return true;
     }).sort((a, b) => {
-      if (sortBy === "price-low") return (a.price || 0) - (b.price || 0);
-      if (sortBy === "price-high") return (b.price || 0) - (a.price || 0);
       if (sortBy === "weight-low") return parseFloat(a.weight || 0) - parseFloat(b.weight || 0);
+      if (sortBy === "weight-high") return parseFloat(b.weight || 0) - parseFloat(a.weight || 0);
       if (sortBy === "name") return (a.name || "").localeCompare(b.name || "");
       return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
     });
@@ -201,9 +200,8 @@ export default function CollectionsGrid({ selectedCategory, onSelectCategory, on
                 className="cg-sort-select"
               >
                 <option value="featured">Featured First</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
                 <option value="weight-low">Weight: Light to Heavy</option>
+                <option value="weight-high">Weight: Heavy to Light</option>
                 <option value="name">Alphabetical (A-Z)</option>
               </select>
             </div>

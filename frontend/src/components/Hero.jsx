@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
-import { fetchApiHeroBanners } from '../utils/api';
+import { fetchApiHeroBanners, getFullImageUrl } from '../utils/api';
 import './Hero.css';
 
 export default function Hero() {
@@ -19,8 +19,8 @@ export default function Hero() {
     {
       id: 2,
       image: "/images/hero-slide-2.jpg",
-      titleLine1: "Royal Heritage.",
-      titleLine2: "Designed for",
+      titleLine1: "Royal Grandeur.",
+      titleLine2: "Adorned in",
       goldWord: "Royalty.",
       description: "Handcrafted Temple Nakshi Gold & Imperial Bridal Jewellery by 5th-generation goldsmiths."
     },
@@ -39,7 +39,7 @@ export default function Hero() {
       if (data && data.length > 0) {
         const mappedSlides = data.map((item) => ({
           id: item.id,
-          image: item.image || "/images/hero-bg-full.png",
+          image: getFullImageUrl(item.image, "/images/hero-bg-full.png"),
           titleLine1: item.title_line_1,
           titleLine2: item.title_line_2,
           goldWord: item.gold_word,

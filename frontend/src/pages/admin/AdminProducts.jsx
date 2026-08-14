@@ -47,14 +47,10 @@ export default function AdminProducts() {
   const loadData = async () => {
     setLoading(true);
     try {
-      // Load categories first if not loaded
-      let cats = categories;
-      if (categories.length === 0) {
-        cats = await fetchAdminCategories();
-        // Since categories API now returns { results }, extract them
-        const catsList = cats.results || (Array.isArray(cats) ? cats : []);
-        setCategories(catsList);
-      }
+      // Load all categories for select dropdown
+      const catsRes = await fetchAdminCategories('', '', 1, true);
+      const catsList = Array.isArray(catsRes) ? catsRes : (catsRes?.results || []);
+      setCategories(catsList);
 
       const filters = {
         search,
@@ -65,9 +61,9 @@ export default function AdminProducts() {
       };
 
       const prods = await fetchAdminProducts(filters);
-      const prodsList = prods.results || (Array.isArray(prods) ? prods : []);
+      const prodsList = prods?.results || (Array.isArray(prods) ? prods : []);
       setProducts(prodsList);
-      setTotalCount(prods.count || (Array.isArray(prods) ? prods.length : 0));
+      setTotalCount(prods?.count || (Array.isArray(prods) ? prods.length : 0));
 
       // Scan and extract all unique custom flags from loaded products
       const uniqueFlags = new Set(['Featured', 'Bestseller', 'Trending', 'New Arrival']);
@@ -81,7 +77,7 @@ export default function AdminProducts() {
       });
       setAvailableFlags(Array.from(uniqueFlags));
     } catch (err) {
-      alert("Failed to load products: " + err.message);
+      console.error("Failed to load products:", err);
     } finally {
       setLoading(false);
     }
@@ -142,12 +138,12 @@ export default function AdminProducts() {
     setEditSlugKey(prod.slug);
     setName(prod.name);
     setSlug(prod.slug);
-    setCategory(prod.category || '');
+    setCategory(prod.category || prod.category_id || categories[0]?.id || '');
     setPrice(prod.price);
     setWeight(prod.weight || '');
     setPurity(prod.purity || '22K');
     setDescription(prod.description || '');
-    setStatus(prod.status);
+    setStatus(prod.status || 'PUBLISHED');
     let flags = prod.custom_flags ? prod.custom_flags.split(',').map(f => f.trim()).filter(f => f !== '') : [];
     if (flags.length === 0) {
       if (prod.is_featured || prod.featured) flags.push('Featured');
@@ -176,7 +172,8 @@ export default function AdminProducts() {
     e.preventDefault();
     setFormError('');
 
-    if (!name.trim() || !slug.trim() || !category || !price) {
+    const targetCategory = category || categories[0]?.id;
+    if (!name.trim() || !slug.trim() || !targetCategory || !price) {
       setFormError('Name, Slug, Category, and Price are required.');
       return;
     }
@@ -184,20 +181,20 @@ export default function AdminProducts() {
     setSaving(true);
     try {
       const formData = new FormData();
-      formData.append('name', name);
-      formData.append('slug', slug);
-      formData.append('category', category);
+      formData.append('name', name.trim());
+      formData.append('slug', slug.trim());
+      formData.append('category', targetCategory);
       formData.append('price', price);
-      formData.append('weight', weight);
-      formData.append('purity', purity);
-      formData.append('description', description);
-      formData.append('status', status);
+      formData.append('weight', weight || '');
+      formData.append('purity', purity || '22K');
+      formData.append('description', description || '');
+      formData.append('status', status || 'PUBLISHED');
       formData.append('is_featured', activeFlags.includes('Featured') ? 'true' : 'false');
       formData.append('is_bestseller', activeFlags.includes('Bestseller') ? 'true' : 'false');
       formData.append('is_active', 'true');
-      formData.append('product_code', productCode);
-      formData.append('certification', certification);
-      formData.append('tags', tags);
+      formData.append('product_code', productCode || '');
+      formData.append('certification', certification || 'BIS 916 Hallmarked & Certified');
+      formData.append('tags', tags || '');
       formData.append('custom_flags', activeFlags.join(', '));
       
       if (imageFile) {
@@ -208,16 +205,7 @@ export default function AdminProducts() {
       setModalOpen(false);
       loadData();
     } catch (err) {
-      try {
-        const errorDetail = JSON.parse(err.message);
-        let errorMsg = '';
-        Object.keys(errorDetail).forEach(key => {
-          errorMsg += `${key}: ${errorDetail[key].join(', ')} `;
-        });
-        setFormError(errorMsg || 'Failed to save product.');
-      } catch (parseErr) {
-        setFormError(err.message || 'Failed to save product.');
-      }
+      setFormError(err.message || 'Failed to save product.');
     } finally {
       setSaving(false);
     }

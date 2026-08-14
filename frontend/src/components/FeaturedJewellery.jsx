@@ -111,7 +111,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
 
         {/* Disclaimer Note */}
         <div className="price-disclaimer">
-          <p>*Prices are indicative and calculated using live Tenali AP gold rates. Final itemized quote shared via WhatsApp.</p>
+          <p>*All designs handcrafted in 100% BIS 916 hallmarked pure gold. Live rate quotation shared on WhatsApp enquiry.</p>
         </div>
       </div>
     </section>

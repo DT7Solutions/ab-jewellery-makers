@@ -62,7 +62,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=12, decimal_places=2, help_text="Indicative Price in INR")
     weight = models.CharField(max_length=50, help_text="e.g. 45.2 grams", blank=True, null=True)
     purity = models.CharField(max_length=10, choices=PURITY_CHOICES, default='22K')
-    description = models.TextField()
+    description = models.TextField(blank=True, default='')
     image = models.ImageField(upload_to='products/', max_length=255, blank=True, null=True)
     status = models.CharField(max_length=15, choices=Category.STATUS_CHOICES, default='PUBLISHED', db_index=True)
     is_featured = models.BooleanField(default=False)
