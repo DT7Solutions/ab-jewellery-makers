@@ -68,7 +68,7 @@ export const CATEGORIES = [
     seoTitle: "Royal Diamond & 22K Gold Mangalsutras Guntur",
     description: "Sacred black-bead double chains, modern diamond solitaire pendants, and traditional South Indian nallapusalu designs.",
     keywords: "mangalsutra guntur, nallapusalu gold chain, diamond mangalsutra andhra pradesh, bridal mangalsutra",
-    image: "/images/categories/mangalsutra.png",
+    image: "/images/categories/mangalsutra_v2.png",
     count: "15 Designs"
   }
 ];

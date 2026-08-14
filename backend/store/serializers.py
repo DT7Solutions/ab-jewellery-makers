@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Product, GoldRate, Inquiry
+from .models import Category, Product, GoldRate, Inquiry, HeroBanner
 
 class CategorySerializer(serializers.ModelSerializer):
     product_count = serializers.IntegerField(source='products.count', read_only=True)
@@ -47,3 +47,17 @@ class InquirySerializer(serializers.ModelSerializer):
     class Meta:
         model = Inquiry
         fields = ['id', 'customer_name', 'phone', 'email', 'product', 'message', 'created_at']
+
+
+class HeroBannerSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(required=False, allow_null=True)
+
+    class Meta:
+        model = HeroBanner
+        fields = ['id', 'image', 'title_line_1', 'title_line_2', 'gold_word', 'description', 'order', 'is_active', 'created_at', 'updated_at']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if not representation.get('image'):
+            representation['image'] = "/images/hero-bg-full.png"
+        return representation

@@ -86,25 +86,66 @@ export default function ProductDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(() => {
-    return FALLBACK_PRODUCTS.find(p => p.id === id || p.slug === id) || FALLBACK_PRODUCTS[0];
+    return FALLBACK_PRODUCTS.find(p => 
+      String(p.id).toLowerCase() === String(id).toLowerCase() || 
+      String(p.slug).toLowerCase() === String(id).toLowerCase()
+    ) || null;
   });
   const [allProducts, setAllProducts] = useState(FALLBACK_PRODUCTS);
 
   // Scroll to top and fetch updated product from Django REST API
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLoading(true);
+
+    // Instantly switch to the new product's fallback data to avoid displaying the previous product
+    const fallbackMatch = FALLBACK_PRODUCTS.find(p => 
+      String(p.id).toLowerCase() === String(id).toLowerCase() || 
+      String(p.slug).toLowerCase() === String(id).toLowerCase()
+    );
+    setProduct(fallbackMatch || null);
 
     fetchApiProducts().then(prods => {
       if (prods && prods.length > 0) {
         setAllProducts(prods);
-        const found = prods.find(p => p.id === id || String(p.id) === String(id) || p.slug === id);
+        const found = prods.find(p => 
+          String(p.id).toLowerCase() === String(id).toLowerCase() || 
+          String(p.slug).toLowerCase() === String(id).toLowerCase()
+        );
         if (found) {
           setProduct(found);
         }
       }
+      setLoading(false);
+    }).catch(() => {
+      setLoading(false);
     });
   }, [id]);
+
+  if (loading && !product) {
+    return (
+      <div className="container" style={{ padding: '8rem 0', textAlign: 'center', color: '#D4C3B3' }}>
+        <div style={{
+          width: '50px',
+          height: '50px',
+          border: '3px solid rgba(179, 143, 36, 0.1)',
+          borderTop: '3px solid #c29724',
+          borderRadius: '50%',
+          animation: 'spin 1s linear infinite',
+          margin: '0 auto 20px auto'
+        }}></div>
+        <style>{`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}</style>
+        <p>Loading product details...</p>
+      </div>
+    );
+  }
 
   if (!product) {
     return (

@@ -132,3 +132,34 @@ class Inquiry(models.Model):
 
     def __str__(self):
         return f"Inquiry from {self.customer_name} ({self.phone})"
+
+
+class HeroBanner(models.Model):
+    image = models.ImageField(upload_to='banners/', max_length=255, blank=True, null=True)
+    title_line_1 = models.CharField(max_length=150, help_text="e.g. Timeless Beauty.")
+    title_line_2 = models.CharField(max_length=150, help_text="e.g. Crafted with")
+    gold_word = models.CharField(max_length=100, help_text="e.g. Tradition.")
+    description = models.TextField(help_text="Banner description paragraph.")
+    order = models.IntegerField(default=0, help_text="Slide display order.")
+    is_active = models.BooleanField(default=True, help_text="Toggle banner visibility.")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+
+    def __str__(self):
+        return f"Banner: {self.gold_word} (Active: {self.is_active})"
+
+    @property
+    def image_url(self):
+        if self.image:
+            url = str(self.image)
+            if url.startswith('http://') or url.startswith('https://'):
+                return url
+            if url.startswith('/media/'):
+                return f"https://www.api.abgoldjewelery.com{url}"
+            if url.startswith('/'):
+                return url
+            return f"https://www.api.abgoldjewelery.com/media/{url.lstrip('/')}"
+        return "/images/hero-bg-full.png"

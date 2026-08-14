@@ -1,44 +1,60 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 import './Gallery.css';
 
 export default function Gallery({ onSelectImage }) {
+  const navigate = useNavigate();
+
   const galleryItems = [
     {
       id: 1,
       title: "Heritage Royal Necklace",
       image: "/images/products/heritage-necklace.png",
-      alt: "Heritage Royal 22K Gold Necklace Set - Althaf Jewellery Guntur"
+      alt: "Heritage Royal 22K Gold Necklace Set - Althaf Jewellery Guntur",
+      productSlug: "IND-NK-001"
     },
     {
       id: 2,
       title: "Antique Gold Kada",
       image: "/images/products/gold-bangles.png",
-      alt: "Temple Antique 22K Gold Kada Bangle - Althaf Jewellery Guntur"
+      alt: "Temple Antique 22K Gold Kada Bangle - Althaf Jewellery Guntur",
+      productSlug: "IND-BG-003"
     },
     {
       id: 3,
       title: "Emerald Polki Haar",
       image: "/images/products/polki-diamond-necklace.png",
-      alt: "Uncut Polki Diamond Emerald Haar - Althaf Jewellery Guntur"
+      alt: "Uncut Polki Diamond Emerald Haar - Althaf Jewellery Guntur",
+      productSlug: "IND-NK-004"
     },
     {
       id: 4,
       title: "Temple Work Jhumkas",
       image: "/images/products/temple-jhumkas.png",
-      alt: "Traditional Temple Work 22K Gold Jhumkas - Althaf Jewellery Guntur"
+      alt: "Traditional Temple Work 22K Gold Jhumkas - Althaf Jewellery Guntur",
+      productSlug: "IND-ER-002"
     },
     {
       id: 5,
       title: "Gold Statement Ring",
       image: "/images/products/peacock-ring.png",
-      alt: "Royal Peacock 22K Gold Statement Ring - Althaf Jewellery Guntur"
+      alt: "Royal Peacock 22K Gold Statement Ring - Althaf Jewellery Guntur",
+      productSlug: "IND-RG-006"
     }
   ];
 
   // Duplicate items for infinite seamless slider animation
   const sliderItems = [...galleryItems, ...galleryItems, ...galleryItems];
+
+  const handleItemClick = (item) => {
+    if (item.productSlug) {
+      navigate(`/product/${item.productSlug}`);
+    } else if (onSelectImage) {
+      onSelectImage(item);
+    }
+  };
 
   return (
     <section id="gallery" className="gallery-cta-section" aria-label="Close-up Jewellery Showcase">
@@ -51,10 +67,10 @@ export default function Gallery({ onSelectImage }) {
                 <div 
                   key={`${item.id}-${idx}`} 
                   className="gallery-item-card"
-                  onClick={() => onSelectImage && onSelectImage(item)}
+                  onClick={() => handleItemClick(item)}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onSelectImage && onSelectImage(item)}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleItemClick(item)}
                   aria-label={`View design ${item.title}`}
                 >
                   <img 

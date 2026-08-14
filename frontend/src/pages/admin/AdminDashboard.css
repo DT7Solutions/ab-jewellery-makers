@@ -810,25 +810,25 @@
 
 
 /* Table column visibility based on sidebar collapse state */
-.admin-main:not(.expanded) .admin-table th:nth-child(6),
-.admin-main:not(.expanded) .admin-table td:nth-child(6),
-.admin-main:not(.expanded) .admin-table th:nth-child(7),
-.admin-main:not(.expanded) .admin-table td:nth-child(7),
-.admin-main:not(.expanded) .admin-table th:nth-child(8),
-.admin-main:not(.expanded) .admin-table td:nth-child(8),
-.admin-main:not(.expanded) .admin-table th:nth-child(10),
-.admin-main:not(.expanded) .admin-table td:nth-child(10) {
+.admin-main:not(.expanded) .admin-products-table th:nth-child(6),
+.admin-main:not(.expanded) .admin-products-table td:nth-child(6),
+.admin-main:not(.expanded) .admin-products-table th:nth-child(7),
+.admin-main:not(.expanded) .admin-products-table td:nth-child(7),
+.admin-main:not(.expanded) .admin-products-table th:nth-child(8),
+.admin-main:not(.expanded) .admin-products-table td:nth-child(8),
+.admin-main:not(.expanded) .admin-products-table th:nth-child(10),
+.admin-main:not(.expanded) .admin-products-table td:nth-child(10) {
   display: none;
 }
 
-.admin-main.expanded .admin-table th:nth-child(6),
-.admin-main.expanded .admin-table td:nth-child(6),
-.admin-main.expanded .admin-table th:nth-child(7),
-.admin-main.expanded .admin-table td:nth-child(7),
-.admin-main.expanded .admin-table th:nth-child(8),
-.admin-main.expanded .admin-table td:nth-child(8),
-.admin-main.expanded .admin-table th:nth-child(10),
-.admin-main.expanded .admin-table td:nth-child(10) {
+.admin-main.expanded .admin-products-table th:nth-child(6),
+.admin-main.expanded .admin-products-table td:nth-child(6),
+.admin-main.expanded .admin-products-table th:nth-child(7),
+.admin-main.expanded .admin-products-table td:nth-child(7),
+.admin-main.expanded .admin-products-table th:nth-child(8),
+.admin-main.expanded .admin-products-table td:nth-child(8),
+.admin-main.expanded .admin-products-table th:nth-child(10),
+.admin-main.expanded .admin-products-table td:nth-child(10) {
   display: table-cell;
 }
 

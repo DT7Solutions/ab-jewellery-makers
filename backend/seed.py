@@ -4,7 +4,7 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 django.setup()
 
-from store.models import Category, Product, GoldRate
+from store.models import Category, Product, GoldRate, HeroBanner
 
 # 1. Seed Live Gold Rate for Guntur AP
 gold_rate, created = GoldRate.objects.get_or_create(
@@ -268,5 +268,57 @@ for prod in products_data:
         print(f"  + Created Product: '{prod['name']}' ({prod['slug']})")
     else:
         print(f"  * Updated Product: '{prod['name']}' ({prod['slug']})")
+
+print("\n[+] Seeding Hero Banners...")
+banners_data = [
+    {
+        "id": 1,
+        "image": "banners/hero-bg-full.png",
+        "title_line_1": "Timeless Beauty.",
+        "title_line_2": "Crafted with",
+        "gold_word": "Tradition.",
+        "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP.",
+        "order": 1,
+        "is_active": True
+    },
+    {
+        "id": 2,
+        "image": "banners/hero-slide-2.jpg",
+        "title_line_1": "Royal Heritage.",
+        "title_line_2": "Designed for",
+        "gold_word": "Royalty.",
+        "description": "Handcrafted Temple Nakshi Gold & Imperial Bridal Jewellery by 5th-generation goldsmiths.",
+        "order": 2,
+        "is_active": True
+    },
+    {
+        "id": 3,
+        "image": "banners/hero-slide-3.jpg",
+        "title_line_1": "Pure Elegance.",
+        "title_line_2": "Handcrafted to",
+        "gold_word": "Perfection.",
+        "description": "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders.",
+        "order": 3,
+        "is_active": True
+    }
+]
+
+for ban in banners_data:
+    obj, created = HeroBanner.objects.update_or_create(
+        id=ban["id"],
+        defaults={
+            "image": ban["image"],
+            "title_line_1": ban["title_line_1"],
+            "title_line_2": ban["title_line_2"],
+            "gold_word": ban["gold_word"],
+            "description": ban["description"],
+            "order": ban["order"],
+            "is_active": ban["is_active"]
+        }
+    )
+    if created:
+        print(f"  + Created HeroBanner: '{ban['gold_word']}'")
+    else:
+        print(f"  * Updated HeroBanner: '{ban['gold_word']}'")
 
 print("\n[+] Full Database Seeding and Binding Completed Successfully!")

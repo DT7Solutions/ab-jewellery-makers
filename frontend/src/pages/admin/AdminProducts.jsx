@@ -295,7 +295,7 @@ export default function AdminProducts() {
           <div style={{ textAlign: 'center', padding: '40px', color: 'var(--admin-text-gray)' }}>No products found matching filters.</div>
         ) : (
           <>
-          <table className="admin-table">
+          <table className="admin-table admin-products-table">
             <thead>
               <tr>
                 <th style={{ width: '80px' }}>Image</th>

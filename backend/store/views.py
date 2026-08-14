@@ -5,8 +5,8 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
-from .models import Category, Product, GoldRate, Inquiry
-from .serializers import CategorySerializer, ProductSerializer, GoldRateSerializer, InquirySerializer
+from .models import Category, Product, GoldRate, Inquiry, HeroBanner
+from .serializers import CategorySerializer, ProductSerializer, GoldRateSerializer, InquirySerializer, HeroBannerSerializer
 
 class AdminLoginView(APIView):
     permission_classes = [AllowAny]
@@ -180,3 +180,65 @@ class InquiryViewSet(viewsets.ModelViewSet):
         if product:
             queryset = queryset.filter(product_id=product)
         return queryset.order_by('-created_at')
+
+
+class HeroBannerViewSet(viewsets.ModelViewSet):
+    serializer_class = HeroBannerSerializer
+
+    def get_queryset(self):
+        # Auto-seed default banners if the table is empty in the environment
+        if not HeroBanner.objects.exists():
+            banners_data = [
+                {
+                    "id": 1,
+                    "image": "banners/hero-bg-full.png",
+                    "title_line_1": "Timeless Beauty.",
+                    "title_line_2": "Crafted with",
+                    "gold_word": "Tradition.",
+                    "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP.",
+                    "order": 1,
+                    "is_active": True
+                },
+                {
+                    "id": 2,
+                    "image": "banners/hero-slide-2.jpg",
+                    "title_line_1": "Royal Heritage.",
+                    "title_line_2": "Designed for",
+                    "gold_word": "Royalty.",
+                    "description": "Handcrafted Temple Nakshi Gold & Imperial Bridal Jewellery by 5th-generation goldsmiths.",
+                    "order": 2,
+                    "is_active": True
+                },
+                {
+                    "id": 3,
+                    "image": "banners/hero-slide-3.jpg",
+                    "title_line_1": "Pure Elegance.",
+                    "title_line_2": "Handcrafted to",
+                    "gold_word": "Perfection.",
+                    "description": "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders.",
+                    "order": 3,
+                    "is_active": True
+                }
+            ]
+            for ban in banners_data:
+                HeroBanner.objects.create(
+                    id=ban["id"],
+                    image=ban["image"],
+                    title_line_1=ban["title_line_1"],
+                    title_line_2=ban["title_line_2"],
+                    gold_word=ban["gold_word"],
+                    description=ban["description"],
+                    order=ban["order"],
+                    is_active=ban["is_active"]
+                )
+
+        queryset = HeroBanner.objects.all()
+        is_staff = self.request.user and self.request.user.is_staff
+        if not is_staff:
+            queryset = queryset.filter(is_active=True)
+        return queryset.order_by('order', '-created_at')
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            return [AllowAny()]
+        return [IsAdminUser()]

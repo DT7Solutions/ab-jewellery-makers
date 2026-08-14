@@ -12,7 +12,8 @@ import {
   FaTimes, 
   FaUserShield,
   FaChevronLeft,
-  FaChevronRight
+  FaChevronRight,
+  FaImages
 } from 'react-icons/fa';
 import { adminLogout, adminChangePassword } from '../../utils/api';
 import '../../pages/admin/AdminDashboard.css';
@@ -135,6 +136,7 @@ export default function AdminLayout({ children, title = 'Admin Portal' }) {
 
   const menuItems = [
     { name: 'Dashboard', path: '/admin', icon: <FaTachometerAlt /> },
+    { name: 'Hero Banners', path: '/admin/banners', icon: <FaImages /> },
     { name: 'Categories', path: '/admin/categories', icon: <FaFolder /> },
     { name: 'Products', path: '/admin/products', icon: <FaGem /> },
     { name: 'Gold Rates', path: '/admin/gold-rates', icon: <FaCoins /> },

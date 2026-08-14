@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
+import { fetchApiHeroBanners } from '../utils/api';
 import './Hero.css';
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  const slides = [
+  const [slides, setSlides] = useState([
     {
       id: 1,
       image: "/images/hero-bg-full.png",
@@ -32,7 +32,23 @@ export default function Hero() {
       goldWord: "Perfection.",
       description: "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders."
     }
-  ];
+  ]);
+
+  useEffect(() => {
+    fetchApiHeroBanners().then((data) => {
+      if (data && data.length > 0) {
+        const mappedSlides = data.map((item) => ({
+          id: item.id,
+          image: item.image || "/images/hero-bg-full.png",
+          titleLine1: item.title_line_1,
+          titleLine2: item.title_line_2,
+          goldWord: item.gold_word,
+          description: item.description
+        }));
+        setSlides(mappedSlides);
+      }
+    });
+  }, []);
 
   const totalSlides = slides.length;
 

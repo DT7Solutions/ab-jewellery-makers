@@ -19,6 +19,7 @@ import AdminCategories from './pages/admin/AdminCategories';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminGoldRates from './pages/admin/AdminGoldRates';
 import AdminInquiries from './pages/admin/AdminInquiries';
+import AdminHeroBanners from './pages/admin/AdminHeroBanners';
 
 import './index.css';
 
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/admin/products" element={<AdminProducts />} />
           <Route path="/admin/gold-rates" element={<AdminGoldRates />} />
           <Route path="/admin/inquiries" element={<AdminInquiries />} />
+          <Route path="/admin/banners" element={<AdminHeroBanners />} />
 
           {/* Public website routes wrapped in the public layout */}
           <Route 

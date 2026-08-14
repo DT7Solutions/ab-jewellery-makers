@@ -113,9 +113,7 @@ export default function FaqSection() {
               onClick={openGeneralWhatsApp}
               aria-label="Ask questions on WhatsApp"
             >
-              <span className="whatsapp-pill-icon">
-                <FaWhatsapp size={14} />
-              </span>
+              <FaWhatsapp size={18} />
               <span>Ask on WhatsApp</span>
             </button>
           </div>

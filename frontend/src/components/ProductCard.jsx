@@ -9,8 +9,8 @@ export default function ProductCard({ product, onViewDetails }) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    if (product && product.id) {
-      navigate(`/product/${product.id}`);
+    if (product) {
+      navigate(`/product/${product.slug || product.id}`);
     } else if (onViewDetails) {
       onViewDetails(product);
     }

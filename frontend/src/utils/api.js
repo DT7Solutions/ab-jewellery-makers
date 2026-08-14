@@ -386,3 +386,56 @@ export async function deleteInquiry(id) {
   if (!response.ok) throw new Error(`Delete inquiry failed: ${response.status}`);
   return true;
 }
+
+/**
+ * HERO BANNER API CALLS
+ */
+
+export async function fetchApiHeroBanners() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/hero-banners/`, {
+      headers: { 'Accept': 'application/json' }
+    });
+    if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+    const data = await response.json();
+    return Array.isArray(data) ? data : (data.results || []);
+  } catch (err) {
+    console.warn("Django Hero Banners API offline, using static fallback:", err.message);
+    return [];
+  }
+}
+
+export async function fetchAdminHeroBanners(page = 1) {
+  const response = await fetch(`${API_BASE_URL}/hero-banners/?page=${page}`, {
+    headers: getAuthHeaders({ 'Accept': 'application/json' })
+  });
+  if (!response.ok) throw new Error(`Fetch hero banners failed: ${response.status}`);
+  return await response.json();
+}
+
+export async function saveHeroBanner(id, formData) {
+  const isNew = !id;
+  const url = isNew ? `${API_BASE_URL}/hero-banners/` : `${API_BASE_URL}/hero-banners/${id}/`;
+
+  const response = await fetch(url, {
+    method: isNew ? 'POST' : 'PATCH',
+    headers: getAuthHeaders(),
+    body: formData
+  });
+
+  if (!response.ok) {
+    const errData = await response.json();
+    throw new Error(JSON.stringify(errData) || 'Failed to save hero banner');
+  }
+  return await response.json();
+}
+
+export async function deleteHeroBanner(id) {
+  const response = await fetch(`${API_BASE_URL}/hero-banners/${id}/`, {
+    method: 'DELETE',
+    headers: getAuthHeaders()
+  });
+
+  if (!response.ok) throw new Error(`Delete hero banner failed: ${response.status}`);
+  return true;
+}
