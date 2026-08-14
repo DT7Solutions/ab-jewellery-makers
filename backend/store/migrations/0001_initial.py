@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             name='GoldRate',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('location', models.CharField(default='Guntur, AP', max_length=100)),
+                ('location', models.CharField(default='Tenali, AP', max_length=100)),
                 ('gold_22k_per_gram', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('gold_24k_per_gram', models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True)),
                 ('silver_per_gram', models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True)),

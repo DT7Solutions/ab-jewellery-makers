@@ -13,9 +13,9 @@ import { useEffect } from 'react';
  * - Structured Data JSON-LD (<script type="application/ld+json" id="dynamic-seo-schema">)
  */
 export default function SEO({
-  title = "Althaf Jewellery Makers | Best 22K Gold, Polki & Bridal Jewellery in Guntur AP",
-  description = "Discover handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery at Althaf Jewellery Makers in Guntur, Andhra Pradesh. 100% BIS 916 Hallmarked heritage designs, transparent live gold pricing & custom bridal orders.",
-  keywords = "Althaf Jewellery Makers, AB Jewellery Makers, Gold Jewellery Guntur, 22K Gold Rate Guntur, Bridal Gold Jewellery Andhra Pradesh, Polki Diamond Necklace, Kundan Choker Guntur, Temple Jhumkas, Antique Nakshi Gold, 916 BIS Hallmarked Gold",
+  title = "Althaf Jewellery Makers | Best 22K Gold, Polki & Bridal Jewellery in Tenali AP",
+  description = "Discover handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery at Althaf Jewellery Makers in Tenali, Andhra Pradesh. 100% BIS 916 Hallmarked heritage designs, transparent live gold pricing & custom bridal orders.",
+  keywords = "Althaf Jewellery Makers, Sk. Anwar Basha, Gold Jewellery Tenali, 22K Gold Rate Tenali, Bridal Gold Jewellery Andhra Pradesh, Polki Diamond Necklace, Kundan Choker Tenali, Temple Jhumkas, Antique Nakshi Gold, 916 BIS Hallmarked Gold, BNI Cents Group",
   canonical = "https://althafjewellery.com/",
   ogType = "website",
   ogImage = "https://althafjewellery.com/images/hero-bg-full.png",

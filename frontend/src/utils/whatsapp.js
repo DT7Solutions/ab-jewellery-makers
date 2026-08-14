@@ -65,7 +65,7 @@ Product Link:
 ${fullImageUrl}
 
 Please share:
-1. Today's live Gold Rate (Guntur AP)
+1. Today's live Gold Rate (Tenali AP)
 2. Detailed Price Breakdown & Making Charges
 3. Availability & Customization Timeline
 

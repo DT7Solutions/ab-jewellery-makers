@@ -14,7 +14,7 @@ export default function Hero() {
       titleLine1: "Timeless Beauty.",
       titleLine2: "Crafted with",
       goldWord: "Tradition.",
-      description: "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP."
+      description: "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Tenali, AP."
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function Hero() {
       titleLine1: "Pure Elegance.",
       titleLine2: "Handcrafted to",
       goldWord: "Perfection.",
-      description: "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders."
+      description: "Purity is our priority. Live Tenali AP gold pricing & bespoke custom jewellery orders."
     }
   ]);
 

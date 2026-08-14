@@ -28,7 +28,7 @@ export default function Craftsmanship() {
           </h2>
 
           <p className="craftsmanship-description">
-            Every creation at Althaf Jewellery Makers tells a sacred story of heritage, passion, and devotion. Handcrafted by 5th-generation hereditary master goldsmiths in Guntur, AP using authentic Nakshi, Kundan Jadau, and Temple carving techniques with 100% BIS 916 hallmarked purity.
+            Every creation at Althaf Jewellery Makers tells a sacred story of heritage, passion, and devotion. Handcrafted by 5th-generation hereditary master goldsmiths in Tenali, AP using authentic Nakshi, Kundan Jadau, and Temple carving techniques with 100% BIS 916 hallmarked purity.
           </p>
         </div>
       </div>

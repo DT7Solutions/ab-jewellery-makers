@@ -53,7 +53,7 @@ export default function App() {
             path="/*" 
             element={
               <>
-                <Header />
+                <Header onSelectCategory={handleSelectCategory} />
                 <main>
                   <Routes>
                     <Route 

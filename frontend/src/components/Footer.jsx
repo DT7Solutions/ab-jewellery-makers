@@ -21,13 +21,13 @@ export default function Footer() {
             <Link to="/" className="footer-logo-wrapper" aria-label="Althaf Jewellery Makers Home">
               <img 
                 src="/images/logo.png" 
-                alt="Althaf Jewellery Makers - Heritage 22K Gold & Bridal Jewellery Guntur" 
+                alt="Althaf Jewellery Makers - Heritage 22K Gold & Bridal Jewellery Tenali" 
                 className="footer-logo-img"
               />
             </Link>
 
             <p className="footer-brand-desc">
-              <strong>{SITE_CONFIG.brandName}</strong> (AB Jewellery Makers) — 5 generations of royal Indian goldsmithing. Handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery in Guntur, Andhra Pradesh.
+              <strong>{SITE_CONFIG.brandName}</strong> — 5 generations of royal Indian goldsmithing. Handcrafted 22K Gold, Polki, Kundan, and Antique Temple Jewellery in Tenali, Andhra Pradesh.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: '0.8rem 0', color: '#F5D061', fontSize: '0.82rem' }}>
@@ -58,11 +58,11 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">COLLECTIONS</h4>
             <ul className="footer-links">
-              <li><Link to="/collections">22K Gold Necklaces</Link></li>
-              <li><Link to="/collections">Uncut Polki & Kundan</Link></li>
-              <li><Link to="/collections">Temple Jhumkas & Earrings</Link></li>
-              <li><Link to="/collections">Antique Nakshi Bangles</Link></li>
-              <li><Link to="/collections">Diamond Mangalsutras</Link></li>
+              <li><Link to="/collections?category=necklaces">22K Gold Necklaces</Link></li>
+              <li><Link to="/collections?category=necklaces">Uncut Polki & Kundan</Link></li>
+              <li><Link to="/collections?category=earrings">Temple Jhumkas & Earrings</Link></li>
+              <li><Link to="/collections?category=bangles">Antique Nakshi Bangles</Link></li>
+              <li><Link to="/collections?category=mangalsutra">Diamond Mangalsutras</Link></li>
               <li><Link to="/collections">Bespoke Bridal Couture</Link></li>
             </ul>
           </div>
@@ -73,15 +73,14 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link to="/about">BIS 916 Hallmark Standard</Link></li>
               <li><Link to="/about">Hereditary Goldsmithing</Link></li>
-              <li><Link to="/contact">Live Guntur Gold Rates</Link></li>
+              <li><Link to="/contact">Live Tenali Gold Rates</Link></li>
               <li><Link to="/contact">Insured All-India Shipping</Link></li>
-              <li><Link to="/contact">Lifetime Exchange & Buyback</Link></li>
             </ul>
           </div>
 
           {/* Column 5: Contact Us */}
           <div className="footer-col contact-col">
-            <h4 className="footer-heading">GUNTUR BOUTIQUE</h4>
+            <h4 className="footer-heading">TENALI BOUTIQUE</h4>
             <div className="contact-list">
               <div className="contact-item cursor-pointer" onClick={openGeneralWhatsApp} role="button" tabIndex={0}>
                 <FaWhatsapp className="contact-icon whatsapp-color" />
@@ -108,8 +107,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="footer-bottom">
-          <p>© 2026 {SITE_CONFIG.brandName}. All Rights Reserved. | 100% BIS Hallmarked 22K Gold Jewellery in Guntur, Andhra Pradesh.</p>
+        <div className="footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <p style={{ margin: 0, textAlign: 'left' }}>© 2026 {SITE_CONFIG.brandName}. All Rights Reserved. | 100% BIS Hallmarked 22K Gold Jewellery in Tenali, Andhra Pradesh.</p>
+          <p style={{ margin: 0 }}>designed by <a href="https://dt7agency.com" target="_blank" rel="noopener noreferrer" style={{ color: '#F5D061', textDecoration: 'none', transition: 'color 0.2s', fontWeight: '500' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = '#F5D061'}>dt7agency</a></p>
         </div>
       </div>
     </footer>

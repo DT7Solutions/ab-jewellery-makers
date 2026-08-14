@@ -57,7 +57,7 @@ export default function PagePreloader() {
 
         {/* Brand Name & Subtitle */}
         <h1 className="preloader-brand-title">ALTHAF JEWELLERY MAKERS</h1>
-        <p className="preloader-brand-sub">HANDCRAFTED HERITAGE • GUNTUR, AP</p>
+        <p className="preloader-brand-sub">HANDCRAFTED HERITAGE • TENALI, AP</p>
 
         {/* Gold Loading Progress Bar */}
         <div className="preloader-progress-container">

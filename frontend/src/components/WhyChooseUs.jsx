@@ -12,7 +12,7 @@ export default function WhyChooseUs() {
     {
       icon: <FiStar size={24} />,
       title: "5th-Gen Master Goldsmithing",
-      desc: "Handcrafted by hereditary karigars in Guntur with centuries of royal Indian temple & polki heritage."
+      desc: "Handcrafted by hereditary karigars in Tenali with centuries of royal Indian temple & polki heritage."
     },
     {
       icon: <FiHeart size={24} />,
@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
     {
       icon: <FiCheckCircle size={24} />,
       title: "Transparent Live Rate Billing",
-      desc: "Clear itemized pricing on live Guntur AP gold rates, net weight, hallmarking, and making charges."
+      desc: "Clear itemized pricing on live Tenali AP gold rates, net weight, hallmarking, and making charges."
     }
   ];
 
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
               <span className="divider-line-short"></span>
             </div>
           </div>
-          <p className="section-tagline left-align">5 GENERATIONS OF HEREDITARY GOLDSMITHING & UNCOMPROMISED TRUST IN GUNTUR</p>
+          <p className="section-tagline left-align">5 GENERATIONS OF HEREDITARY GOLDSMITHING & UNCOMPROMISED TRUST IN TENALI</p>
 
           <p className="why-choose-intro">
             At <strong>Althaf Jewellery Makers</strong>, we combine centuries-old royal Indian goldsmithing traditions with uncompromised BIS 916 purity, live market pricing, and modern customer trust.
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
           <div className="why-choose-image-frame">
             <img 
               src="/images/hero-slide-3.jpg" 
-              alt="Why Choose Althaf Jewellery Makers - 22K Gold Purity & Master Craftsmanship Guntur" 
+              alt="Why Choose Althaf Jewellery Makers - 22K Gold Purity & Master Craftsmanship Tenali" 
               className="why-choose-image"
               loading="lazy"
             />

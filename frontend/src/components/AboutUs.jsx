@@ -11,7 +11,7 @@ export default function AboutUs() {
     {
       icon: <IoDiamondOutline size={26} />,
       number: "25+",
-      label: "Years of\nLegacy in Guntur"
+      label: "Years of\nLegacy in Tenali"
     },
     {
       icon: <HiOutlineUserGroup size={26} />,
@@ -38,7 +38,7 @@ export default function AboutUs() {
           <div className="about-image-frame">
             <img 
               src="/images/about-model.png" 
-              alt="Althaf Jewellery Makers Heritage Craftsmanship - 22K Gold Bridal Ornaments Guntur AP"
+              alt="Althaf Jewellery Makers Heritage Craftsmanship - 22K Gold Bridal Ornaments Tenali AP"
               className="about-image"
               loading="lazy"
             />
@@ -56,12 +56,12 @@ export default function AboutUs() {
               <span className="divider-line"></span>
             </div>
           </div>
-          <p className="section-tagline left-align">5 GENERATIONS OF GOLDSMITHING EXCELLENCE IN GUNTUR, ANDHRA PRADESH</p>
+          <p className="section-tagline left-align">5 GENERATIONS OF GOLDSMITHING EXCELLENCE IN TENALI, ANDHRA PRADESH</p>
 
           {/* Narrative Paragraphs */}
           <div className="about-description">
             <p className="about-text">
-              <strong>{SITE_CONFIG.brandName}</strong> (AB Jewellery Makers) is a regal celebration of Indian goldsmithing heritage, royal craftsmanship, and timeless bridal beauty situated at the historic Main Gold Market in Lalapet, Guntur.
+              <strong>{SITE_CONFIG.brandName}</strong> is a regal celebration of Indian goldsmithing heritage, royal craftsmanship, and timeless bridal beauty situated at the historic Sharaf Bazar in Tenali.
             </p>
             <p className="about-text">
               Each piece is lovingly handcrafted by hereditary artisans using 100% BIS 916 hallmarked pure gold, genuine gemstones, and techniques passed down across 5 generations.

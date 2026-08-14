@@ -252,8 +252,8 @@ export default function ProductDetailPage() {
     }
   };
 
-  const pageTitle = product.seoTitle || `${product.name} - ${product.purity || '22K'} Gold | Althaf Jewellery Makers Guntur`;
-  const pageDesc = product.seoDescription || `${product.description} 100% BIS 916 Hallmarked pure gold jewellery at Althaf Jewellery Makers, Lalapet, Guntur AP. Enquire on WhatsApp.`;
+  const pageTitle = product.seoTitle || `${product.name} | ${SITE_CONFIG.brandName}`;
+  const pageDesc = product.seoDescription || `${product.description} 100% BIS 916 Hallmarked pure gold jewellery at ${SITE_CONFIG.brandName}, Tenali AP. Enquire on WhatsApp.`;
 
   return (
     <div className="product-detail-page">
@@ -261,7 +261,7 @@ export default function ProductDetailPage() {
       <SEO 
         title={pageTitle}
         description={pageDesc}
-        keywords={product.keywords || `${product.name}, ${product.category} gold guntur, 22k jewellery andhra pradesh, bis 916 hallmark`}
+        keywords={product.keywords || `${product.name}, ${product.category} gold tenali, 22k jewellery andhra pradesh, bis 916 hallmark`}
         canonical={`https://althafjewellery.com/product/${product.id}`}
         ogImage={productImage.startsWith('http') ? productImage : `https://althafjewellery.com${productImage}`}
         ogType="product"
@@ -271,7 +271,7 @@ export default function ProductDetailPage() {
       {/* Subpage Banner */}
       <SubpageBanner
         title={product.name}
-        subtitle={`${product.purity || '22K'} Pure Gold • ${product.category} • Handcrafted Heirloom in Guntur`}
+        subtitle={`${product.purity || '22K'} Pure Gold • ${product.category} • Handcrafted Heirloom in Tenali`}
         bgImage="/images/footer-gold-bg.png"
       />
 
@@ -302,7 +302,7 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Interactive Hover Magnifier View */}
-                <ImageMagnifier src={productImage} alt={`${product.name} - ${product.purity || '22K'} Gold Jewellery Althaf Guntur`} />
+                <ImageMagnifier src={productImage} alt={`${product.name} - ${product.purity || '22K'} Gold Jewellery Althaf Tenali`} />
               </div>
 
               {/* Trust Badges Bar below image */}
@@ -381,7 +381,7 @@ export default function ProductDetailPage() {
 
               <div className="pdp-price-row">
                 <span className="pdp-price">{product.formattedPrice || `₹${(product.price || 0).toLocaleString('en-IN')}`}</span>
-                <span className="pdp-price-disclaimer">*Indicative Price (Live rate Guntur AP)</span>
+                <span className="pdp-price-disclaimer">*Indicative Price (Live rate Tenali AP)</span>
               </div>
 
               <div className="pdp-divider"></div>
@@ -412,7 +412,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="pdp-spec-item">
                     <span className="spec-label">Store Location</span>
-                    <span className="spec-val">Main Gold Market, Guntur AP</span>
+                    <span className="spec-val">Sharaf Bazar, Tenali AP</span>
                   </div>
                 </div>
               </div>
@@ -422,7 +422,7 @@ export default function ProductDetailPage() {
                 <h3 className="pdp-sub-heading">CRAFTSMANSHIP & DESIGN STORY</h3>
                 <p className="pdp-desc-text">{product.longDescription || product.description}</p>
                 <p className="pdp-desc-text">
-                  Handcrafted by 5th-generation hereditary goldsmiths in Guntur using authentic royal carving techniques. 
+                  Handcrafted by 5th-generation hereditary goldsmiths in Tenali using authentic royal carving techniques. 
                   Every curve is polished to perfection with 100% hallmarked gold, bringing eternal warmth, brilliance, and elegance to your special celebrations.
                 </p>
               </div>
@@ -443,7 +443,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="pdp-hl-item">
                   <FiCheckCircle className="hl-icon" />
-                  <span>Personalized In-Store Trial at Guntur Boutique</span>
+                  <span>Personalized In-Store Trial at Tenali Boutique</span>
                 </div>
               </div>
 

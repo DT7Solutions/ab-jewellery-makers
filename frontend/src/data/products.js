@@ -15,10 +15,10 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 4.9,
     reviewCount: 48,
-    seoTitle: "Heritage Royal 22K Gold Necklace Set with Rubies & Emeralds | Althaf Jewellery Guntur",
-    seoDescription: "Buy handcrafted Heritage Royal 22K Gold Necklace Set featuring ruby cabochons and natural emerald droplets at Althaf Jewellery Makers in Guntur AP. 100% BIS 916 Hallmarked.",
-    keywords: "heritage gold necklace guntur, 22k bridal necklace set, ruby emerald gold haar, bis 916 gold jewellery andhra pradesh",
-    description: "An iconic handcrafted 22K gold heritage necklace set adorned with ruby cabochons and natural emerald droplets. Hand-carved by 5th-generation hereditary goldsmiths in Guntur.",
+    seoTitle: "Heritage Royal 22K Gold Necklace Set with Rubies & Emeralds | Althaf Jewellery Tenali",
+    seoDescription: "Buy handcrafted Heritage Royal 22K Gold Necklace Set featuring ruby cabochons and natural emerald droplets at Althaf Jewellery Makers in Tenali AP. 100% BIS 916 Hallmarked.",
+    keywords: "heritage gold necklace tenali, 22k bridal necklace set, ruby emerald gold haar, bis 916 gold jewellery andhra pradesh",
+    description: "An iconic handcrafted 22K gold heritage necklace set adorned with ruby cabochons and natural emerald droplets. Hand-carved by 5th-generation hereditary goldsmiths in Tenali.",
     longDescription: "The Heritage Royal Necklace Set exemplifies the pinnacle of traditional Indian goldsmithing. Masterfully handcrafted in pure 22-karat hallmarked yellow gold, this regal creation is studded with rich pigeon-blood red ruby cabochons and suspended natural Zambian emerald teardrops. Each link is hand-hammered and articulated for supreme comfort against the neckline, making it the crowning glory of your bridal trousseau or festive celebration.",
     specifications: {
       metalPurity: "22K (916) Pure Gold",
@@ -26,7 +26,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Ruby Cabochons & Zambian Emerald Droplets",
       certification: "BIS Hallmarked with Unique HUID Tracking",
       craftsmanship: "Hereditary Nakshi & Filigree Handcraft",
-      origin: "Main Gold Market, Guntur, Andhra Pradesh",
+      origin: "Sharaf Bazar, Tenali, Andhra Pradesh",
       idealFor: "Bridal Weddings, Receptions & Grand Festivities"
     }
   },
@@ -46,9 +46,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 4.8,
     reviewCount: 36,
-    seoTitle: "Temple Goddess 22K Gold Jhumkas | Antique South Indian Earrings Guntur",
-    seoDescription: "Handcrafted traditional Temple Goddess Gold Jhumkas in 22K hallmarked gold with fine Goddess Lakshmi motifs and seed pearls at Althaf Jewellery Makers Guntur.",
-    keywords: "temple gold jhumkas guntur, 22k antique earrings, lakshmi jhumkas andhra pradesh, traditional south indian jhumka",
+    seoTitle: "Temple Goddess 22K Gold Jhumkas | Antique South Indian Earrings Tenali",
+    seoDescription: "Handcrafted traditional Temple Goddess Gold Jhumkas in 22K hallmarked gold with fine Goddess Lakshmi motifs and seed pearls at Althaf Jewellery Makers Tenali.",
+    keywords: "temple gold jhumkas tenali, 22k antique earrings, lakshmi jhumkas andhra pradesh, traditional south indian jhumka",
     description: "Traditional temple work gold jhumkas featuring Goddess motif carvings and pearl drop finish. Hand-chiseled in 22K yellow gold.",
     longDescription: "Infused with divine South Indian heritage, these Temple Goddess Jhumkas showcase detailed miniature repoussé carvings of Goddess Lakshmi seated on a blooming lotus. Finished with delicate basra seed pearl tassels and a secure gold screw-back closure, these 22K earrings represent eternal prosperity, beauty, and auspicious blessings for every Indian bride.",
     specifications: {
@@ -57,7 +57,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Ruby Accents & Fine Seed Pearl Drops",
       certification: "BIS 916 Hallmarked with HUID",
       craftsmanship: "Ancient South Indian Repoussé Temple Art",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Pujas, South Indian Muhurtham & Classical Celebrations"
     }
   },
@@ -77,9 +77,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.9,
     reviewCount: 29,
-    seoTitle: "Royal Flora 22K Gold Kada Bangles | Bridal Gold Valayal Guntur",
-    seoDescription: "Exquisite set of floral relief carved 22K gold kada bangles designed for bridal grace. 100% hallmarked gold at Althaf Jewellery Makers Guntur AP.",
-    keywords: "gold kada bangles guntur, 22k floral bangles, bridal gold valayal andhra pradesh, bis 916 hallmarked kada",
+    seoTitle: "Royal Flora 22K Gold Kada Bangles | Bridal Gold Valayal Tenali",
+    seoDescription: "Exquisite set of floral relief carved 22K gold kada bangles designed for bridal grace. 100% hallmarked gold at Althaf Jewellery Makers Tenali AP.",
+    keywords: "gold kada bangles tenali, 22k floral bangles, bridal gold valayal andhra pradesh, bis 916 hallmarked kada",
     description: "Set of exquisite floral relief carved 22K gold kada bangles designed for festive elegance and heirloom durability.",
     longDescription: "These Royal Flora Gold Bangles present a captivating symphony of embossed botanical tendrils and blooming rose motifs carved in high-relief 22K gold. Constructed with a solid reinforced core and rounded inner bezel for day-long comfort, they transition effortlessly from festive family gatherings to royal bridal wedding ceremonies.",
     specifications: {
@@ -88,7 +88,7 @@ export const PRODUCTS = [
       stoneDetails: "Solid All-Gold Embossed Relief",
       certification: "100% BIS Hallmarked Purity Guarantee",
       craftsmanship: "High-Relief Floral Embossing",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Weddings, Sangeet & Festive Gifting"
     }
   },
@@ -108,9 +108,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 5.0,
     reviewCount: 52,
-    seoTitle: "Royal Uncut Polki Diamond Necklace Set | Imperial Bridal Jewellery Guntur",
-    seoDescription: "Regal 22K Gold Uncut Polki Diamond Necklace with emerald tumble beads. Handcrafted Mughal heritage jewelry at Althaf Jewellery Makers Guntur AP.",
-    keywords: "polki diamond necklace guntur, uncut diamond choker, bridal polki haar andhra pradesh, royal mughal jewellery guntur",
+    seoTitle: "Royal Uncut Polki Diamond Necklace Set | Imperial Bridal Jewellery Tenali",
+    seoDescription: "Regal 22K Gold Uncut Polki Diamond Necklace with emerald tumble beads. Handcrafted Mughal heritage jewelry at Althaf Jewellery Makers Tenali AP.",
+    keywords: "polki diamond necklace tenali, uncut diamond choker, bridal polki haar andhra pradesh, royal mughal jewellery tenali",
     description: "Uncut royal Polki diamond neckpiece embedded with vibrant emerald stone beads and traditional silver-foil setting.",
     longDescription: "Carrying centuries of imperial Mughal royalty, this Uncut Polki Diamond Necklace features hand-selected syndicate Polki diamonds set in 22K pure gold using authentic jadau open-table foil work. Highlighted with vivid emerald tumble drops and finished with reversible enamel meenakari artwork on the reverse side, this necklace is the ultimate statement piece for luxury connoisseurs.",
     specifications: {
@@ -119,7 +119,7 @@ export const PRODUCTS = [
       stoneDetails: "Syndicate Uncut Polki & Zambian Emerald Tumbles",
       certification: "BIS Hallmarked + Diamond Authenticity Certificate",
       craftsmanship: "Authentic Jadau & Bikaner Meenakari Enameling",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Royal Grand Weddings & High Couture Occasions"
     }
   },
@@ -139,9 +139,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 4.9,
     reviewCount: 41,
-    seoTitle: "Imperial Kundan Choker Set with Meenakari | Bridal Gold Choker Guntur",
-    seoDescription: "Shop handcrafted Imperial Kundan Choker Set in 22K gold with fine seed pearls and intricate back meenakari art at Althaf Jewellery Makers Guntur.",
-    keywords: "kundan choker guntur, bridal kundan necklace, 22k gold choker andhra pradesh, meenakari choker set",
+    seoTitle: "Imperial Kundan Choker Set with Meenakari | Bridal Gold Choker Tenali",
+    seoDescription: "Shop handcrafted Imperial Kundan Choker Set in 22K gold with fine seed pearls and intricate back meenakari art at Althaf Jewellery Makers Tenali.",
+    keywords: "kundan choker tenali, bridal kundan necklace, 22k gold choker andhra pradesh, meenakari choker set",
     description: "Regal Kundan choker with detailed back meenakari art and lustrous seed pearl drops. Perfect for regal bridal styling.",
     longDescription: "The Imperial Kundan Choker Set encapsulates the timeless majesty of Rajasthani royalty. Each pure glass kundan gemstone is sealed with refined 24K gold foil within a 22K gold frame, while the reverse side reveals vibrant hand-painted Meenakari florals in royal red and turquoise enamel. Bordered by five rows of tiny seed pearls, it flatters every neck silhouette.",
     specifications: {
@@ -150,7 +150,7 @@ export const PRODUCTS = [
       stoneDetails: "Refined Kundan Stones & Cultured Seed Pearls",
       certification: "100% BIS 916 Hallmarked",
       craftsmanship: "Traditional Kundan Jadau with Hand-Painted Meenakari",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Bridal Receptions & Sangeet Evenings"
     }
   },
@@ -170,9 +170,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.7,
     reviewCount: 22,
-    seoTitle: "Royal Peacock 22K Gold Ring with Ruby Gemstone | Althaf Jewellery Guntur",
-    seoDescription: "Intricately detailed peacock crest gold ring in 22K hallmarked gold with natural ruby gemstone at Althaf Jewellery Makers in Guntur AP.",
-    keywords: "peacock gold ring guntur, 22k gold ring, ruby cocktail ring, bridal gold ring andhra pradesh",
+    seoTitle: "Royal Peacock 22K Gold Ring with Ruby Gemstone | Althaf Jewellery Tenali",
+    seoDescription: "Intricately detailed peacock crest gold ring in 22K hallmarked gold with natural ruby gemstone at Althaf Jewellery Makers in Tenali AP.",
+    keywords: "peacock gold ring tenali, 22k gold ring, ruby cocktail ring, bridal gold ring andhra pradesh",
     description: "Intricately detailed peacock crest gold ring embellished with a central ruby gemstone and textured plumage engraving.",
     longDescription: "Inspired by the grace of India's national bird, this Royal Peacock Gold Ring showcases a sculpted 3D peacock motif with feathered micro-engravings across the crest and shank. Centered with a bezel-set natural ruby eye, this 22K piece adds an unforgettable aura of majesty to your hands.",
     specifications: {
@@ -181,7 +181,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Faceted Ruby Gemstone",
       certification: "BIS 916 Hallmarked & Certified",
       craftsmanship: "Micro-Chiseled Feathered Sculpture",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Cocktails, Engagement Parties & Festive Wear"
     }
   },
@@ -201,9 +201,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.8,
     reviewCount: 19,
-    seoTitle: "Emerald Grace 22K Gold Pendant | Solitaire Zambian Emerald Locket Guntur",
-    seoDescription: "Solitaire Zambian emerald pendant enclosed in sparkling pavé 22K gold setting. 100% hallmarked gold at Althaf Jewellery Makers Guntur AP.",
-    keywords: "emerald gold pendant guntur, 22k gold locket, zambian emerald jewellery, gemstone pendant andhra pradesh",
+    seoTitle: "Emerald Grace 22K Gold Pendant | Solitaire Zambian Emerald Locket Tenali",
+    seoDescription: "Solitaire Zambian emerald pendant enclosed in sparkling pavé 22K gold setting. 100% hallmarked gold at Althaf Jewellery Makers Tenali AP.",
+    keywords: "emerald gold pendant tenali, 22k gold locket, zambian emerald jewellery, gemstone pendant andhra pradesh",
     description: "Solitaire Zambian emerald pendant enclosed in a sparkling pave gold setting with fine milgrain edges.",
     longDescription: "Centering a vivid octagonal-cut Zambian emerald of remarkable clarity, the Emerald Grace Pendant is embraced by a halo of micro-detailed 22K yellow gold scrolls. Lightweight yet commanding in visual impact, it pairs seamlessly with traditional gold chains or contemporary layered necklaces.",
     specifications: {
@@ -212,7 +212,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Zambian Emerald Solitaire",
       certification: "BIS Hallmarked & Gemstone Certified",
       craftsmanship: "Precision Bezel Setting with Milgrain Trim",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Daily Luxury, Anniversaries & Formal Gifting"
     }
   },
@@ -232,9 +232,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 5.0,
     reviewCount: 64,
-    seoTitle: "Antique Heritage Nakshi Haar | Traditional Long Gold Bridal Haram Guntur",
-    seoDescription: "Handcrafted 22K antique finish long gold haar with intricate nakshi work motifs and ruby cabochons at Althaf Jewellery Makers Guntur AP.",
-    keywords: "antique nakshi haar guntur, long gold bridal haram, temple kasumala andhra pradesh, heritage antique gold guntur",
+    seoTitle: "Antique Heritage Nakshi Haar | Traditional Long Gold Bridal Haram Tenali",
+    seoDescription: "Handcrafted 22K antique finish long gold haar with intricate nakshi work motifs and ruby cabochons at Althaf Jewellery Makers Tenali AP.",
+    keywords: "antique nakshi haar tenali, long gold bridal haram, temple kasumala andhra pradesh, heritage antique gold tenali",
     description: "Heritage antique finish long gold haar with nakshi work motifs and traditional black-gold antique polish.",
     longDescription: "The Antique Heritage Nakshi Haar is an ode to ancient Dravidian temple architecture. Crafted with deep 22K antique patina, this multi-layered long bridal haram features hand-sculpted temple motifs, divine flora, and dangling gold coin ghungroos. An irreplaceable heirloom that gains sentimental and aesthetic value with every passing generation.",
     specifications: {
@@ -243,7 +243,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Untreated Burmese Rubies",
       certification: "BIS 916 Hallmarked with HUID",
       craftsmanship: "5th-Generation Hand-Chiseled Nakshi Art",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Muhurtham Bridal Wear & Family Milestone Events"
     }
   },
@@ -263,9 +263,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.8,
     reviewCount: 17,
-    seoTitle: "Filigree Regal 22K Gold Cuff Bracelet | Handcrafted Wristwear Guntur",
-    seoDescription: "Flexible 22K gold filigree wrist cuff with secure luxury clasp. Handcrafted by master artisans at Althaf Jewellery Makers in Guntur AP.",
-    keywords: "gold filigree cuff guntur, 22k gold bracelet, bridal wrist cuff, handcrafted gold jewellery andhra pradesh",
+    seoTitle: "Filigree Regal 22K Gold Cuff Bracelet | Handcrafted Wristwear Tenali",
+    seoDescription: "Flexible 22K gold filigree wrist cuff with secure luxury clasp. Handcrafted by master artisans at Althaf Jewellery Makers in Tenali AP.",
+    keywords: "gold filigree cuff tenali, 22k gold bracelet, bridal wrist cuff, handcrafted gold jewellery andhra pradesh",
     description: "Flexible gold filigree wrist cuff with secure luxury clasp and wire-twisted openwork patterns.",
     longDescription: "Woven like golden lace, the Filigree Regal Gold Cuff features microscopically drawn 22K gold wires twisted into ornate honeycomb lattices. Fitted with a concealed side safety clasp and hinge, it hugs the wrist with ergonomic ease and radiant brilliance.",
     specifications: {
@@ -274,7 +274,7 @@ export const PRODUCTS = [
       stoneDetails: "Pure All-Gold Fine Filigree Openwork",
       certification: "100% BIS Hallmarked Purity",
       craftsmanship: "Authentic Indian Wire Filigree Technique",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Sangeet, Cocktail Parties & Evening Receptions"
     }
   },
@@ -294,9 +294,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 4.9,
     reviewCount: 38,
-    seoTitle: "Royal Solitaire Diamond Mangalsutra | Modern Nallapusalu Gold Chain Guntur",
-    seoDescription: "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant at Althaf Jewellery Makers Guntur AP.",
-    keywords: "diamond mangalsutra guntur, nallapusalu gold chain, 18k diamond mangalsutra, modern bridal mangalsutra andhra pradesh",
+    seoTitle: "Royal Solitaire Diamond Mangalsutra | Modern Nallapusalu Gold Chain Tenali",
+    seoDescription: "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant at Althaf Jewellery Makers Tenali AP.",
+    keywords: "diamond mangalsutra tenali, nallapusalu gold chain, 18k diamond mangalsutra, modern bridal mangalsutra andhra pradesh",
     description: "Modern luxury double-chain black bead mangalsutra featuring a sparkling diamond pendant and reinforced gold links.",
     longDescription: "A union of timeless marital sanctity and contemporary diamond luxury, the Royal Solitaire Mangalsutra features dual rows of auspicious black spinel beads interlaced with 18K hallmarked yellow gold links. The focal point is a dazzling cluster pendant set with brilliant-cut natural diamonds that catch light with every gesture.",
     specifications: {
@@ -305,7 +305,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Brilliant Cut Diamonds (VVS-VS, E-F Color)",
       certification: "BIS Hallmark + IGI Diamond Certification",
       craftsmanship: "Reinforced Tension-Tested Beaded Linking",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Sacred Wedding Ceremony & Everyday Modern Wear"
     }
   },
@@ -325,9 +325,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.8,
     reviewCount: 25,
-    seoTitle: "Royal Crescent 22K Gold Chandbali Earrings | Kundan & Pearl Drops Guntur",
-    seoDescription: "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings. 100% hallmarked gold at Althaf Jewellery Makers Guntur AP.",
-    keywords: "chandbali earrings guntur, 22k kundan chandbali, bridal pearl earrings, royal moon earrings andhra pradesh",
+    seoTitle: "Royal Crescent 22K Gold Chandbali Earrings | Kundan & Pearl Drops Tenali",
+    seoDescription: "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings. 100% hallmarked gold at Althaf Jewellery Makers Tenali AP.",
+    keywords: "chandbali earrings tenali, 22k kundan chandbali, bridal pearl earrings, royal moon earrings andhra pradesh",
     description: "Crescent moon shaped Chandbali earrings with pearl tassels and uncut stone settings. Elegant traditional movement.",
     longDescription: "The Royal Crescent Chandbali embodies romantic Nizami heritage. Designed in concentric crescent arcs of 22K gold, each tier is encrusted with uncut kundan stones and finished with a swaying fringe of natural seed pearls that dance gracefully with every turn of the head.",
     specifications: {
@@ -336,7 +336,7 @@ export const PRODUCTS = [
       stoneDetails: "Fine Kundan Gems & Lustrous Basra Pearls",
       certification: "100% BIS 916 Hallmarked",
       craftsmanship: "Hand-Assembled Tiered Chandbali Structure",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Mehendi, Sangeet & Festive Glamour"
     }
   },
@@ -356,9 +356,9 @@ export const PRODUCTS = [
     bestseller: true,
     rating: 5.0,
     reviewCount: 57,
-    seoTitle: "Grand Bridal Antique 22K Gold Choker Set | Traditional Wedding Jewellery Guntur",
-    seoDescription: "Opulent multi-tiered bridal antique choker set crafted in 22K hallmarked gold for grand traditional weddings at Althaf Jewellery Makers Guntur.",
-    keywords: "antique bridal choker guntur, 22k gold wedding choker, grand bridal jewellery andhra pradesh, heritage antique necklace",
+    seoTitle: "Grand Bridal Antique 22K Gold Choker Set | Traditional Wedding Jewellery Tenali",
+    seoDescription: "Opulent multi-tiered bridal antique choker set crafted in 22K hallmarked gold for grand traditional weddings at Althaf Jewellery Makers Tenali.",
+    keywords: "antique bridal choker tenali, 22k gold wedding choker, grand bridal jewellery andhra pradesh, heritage antique necklace",
     description: "Opulent multi-tiered bridal choker set crafted for grand traditional weddings with authentic heirloom character.",
     longDescription: "Crafted for the bride whose wedding demands uncompromised grandeur, this Bridal Antique Choker Set features three cascading layers of hand-carved floral motifs, antique nakshi medallions, and ruby teardrop clusters. Its flexible mesh backing guarantees a snug, regal fit that stays comfortable throughout long wedding rituals.",
     specifications: {
@@ -367,7 +367,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Ruby Teardrops & Emerald Inlays",
       certification: "100% BIS 916 Hallmarked with HUID",
       craftsmanship: "Multi-Tiered Nakshi Master Goldsmithing",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Grand Wedding Muhurtham & Royal Receptions"
     }
   },
@@ -387,9 +387,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.7,
     reviewCount: 15,
-    seoTitle: "Kundan Solitaire 22K Gold Ring | Handcrafted Floral Ring Guntur",
-    seoDescription: "Handcrafted Kundan setting gold ring with floral engraving on the shank in 22K hallmarked gold at Althaf Jewellery Makers Guntur AP.",
-    keywords: "kundan gold ring guntur, 22k solitaire ring, floral engraved gold ring, bridal jewellery andhra pradesh",
+    seoTitle: "Kundan Solitaire 22K Gold Ring | Handcrafted Floral Ring Tenali",
+    seoDescription: "Handcrafted Kundan setting gold ring with floral engraving on the shank in 22K hallmarked gold at Althaf Jewellery Makers Tenali AP.",
+    keywords: "kundan gold ring tenali, 22k solitaire ring, floral engraved gold ring, bridal jewellery andhra pradesh",
     description: "Handcrafted Kundan setting gold ring with floral engraving on the shank and lustrous central crystal setting.",
     longDescription: "A statement of regal simplicity, this Kundan Solitaire Gold Ring positions a brilliant round-table Kundan stone inside a sculpted petal bezel of 22K gold. The tapering shank features delicate floral hand-engravings for an authentic vintage aura.",
     specifications: {
@@ -398,7 +398,7 @@ export const PRODUCTS = [
       stoneDetails: "High-Lustre Faceted Kundan Stone",
       certification: "BIS 916 Hallmarked",
       craftsmanship: "Hand-Engraved Shank & Bezel",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Engagement Trials, Gifting & Festive Styling"
     }
   },
@@ -418,9 +418,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.9,
     reviewCount: 31,
-    seoTitle: "Temple Antique 22K Gold Kada | Divine Motif Bridal Bangle Guntur",
-    seoDescription: "Heavy antique finish temple kada with intricate divine motifs and ruby stone eyes. 100% hallmarked gold at Althaf Jewellery Makers Guntur.",
-    keywords: "temple gold kada guntur, antique bridal bangle, 22k divine motif kada, heavy gold kada andhra pradesh",
+    seoTitle: "Temple Antique 22K Gold Kada | Divine Motif Bridal Bangle Tenali",
+    seoDescription: "Heavy antique finish temple kada with intricate divine motifs and ruby stone eyes. 100% hallmarked gold at Althaf Jewellery Makers Tenali.",
+    keywords: "temple gold kada tenali, antique bridal bangle, 22k divine motif kada, heavy gold kada andhra pradesh",
     description: "Heavy antique finish temple kada with intricate divine motifs and ruby stone eyes. Solid heirloom weight.",
     longDescription: "Featuring sculpted motifs of divine deities flanked by ornate elephants, the Temple Antique Gold Kada is a magnificent specimen of sacred temple goldsmithing. Accented with ruby eyes and secured with a traditional screw-pin clasp, it is a treasured family heirloom.",
     specifications: {
@@ -429,7 +429,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Ruby Gemstone Accents",
       certification: "BIS 916 Hallmarked with HUID",
       craftsmanship: "Sacred South Indian Temple Sculpting",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Traditional Muhurtham & Family Pujas"
     }
   },
@@ -449,9 +449,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.8,
     reviewCount: 14,
-    seoTitle: "Ruby Royal Floral 22K Gold Pendant with Pearl Drops | Althaf Jewellery Guntur",
-    seoDescription: "Delicate floral ruby pendant encased in 22K yellow gold with pearl drops. 100% BIS hallmarked at Althaf Jewellery Makers Guntur AP.",
-    keywords: "ruby floral pendant guntur, 22k gold locket, pearl drop pendant, bridal gold jewellery andhra pradesh",
+    seoTitle: "Ruby Royal Floral 22K Gold Pendant with Pearl Drops | Althaf Jewellery Tenali",
+    seoDescription: "Delicate floral ruby pendant encased in 22K yellow gold with pearl drops. 100% BIS hallmarked at Althaf Jewellery Makers Tenali AP.",
+    keywords: "ruby floral pendant tenali, 22k gold locket, pearl drop pendant, bridal gold jewellery andhra pradesh",
     description: "A delicate floral ruby pendant encased in 22K yellow gold with pearl drops and radiant stone halo.",
     longDescription: "Shaped in the bloom of an auspicious lotus, this Ruby Royal Floral Pendant cradles a glowing cluster of natural red rubies surrounded by 22K gold petals. A swinging teardrop pearl completes the design with gentle poetry.",
     specifications: {
@@ -460,7 +460,7 @@ export const PRODUCTS = [
       stoneDetails: "Natural Red Rubies & Seed Pearl",
       certification: "100% BIS 916 Hallmarked",
       craftsmanship: "Prong-Set Lotus Floral Assembly",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Festive Occasions & Meaningful Heirloom Gifting"
     }
   },
@@ -480,9 +480,9 @@ export const PRODUCTS = [
     bestseller: false,
     rating: 4.8,
     reviewCount: 18,
-    seoTitle: "Nakshi Antique 22K Gold Bracelet | Artisan Carved Wrist Wear Guntur",
-    seoDescription: "Detailed Nakshi artisan carved antique gold bracelet with adjustable safety chain at Althaf Jewellery Makers Guntur AP.",
-    keywords: "nakshi gold bracelet guntur, antique gold wristwear, 22k bridal bracelet, handcrafted jewellery andhra pradesh",
+    seoTitle: "Nakshi Antique 22K Gold Bracelet | Artisan Carved Wrist Wear Tenali",
+    seoDescription: "Detailed Nakshi artisan carved antique gold bracelet with adjustable safety chain at Althaf Jewellery Makers Tenali AP.",
+    keywords: "nakshi gold bracelet tenali, antique gold wristwear, 22k bridal bracelet, handcrafted jewellery andhra pradesh",
     description: "Detailed Nakshi artisan carved antique gold bracelet with adjustable safety chain and antique finish.",
     longDescription: "Hand-chiseled by master karigars, the Nakshi Antique Gold Bracelet features continuous scrollwork depicting sacred vines and mythical peacocks. Completed with a dual-locking mechanism, it delivers both unmatched security and heritage grandeur.",
     specifications: {
@@ -491,7 +491,7 @@ export const PRODUCTS = [
       stoneDetails: "All-Gold Chiseled Antique Metal",
       certification: "BIS 916 Hallmarked",
       craftsmanship: "Traditional Nakshi Relief Chiseling",
-      origin: "Guntur, Andhra Pradesh",
+      origin: "Tenali, Andhra Pradesh",
       idealFor: "Wedding Receptions & Festive Wardrobes"
     }
   }

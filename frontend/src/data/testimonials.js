@@ -2,11 +2,11 @@ export const TESTIMONIALS = [
   {
     id: 1,
     name: "Lakshmi Prasanna",
-    city: "Guntur, Andhra Pradesh",
+    city: "Tenali, Andhra Pradesh",
     rating: 5,
     itemPurchased: "Bridal Antique Nakshi Haar & Jhumkas",
     verified: true,
-    comment: "We ordered my daughter's complete wedding bridal set from Althaf Jewellery Makers at Lalapet, Guntur. The 22K 916 gold purity, weight accuracy, and karigar carving on the Nakshi Haar exceeded all our expectations!",
+    comment: "We ordered my daughter's complete wedding bridal set from Althaf Jewellery Makers at ASR Complex, Tenali. The 22K 916 gold purity, weight accuracy, and karigar carving on the Nakshi Haar exceeded all our expectations!",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
   },
   {
@@ -16,13 +16,13 @@ export const TESTIMONIALS = [
     rating: 5,
     itemPurchased: "Uncut Polki Diamond Choker Set",
     verified: true,
-    comment: "Excellent master craftsmanship and transparent live gold rate quotation on WhatsApp. The Polki choker with emerald drops is breathtaking. Best jewellery makers in the Guntur-Vijayawada region.",
+    comment: "Excellent master craftsmanship and transparent live gold rate quotation on WhatsApp. The Polki choker with emerald drops is breathtaking. Best jewellery makers in the Tenali-Vijayawada region.",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: 3,
     name: "Bhavana Chowdary",
-    city: "Amaravati / Guntur",
+    city: "Amaravati / Tenali",
     rating: 5,
     itemPurchased: "Temple Goddess Jhumkas & Bangles",
     verified: true,
@@ -36,7 +36,7 @@ export const TESTIMONIALS = [
     rating: 5,
     itemPurchased: "Imperial Kundan Bridal Choker",
     verified: true,
-    comment: "Traveled from Hyderabad to their Guntur boutique for bespoke bridal customization. They crafted my dream bridal choker within 10 days with exquisite Meenakari back-work!",
+    comment: "Traveled from Hyderabad to their Tenali boutique for bespoke bridal customization. They crafted my dream bridal choker within 10 days with exquisite Meenakari back-work!",
     avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200"
   },
   {
@@ -52,7 +52,7 @@ export const TESTIMONIALS = [
   {
     id: 6,
     name: "Radhika K.",
-    city: "Chennai / Guntur Native",
+    city: "Chennai / Tenali Native",
     rating: 5,
     itemPurchased: "Royal Flora 22K Gold Bangles",
     verified: true,

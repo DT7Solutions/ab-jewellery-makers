@@ -12,35 +12,35 @@ export default function Gallery({ onSelectImage }) {
       id: 1,
       title: "Heritage Royal Necklace",
       image: "/images/products/heritage-necklace.png",
-      alt: "Heritage Royal 22K Gold Necklace Set - Althaf Jewellery Guntur",
+      alt: "Heritage Royal 22K Gold Necklace Set - Althaf Jewellery Tenali",
       productSlug: "IND-NK-001"
     },
     {
       id: 2,
       title: "Antique Gold Kada",
       image: "/images/products/gold-bangles.png",
-      alt: "Temple Antique 22K Gold Kada Bangle - Althaf Jewellery Guntur",
+      alt: "Temple Antique 22K Gold Kada Bangle - Althaf Jewellery Tenali",
       productSlug: "IND-BG-003"
     },
     {
       id: 3,
       title: "Emerald Polki Haar",
       image: "/images/products/polki-diamond-necklace.png",
-      alt: "Uncut Polki Diamond Emerald Haar - Althaf Jewellery Guntur",
+      alt: "Uncut Polki Diamond Emerald Haar - Althaf Jewellery Tenali",
       productSlug: "IND-NK-004"
     },
     {
       id: 4,
       title: "Temple Work Jhumkas",
       image: "/images/products/temple-jhumkas.png",
-      alt: "Traditional Temple Work 22K Gold Jhumkas - Althaf Jewellery Guntur",
+      alt: "Traditional Temple Work 22K Gold Jhumkas - Althaf Jewellery Tenali",
       productSlug: "IND-ER-002"
     },
     {
       id: 5,
       title: "Gold Statement Ring",
       image: "/images/products/peacock-ring.png",
-      alt: "Royal Peacock 22K Gold Statement Ring - Althaf Jewellery Guntur",
+      alt: "Royal Peacock 22K Gold Statement Ring - Althaf Jewellery Tenali",
       productSlug: "IND-RG-006"
     }
   ];

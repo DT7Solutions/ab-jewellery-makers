@@ -37,12 +37,12 @@ export default function CollectionsGrid({ selectedCategory, onSelectCategory, on
   const activeCategory = selectedCategory || "ALL";
 
   useEffect(() => {
-    fetchApiProducts(activeCategory).then(prods => {
+    fetchApiProducts().then(prods => {
       if (prods && prods.length > 0) {
         setProductsList(prods);
       }
     });
-  }, [activeCategory]);
+  }, []);
 
   const handleCategoryChange = (catName) => {
     if (onSelectCategory) {

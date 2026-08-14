@@ -1,6 +1,6 @@
 import { PRODUCTS as FALLBACK_PRODUCTS } from '../data/products';
 import { CATEGORIES as FALLBACK_CATEGORIES } from '../data/categories';
-import { BASE_GUNTUR_GOLD_RATES } from './goldRate';
+import { BASE_TENALI_GOLD_RATES } from './goldRate';
 
 // Dynamically target local backend in development vs production backend in deployed site
 const isLocalhost = typeof window !== 'undefined' && 
@@ -121,7 +121,7 @@ export async function adminChangePassword(oldPassword, newPassword) {
  */
 export async function fetchApiCategories() {
   try {
-    const response = await fetch(`${API_BASE_URL}/categories/`, {
+    const response = await fetch(`${API_BASE_URL}/categories/?no_pagination=true`, {
       headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) throw new Error(`HTTP error ${response.status}`);
@@ -148,9 +148,9 @@ export async function fetchApiCategories() {
 
 export async function fetchApiProducts(categoryName = null) {
   try {
-    let url = `${API_BASE_URL}/products/`;
+    let url = `${API_BASE_URL}/products/?no_pagination=true`;
     if (categoryName && categoryName !== 'ALL') {
-      url += `?category=${encodeURIComponent(categoryName)}`;
+      url += `&category=${encodeURIComponent(categoryName)}`;
     }
     const response = await fetch(url, {
       headers: { 'Accept': 'application/json' }
@@ -203,7 +203,7 @@ export async function fetchApiGoldRates() {
     if (data && data.gold_22k_per_gram) {
       return {
         id: data.id,
-        location: data.location || "Guntur, AP",
+        location: data.location || "Tenali, AP",
         gold22k: Math.round(parseFloat(data.gold_22k_per_gram)),
         gold24k: Math.round(parseFloat(data.gold_24k_per_gram || 7470)),
         silver: Math.round(parseFloat(data.silver_per_gram || 91)),
@@ -213,9 +213,9 @@ export async function fetchApiGoldRates() {
       };
     }
   } catch (err) {
-    console.warn("Django Gold Rate API offline, using live Guntur AP rates:", err.message);
+    console.warn("Django Gold Rate API offline, using live Tenali AP rates:", err.message);
   }
-  return BASE_GUNTUR_GOLD_RATES;
+  return BASE_TENALI_GOLD_RATES;
 }
 
 export async function submitApiInquiry(inquiryData) {

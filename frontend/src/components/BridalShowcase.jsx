@@ -12,7 +12,7 @@ export default function BridalShowcase() {
       description: "Be the bride of your dreams adorned in a 22KT gold masterpiece carrying the splendour of Gujarat’s rich, vibrant culture. Across its three resplendent layers, Raasvi celebrates the bride you dreamt of becoming, rooted in the joy, colour, and spirited festivities of the land.",
       buttonText: "Discover the Collection",
       image: "/images/raasvi-bride.png",
-      alt: "Raasvi Gujarat Bridal Collection - 22K Gold Multi-Tiered Necklace Althaf Jewellery Guntur"
+      alt: "Raasvi Gujarat Bridal Collection - 22K Gold Multi-Tiered Necklace Althaf Jewellery Tenali"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function BridalShowcase() {
       description: "Embrace imperial royalty handcrafted in antique Kundan and Meenakari gold. Svarnam honors centuries of royal Rajasthan artistry, crafted for the bride who reigns with eternal elegance and regal majesty.",
       buttonText: "Discover the Collection",
       image: "/images/about-model.png",
-      alt: "Svarnam Rajasthan Royal Kundan & Meenakari Bridal Jewellery Althaf Jewellery Guntur"
+      alt: "Svarnam Rajasthan Royal Kundan & Meenakari Bridal Jewellery Althaf Jewellery Tenali"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function BridalShowcase() {
       description: "Sacred motifs carved by master artisans in pure 22KT temple gold. Nitya captures the timeless devotion, divine heritage, and grand celebration of traditional South Indian bridal ceremonies.",
       buttonText: "Discover the Collection",
       image: "/images/products/heritage-necklace.png",
-      alt: "Nitya South Indian Temple Gold Bridal Jewellery Althaf Jewellery Guntur"
+      alt: "Nitya South Indian Temple Gold Bridal Jewellery Althaf Jewellery Tenali"
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function BridalShowcase() {
       description: "Intricate filigree work woven in featherlight pure gold. Kalyani brings alive the vintage charm, poetic romanticism, and regal craftsmanship of authentic Bengali bridal heritage.",
       buttonText: "Discover the Collection",
       image: "/images/hero-model.png",
-      alt: "Kalyani Bengali Gold Filigree Bridal Jewellery Althaf Jewellery Guntur"
+      alt: "Kalyani Bengali Gold Filigree Bridal Jewellery Althaf Jewellery Tenali"
     }
   ];
 
@@ -72,7 +72,7 @@ export default function BridalShowcase() {
               <span className="divider-line"></span>
             </div>
           </div>
-          <p className="section-tagline">IMPERIAL BRIDAL COUTURE CELEBRATING CENTURIES OF INDIAN REGAL HERITAGE IN GUNTUR</p>
+          <p className="section-tagline">IMPERIAL BRIDAL COUTURE CELEBRATING CENTURIES OF INDIAN REGAL HERITAGE IN TENALI</p>
         </div>
       </div>
 

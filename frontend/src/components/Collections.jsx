@@ -41,7 +41,7 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
             <span className="divider-line"></span>
           </div>
         </div>
-        <p className="section-tagline">HANDCRAFTED 22K GOLD • ROYAL POLKI • KUNDAN • ANTIQUE TEMPLE HEIRLOOMS IN GUNTUR</p>
+        <p className="section-tagline">HANDCRAFTED 22K GOLD • ROYAL POLKI • KUNDAN • ANTIQUE TEMPLE HEIRLOOMS IN TENALI</p>
 
         {/* Circular Categories Grid */}
         <div className="collections-grid">
@@ -61,7 +61,7 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
                   <div className="gold-ring-glow"></div>
                   <img 
                     src={cat.image} 
-                    alt={`Althaf Jewellery Makers - ${cat.name} 22K Gold Collection Guntur`} 
+                    alt={`Althaf Jewellery Makers - ${cat.name} 22K Gold Collection Tenali`} 
                     className="collection-image" 
                     loading="lazy"
                     onError={(e) => {

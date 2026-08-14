@@ -109,7 +109,7 @@ class Product(models.Model):
 
 
 class GoldRate(models.Model):
-    location = models.CharField(max_length=100, default="Guntur, AP")
+    location = models.CharField(max_length=100, default="Tenali, AP")
     gold_22k_per_gram = models.DecimalField(max_digits=10, decimal_places=2)
     gold_24k_per_gram = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     silver_per_gram = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)

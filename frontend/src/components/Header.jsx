@@ -3,14 +3,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import { SITE_CONFIG } from '../config';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
-import { BASE_GUNTUR_GOLD_RATES } from '../utils/goldRate';
+import { BASE_TENALI_GOLD_RATES } from '../utils/goldRate';
 import { fetchApiGoldRates } from '../utils/api';
 import './Header.css';
 
-export default function Header() {
+export default function Header({ onSelectCategory }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [goldRates, setGoldRates] = useState(BASE_GUNTUR_GOLD_RATES);
+  const [goldRates, setGoldRates] = useState(BASE_TENALI_GOLD_RATES);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +22,7 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Fetch dynamic live gold rates for Guntur AP from Django REST API
+    // Fetch dynamic live gold rates for Tenali AP from Django REST API
     fetchApiGoldRates().then(rates => {
       if (rates) setGoldRates(rates);
     });
@@ -54,7 +54,7 @@ export default function Header() {
         <Link to="/" className="brand-logo" aria-label="Althaf Jewellery Makers Home">
           <img 
             src="/images/logo.png" 
-            alt="Althaf Jewellery Makers - 22K Gold & Bridal Jewellery Showroom Guntur"
+            alt="Althaf Jewellery Makers - 22K Gold & Bridal Jewellery Showroom Tenali"
             className="brand-logo-img"
           />
         </Link>
@@ -68,6 +68,11 @@ export default function Header() {
                   to={link.path} 
                   className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
                   end={link.path === '/'}
+                  onClick={() => {
+                    if (link.path === '/collections' && onSelectCategory) {
+                      onSelectCategory(null);
+                    }
+                  }}
                 >
                   <span>{link.name}</span>
                 </NavLink>
@@ -76,15 +81,15 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Desktop Header Actions (Dynamic Guntur AP Live Gold Rate Badge + WhatsApp CTA) */}
+        {/* Desktop Header Actions (Dynamic Tenali AP Live Gold Rate Badge + WhatsApp CTA) */}
         <div className="header-actions">
-          {/* Live Dynamic Gold Price Badge for Guntur AP */}
+          {/* Live Dynamic Gold Price Badge for Tenali AP */}
           <div 
             className="live-gold-badge" 
             title={`Live 22K Gold Rate in ${goldRates.location} (Updated ${goldRates.lastUpdated})`}
           >
             <span className="live-dot"></span>
-            <span className="gold-rate-label">GUNTUR 22K:</span>
+            <span className="gold-rate-label">TENALI 22K:</span>
             <span className="gold-rate-price">₹{goldRates.gold22k.toLocaleString('en-IN')}/g</span>
           </div>
 
@@ -115,7 +120,7 @@ export default function Header() {
         <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
           <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-logo-header">
-              <img src="/images/logo.png" alt="Althaf Jewellery Makers - 22K Gold Guntur" className="mobile-logo-img" />
+              <img src="/images/logo.png" alt="Althaf Jewellery Makers - 22K Gold Tenali" className="mobile-logo-img" />
             </div>
 
             <ul className="mobile-nav-list">
@@ -124,7 +129,12 @@ export default function Header() {
                   <NavLink 
                     to={link.path} 
                     className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      if (link.path === '/collections' && onSelectCategory) {
+                        onSelectCategory(null);
+                      }
+                    }}
                     end={link.path === '/'}
                   >
                     {link.name}

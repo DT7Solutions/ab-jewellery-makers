@@ -67,7 +67,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
                 <span className="divider-line"></span>
               </div>
             </div>
-            <p className="featured-subtitle">ROYAL BIS 916 HALLMARKED CREATIONS HANDCRAFTED FOR YOUR CELEBRATIONS IN GUNTUR</p>
+            <p className="featured-subtitle">ROYAL BIS 916 HALLMARKED CREATIONS HANDCRAFTED FOR YOUR CELEBRATIONS IN TENALI</p>
           </div>
 
           {/* Top Right Action Controls */}
@@ -111,7 +111,7 @@ export default function FeaturedJewellery({ selectedCategory, onSelectCategory, 
 
         {/* Disclaimer Note */}
         <div className="price-disclaimer">
-          <p>*Prices are indicative and calculated using live Guntur AP gold rates. Final itemized quote shared via WhatsApp.</p>
+          <p>*Prices are indicative and calculated using live Tenali AP gold rates. Final itemized quote shared via WhatsApp.</p>
         </div>
       </div>
     </section>

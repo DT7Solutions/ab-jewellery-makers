@@ -14,7 +14,7 @@ export default function AdminGoldRates() {
 
   // Form States
   const [editId, setEditId] = useState(null);
-  const [location, setLocation] = useState('Guntur, AP');
+  const [location, setLocation] = useState('Tenali, AP');
   const [gold22k, setGold22k] = useState('');
   const [gold24k, setGold24k] = useState('');
   const [silver, setSilver] = useState('');
@@ -40,7 +40,7 @@ export default function AdminGoldRates() {
 
   const openAddModal = () => {
     setEditId(null);
-    setLocation('Guntur, AP');
+    setLocation('Tenali, AP');
     setGold22k('');
     setGold24k('');
     setSilver('');
@@ -50,7 +50,7 @@ export default function AdminGoldRates() {
 
   const openEditModal = (rate) => {
     setEditId(rate.id);
-    setLocation(rate.location || 'Guntur, AP');
+    setLocation(rate.location || 'Tenali, AP');
     setGold22k(rate.gold_22k_per_gram);
     setGold24k(rate.gold_24k_per_gram || '');
     setSilver(rate.silver_per_gram || '');
@@ -208,7 +208,7 @@ export default function AdminGoldRates() {
                     <input 
                       type="text" 
                       className="admin-form-input" 
-                      placeholder="e.g. Guntur, AP"
+                      placeholder="e.g. Tenali, AP"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       required

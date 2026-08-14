@@ -6,9 +6,9 @@ django.setup()
 
 from store.models import Category, Product, GoldRate, HeroBanner
 
-# 1. Seed Live Gold Rate for Guntur AP
+# 1. Seed Live Gold Rate for Tenali AP
 gold_rate, created = GoldRate.objects.get_or_create(
-    location="Guntur, AP",
+    location="Tenali, AP",
     defaults={
         "gold_22k_per_gram": 6850.00,
         "gold_24k_per_gram": 7470.00,
@@ -277,7 +277,7 @@ banners_data = [
         "title_line_1": "Timeless Beauty.",
         "title_line_2": "Crafted with",
         "gold_word": "Tradition.",
-        "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP.",
+        "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Tenali, AP.",
         "order": 1,
         "is_active": True
     },
@@ -297,7 +297,7 @@ banners_data = [
         "title_line_1": "Pure Elegance.",
         "title_line_2": "Handcrafted to",
         "gold_word": "Perfection.",
-        "description": "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders.",
+        "description": "Purity is our priority. Live Tenali AP gold pricing & bespoke custom jewellery orders.",
         "order": 3,
         "is_active": True
     }

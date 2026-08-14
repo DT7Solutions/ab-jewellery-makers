@@ -45,19 +45,19 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "@id": "https://althafjewellery.com/contact#webpage",
     "url": "https://althafjewellery.com/contact",
-    "name": "Contact Althaf Jewellery Makers | Showroom Address & WhatsApp in Guntur AP",
-    "description": "Contact Althaf Jewellery Makers (AB Jewellery Makers) in Guntur, Andhra Pradesh. Get directions to our Lalapet boutique, book private bridal trials, or enquire directly on WhatsApp.",
+    "name": `Contact ${SITE_CONFIG.brandName} | Showroom Address & WhatsApp in Tenali AP`,
+    "description": `Contact ${SITE_CONFIG.brandName} in Tenali, Andhra Pradesh. Get directions to our ASR Complex boutique, book private bridal trials, or enquire directly on WhatsApp.`,
     "mainEntity": {
       "@type": "JewelryStore",
-      "name": "Althaf Jewellery Makers",
-      "telephone": "+91-9876543210",
-      "email": "hello@althafjewellery.com",
+      "name": SITE_CONFIG.brandName,
+      "telephone": SITE_CONFIG.whatsappNumber,
+      "email": SITE_CONFIG.email,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Main Gold Market, Lalapet",
-        "addressLocality": "Guntur",
+        "streetAddress": "Shop No. 26, ASR Complex, Beside Metro Shoemart, Gandhi Chowk, Sharaf Bazar",
+        "addressLocality": "Tenali",
         "addressRegion": "Andhra Pradesh",
-        "postalCode": "522001",
+        "postalCode": "522201",
         "addressCountry": "IN"
       },
       "geo": {
@@ -80,9 +80,9 @@ export default function ContactPage() {
     <div className="contact-page">
       {/* Dynamic SEO Head Management */}
       <SEO 
-        title="Contact Althaf Jewellery Makers | Boutique Address & Phone in Guntur AP"
-        description="Visit Althaf Jewellery Makers at Main Gold Market, Lalapet, Guntur, AP - 522001. Enquire on WhatsApp for instant 22K gold rate quotes, custom bridal trials, and showroom directions."
-        keywords="contact althaf jewellery guntur, gold shop lalapet guntur address, ab jewellery makers phone number, guntur gold market directions, book bridal trial guntur"
+        title={`Contact ${SITE_CONFIG.brandName} | Boutique Address & Phone in Tenali AP`}
+        description={`Visit ${SITE_CONFIG.brandName} at Shop No. 26, ASR Complex, Beside Metro Shoemart, Gandhi Chowk, Sharaf Bazar, Tenali. Enquire on WhatsApp for instant 22K gold rate quotes, custom bridal trials, and showroom directions.`}
+        keywords="contact althaf jewellery tenali, gold shop asr complex tenali address, althaf jewellery makers phone number, tenali gold market directions, book bridal trial tenali"
         canonical="https://althafjewellery.com/contact"
         schema={contactSchema}
       />
@@ -322,7 +322,7 @@ export default function ContactPage() {
               display: 'inline-block',
               marginBottom: '0.5rem'
             }}>
-              FIND OUR BOUTIQUE IN GUNTUR
+              FIND OUR BOUTIQUE IN TENALI
             </span>
             <h2 style={{
               fontFamily: 'var(--font-brand)',
@@ -341,7 +341,7 @@ export default function ContactPage() {
               <span style={{ height: '1px', width: '90px', background: 'linear-gradient(90deg, transparent 0%, rgba(245, 208, 97, 0.7) 50%, transparent 100%)' }}></span>
             </div>
             <p style={{ fontSize: '0.95rem', color: '#FBF2E3', fontWeight: '300', margin: 0, opacity: 0.9 }}>
-              Located conveniently at Lalapet Main Gold Market, easily accessible from Guntur Junction Railway Station and Jinnah Tower Centre.
+              Located conveniently at Shop No. 26, ASR Complex, beside Metro Shoemart, Gandhi Chowk, Sharaf Bazar, Tenali. Easily accessible.
             </p>
           </div>
 
@@ -355,7 +355,7 @@ export default function ContactPage() {
             position: 'relative'
           }}>
             <iframe
-              title="Althaf Jewellery Makers Location Map - Main Gold Market, Lalapet, Guntur AP"
+              title="Althaf Jewellery Makers Location Map - ASR Complex, Tenali AP"
               src={SITE_CONFIG.mapEmbedUrl}
               width="100%"
               height="450"

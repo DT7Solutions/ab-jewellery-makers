@@ -36,7 +36,7 @@ export default function ProductCard({ product, onViewDetails }) {
       <div className="product-image-container">
         <img 
           src={imageUrl} 
-          alt={`${product.name} - ${product.purity || '22K'} Hallmarked Gold Jewellery Althaf Guntur`} 
+          alt={`${product.name} - ${product.purity || '22K'} Hallmarked Gold Jewellery Althaf Tenali`} 
           className="product-image"
           loading="lazy"
           onError={(e) => {

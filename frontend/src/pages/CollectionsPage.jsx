@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import SubpageBanner from '../components/SubpageBanner';
 import Collections from '../components/Collections';
@@ -6,13 +7,36 @@ import CollectionsGrid from '../components/CollectionsGrid';
 import Gallery from '../components/Gallery';
 
 export default function CollectionsPage({ selectedCategory, onSelectCategory, onViewDetails }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
+  // Synchronize category search parameter from URL to app state
+  React.useEffect(() => {
+    const upperParam = categoryParam ? categoryParam.toUpperCase() : null;
+    if (onSelectCategory && selectedCategory !== upperParam) {
+      onSelectCategory(upperParam);
+    }
+  }, [categoryParam, onSelectCategory, selectedCategory]);
+
+  // Handler to update both state and URL query parameter in sync
+  const handleSelectCategory = (categoryName) => {
+    if (onSelectCategory) {
+      onSelectCategory(categoryName);
+    }
+    if (categoryName) {
+      setSearchParams({ category: categoryName.toLowerCase() });
+    } else {
+      searchParams.delete('category');
+      setSearchParams(searchParams);
+    }
+  };
   const activeTitle = selectedCategory 
-    ? `${selectedCategory} Collection - 22K Gold & Bridal Jewellery | Althaf Jewellery Guntur`
-    : "Handcrafted 22K Gold, Polki & Bridal Jewellery Collections | Althaf Jewellery Guntur AP";
+    ? `${selectedCategory} Collection - 22K Gold & Bridal Jewellery | Althaf Jewellery Tenali`
+    : "Handcrafted 22K Gold, Polki & Bridal Jewellery Collections | Althaf Jewellery Tenali AP";
 
   const activeDesc = selectedCategory
-    ? `Explore our signature handcrafted ${selectedCategory} collection in pure 22K BIS 916 hallmarked gold at Althaf Jewellery Makers in Guntur, Andhra Pradesh. Custom orders available.`
-    : "Explore the complete catalogue of 22K Gold Necklaces, Polki Diamonds, Kundan Chokers, Antique Temple Jhumkas, Bangles, Rings, Pendants & Mangalsutras at Althaf Jewellery Makers Guntur.";
+    ? `Explore our signature handcrafted ${selectedCategory} collection in pure 22K BIS 916 hallmarked gold at Althaf Jewellery Makers in Tenali, Andhra Pradesh. Custom orders available.`
+    : "Explore the complete catalogue of 22K Gold Necklaces, Polki Diamonds, Kundan Chokers, Antique Temple Jhumkas, Bangles, Rings, Pendants & Mangalsutras at Althaf Jewellery Makers Tenali.";
 
   const collectionsSchema = {
     "@context": "https://schema.org",
@@ -82,7 +106,7 @@ export default function CollectionsPage({ selectedCategory, onSelectCategory, on
       <SEO 
         title={activeTitle}
         description={activeDesc}
-        keywords="22k gold collections guntur, bridal jewellery catalogue andhra pradesh, gold necklace designs, temple jewellery showroom guntur, antique nakshi gold, polki diamond sets"
+        keywords="22k gold collections tenali, bridal jewellery catalogue andhra pradesh, gold necklace designs, temple jewellery showroom tenali, antique nakshi gold, polki diamond sets"
         canonical="https://althafjewellery.com/collections"
         schema={collectionsSchema}
       />
@@ -90,20 +114,20 @@ export default function CollectionsPage({ selectedCategory, onSelectCategory, on
       {/* Subpage Banner */}
       <SubpageBanner 
         title="OUR JEWELLERY COLLECTIONS"
-        subtitle="Explore our handcrafted 22K Gold, Polki, Kundan, Antique, and Temple Jewellery creations in Guntur, Andhra Pradesh."
+        subtitle="Explore our handcrafted 22K Gold, Polki, Kundan, Antique, and Temple Jewellery creations in Tenali, Andhra Pradesh."
         bgImage="/images/footer-gold-bg.png"
       />
 
       {/* Collections Category Grid */}
       <Collections 
         selectedCategory={selectedCategory}
-        onSelectCategory={onSelectCategory}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* Dynamic Collection Catalogue Grid with Filters */}
       <CollectionsGrid 
         selectedCategory={selectedCategory}
-        onSelectCategory={onSelectCategory}
+        onSelectCategory={handleSelectCategory}
         onViewDetails={onViewDetails}
       />
 
@@ -125,7 +149,7 @@ export default function CollectionsPage({ selectedCategory, onSelectCategory, on
                 ✦ LIVE MARKET RATE & TRANSPARENT BILLING
               </h3>
               <p style={{ color: '#D4C3B3', fontSize: '0.88rem', lineHeight: '1.7', margin: 0 }}>
-                We practice transparent gold pricing updated live according to Guntur AP bullion market rates. Every invoice clearly separates gross weight, stone weight, net gold weight, making charges, and taxes.
+                We practice transparent gold pricing updated live according to Tenali AP bullion market rates. Every invoice clearly separates gross weight, stone weight, net gold weight, making charges, and taxes.
               </p>
             </div>
 

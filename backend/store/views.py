@@ -65,6 +65,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     lookup_field = 'slug'
     
+    @property
+    def pagination_class(self):
+        if self.request.query_params.get('no_pagination', 'false').lower() == 'true':
+            return None
+        from rest_framework.pagination import PageNumberPagination
+        return PageNumberPagination
+    
     def get_queryset(self):
         queryset = Category.objects.all()
         # If user is staff, allow all categories. Otherwise, only published.
@@ -91,6 +98,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     lookup_field = 'slug'
+    
+    @property
+    def pagination_class(self):
+        if self.request.query_params.get('no_pagination', 'false').lower() == 'true':
+            return None
+        from rest_framework.pagination import PageNumberPagination
+        return PageNumberPagination
     
     def get_queryset(self):
         queryset = Product.objects.all()
@@ -151,7 +165,7 @@ class GoldRateViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         # Default fallback
         return Response({
-            'location': 'Guntur, AP',
+            'location': 'Tenali, AP',
             'gold_22k_per_gram': '6850.00',
             'gold_24k_per_gram': '7470.00',
             'silver_per_gram': '91.00',
@@ -195,7 +209,7 @@ class HeroBannerViewSet(viewsets.ModelViewSet):
                     "title_line_1": "Timeless Beauty.",
                     "title_line_2": "Crafted with",
                     "gold_word": "Tradition.",
-                    "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Guntur, AP.",
+                    "description": "100% BIS 916 Hallmarked 22K Gold, Polki & Kundan Bridal Masterpieces in Tenali, AP.",
                     "order": 1,
                     "is_active": True
                 },
@@ -215,7 +229,7 @@ class HeroBannerViewSet(viewsets.ModelViewSet):
                     "title_line_1": "Pure Elegance.",
                     "title_line_2": "Handcrafted to",
                     "gold_word": "Perfection.",
-                    "description": "Purity is our priority. Live Guntur AP gold pricing & bespoke custom jewellery orders.",
+                    "description": "Purity is our priority. Live Tenali AP gold pricing & bespoke custom jewellery orders.",
                     "order": 3,
                     "is_active": True
                 }
