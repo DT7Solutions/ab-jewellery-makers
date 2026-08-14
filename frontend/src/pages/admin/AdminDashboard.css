@@ -5,12 +5,12 @@
   --admin-bg-dark: #f8fafc;
   --admin-bg-card: #ffffff;
   --admin-bg-sidebar: #ffffff;
-  --admin-gold: #b38f24;
-  --admin-gold-hover: #917218;
+  --admin-gold: #c29724;
+  --admin-gold-hover: #9b7617;
   --admin-text-white: #1e293b;
   --admin-text-gray: #64748b;
   --admin-border: #e2e8f0;
-  --admin-border-focus: #b38f24;
+  --admin-border-focus: #c29724;
   --admin-success: #10b981;
   --admin-danger: #ef4444;
   --admin-warning: #f59e0b;
@@ -53,7 +53,7 @@
 }
 
 .admin-login-logo {
-  max-height: 70px;
+  max-height: 95px;
   margin-bottom: 15px;
 }
 
@@ -160,7 +160,7 @@
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 90;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -178,23 +178,34 @@
 .admin-sidebar-logo-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   overflow: hidden;
 }
 
 .admin-sidebar-logo {
-  height: 30px;
+  height: 56px;
   flex-shrink: 0;
+  transition: height 0.3s ease;
 }
 
 .admin-sidebar-title {
   font-family: var(--admin-font-serif);
   color: var(--admin-gold);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   margin: 0;
-  line-height: 1.2;
-  white-space: nowrap;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar-title-sub {
+  font-family: var(--admin-font);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--admin-text-gray);
+  margin-top: 2px;
 }
 
 .admin-sidebar-menu {
@@ -243,6 +254,18 @@
 /* Collapsed Sidebar Styles */
 .admin-sidebar.collapsed {
   width: 72px;
+}
+
+.admin-sidebar.collapsed .admin-sidebar-header {
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.admin-sidebar.collapsed .admin-sidebar-logo {
+  height: 52px;
+  border: 2px solid var(--admin-gold);
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .admin-sidebar.collapsed .admin-sidebar-title,
@@ -1070,9 +1093,11 @@
 @media (max-width: 768px) {
   .admin-sidebar {
     transform: translateX(-100%);
+    z-index: 100;
   }
   .admin-sidebar.open {
     transform: translateX(0);
+    z-index: 100;
   }
   .admin-main {
     margin-left: 0 !important;
@@ -1091,5 +1116,106 @@
   .admin-footer-bar {
     left: 0 !important;
     padding: 0 20px;
+  }
+}
+
+/* Sidebar Footer & Logout Button */
+.admin-sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid var(--admin-border);
+  background-color: var(--admin-bg-sidebar);
+  margin-top: auto; /* Push to bottom of sidebar */
+  box-sizing: border-box;
+}
+
+.admin-sidebar.collapsed .admin-sidebar-footer {
+  padding: 15px 10px;
+}
+
+.admin-sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 8px;
+  color: #ef4444;
+  font-family: var(--admin-font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.admin-sidebar-logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.admin-sidebar.collapsed .admin-sidebar-logout-btn {
+  padding: 10px 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.admin-sidebar-logout-icon {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Footer Hyperlink Style */
+.admin-footer-link {
+  color: var(--admin-text-gray);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+
+.admin-footer-link:hover {
+  color: var(--admin-gold);
+  text-decoration: underline;
+}
+
+/* Desktop Header Collapse Button */
+.admin-desktop-collapse-toggle {
+  position: absolute;
+  left: 6px;
+  top: 21px;
+  z-index: 100;
+  background: none;
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-gray);
+  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--admin-bg-card);
+}
+
+.admin-desktop-collapse-toggle:hover {
+  color: var(--admin-gold);
+  border-color: var(--admin-gold);
+  background-color: rgba(179, 143, 36, 0.05);
+}
+
+@media (max-width: 768px) {
+  .admin-desktop-collapse-toggle {
+    display: none !important;
   }
 }

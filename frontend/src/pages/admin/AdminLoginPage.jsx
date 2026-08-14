@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
       <div className="admin-login-card">
         <div className="admin-login-header">
           <img src="/images/logo.png" alt="Logo" className="admin-login-logo" onError={(e) => { e.target.style.display = 'none'; }} />
-          <h2 className="admin-login-title">AB GOLD JEWELLERY</h2>
+          <h2 className="admin-login-title">ALTHAF JEWELLERY MAKERS</h2>
           <p className="admin-login-subtitle">Administrative Management Portal</p>
         </div>
 

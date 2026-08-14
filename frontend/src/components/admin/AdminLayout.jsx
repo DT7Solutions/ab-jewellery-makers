@@ -147,21 +147,15 @@ export default function AdminLayout({ children, title = 'Admin Portal' }) {
         
         {/* SIDEBAR NAVIGATION */}
         <aside className={`admin-sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${sidebarOpen ? 'open' : ''}`}>
-          <div className="admin-sidebar-header">
-            <div className="admin-sidebar-logo-wrapper">
-              <img src="/images/logo.png" alt="Logo" className="admin-sidebar-logo" onError={(e) => { e.target.style.display = 'none'; }} />
-              <h2 className="admin-sidebar-title">AB GOLD</h2>
+          <div className="admin-sidebar-header" style={{ justifyContent: 'center', flexDirection: 'row' }}>
+            <div className="admin-sidebar-logo-wrapper" style={{ justifyContent: 'center', width: '100%' }}>
+              <img 
+                src={sidebarCollapsed ? "/images/logo-collapsed.png" : "/images/logo.png"} 
+                alt="Logo" 
+                className="admin-sidebar-logo" 
+                onError={(e) => { e.target.style.display = 'none'; }} 
+              />
             </div>
-            
-            {/* Collapse toggle button visible inside sidebar for desktop */}
-            <button 
-              onClick={toggleSidebarCollapse} 
-              className="admin-collapse-toggle"
-              style={{ padding: '0', width: '28px', height: '28px', flexShrink: '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              title={sidebarCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-            >
-              {sidebarCollapsed ? <FaChevronRight size={10} /> : <FaChevronLeft size={10} />}
-            </button>
           </div>
           
           <nav className="admin-sidebar-menu">
@@ -179,8 +173,15 @@ export default function AdminLayout({ children, title = 'Admin Portal' }) {
             ))}
           </nav>
 
-          <div className="admin-sidebar-footer" style={{ display: sidebarCollapsed ? 'none' : 'block' }}>
-            © 2026 AB Gold Admin
+          <div className="admin-sidebar-footer">
+            <button 
+              onClick={handleLogout} 
+              className="admin-sidebar-logout-btn"
+              title="Log Out"
+            >
+              <FaSignOutAlt className="admin-sidebar-logout-icon" />
+              {!sidebarCollapsed && <span>Log Out</span>}
+            </button>
           </div>
         </aside>
 
@@ -190,6 +191,15 @@ export default function AdminLayout({ children, title = 'Admin Portal' }) {
           {/* HEADER BAR */}
           <header className="admin-header">
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              {/* Desktop collapse toggle button */}
+              <button 
+                onClick={toggleSidebarCollapse} 
+                className="admin-desktop-collapse-toggle"
+                title={sidebarCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+              >
+                {sidebarCollapsed ? <FaChevronRight size={10} /> : <FaChevronLeft size={10} />}
+              </button>
+
               {/* Mobile menu toggle */}
               <button 
                 onClick={() => setSidebarOpen(!sidebarOpen)} 
@@ -244,8 +254,10 @@ export default function AdminLayout({ children, title = 'Admin Portal' }) {
           {/* FIXED BOTTOM FOOTER BAR */}
           <footer className="admin-footer-bar">
             <div className="admin-footer-content">
-              <span>AB Gold Jewellery Makers — Admin Portal</span>
-              <span>© 2026. All rights reserved.</span>
+              <span>© 2026 Althaf Jewellery Makers Admin</span>
+              <span>
+                designed by <a href="https://dt7agency.com" target="_blank" rel="noopener noreferrer" className="admin-footer-link">dt7agency</a>
+              </span>
             </div>
           </footer>
 
