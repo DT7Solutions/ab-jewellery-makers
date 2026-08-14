@@ -50,34 +50,70 @@ export default function App() {
 
           {/* Public website routes wrapped in the public layout */}
           <Route 
-            path="/*" 
+            path="/" 
             element={
               <>
                 <Header onSelectCategory={handleSelectCategory} />
                 <main>
-                  <Routes>
-                    <Route 
-                      path="/" 
-                      element={
-                        <HomePage 
-                          selectedCategory={selectedCategory}
-                          onSelectCategory={handleSelectCategory}
-                        />
-                      } 
-                    />
-                    <Route 
-                      path="/collections" 
-                      element={
-                        <CollectionsPage 
-                          selectedCategory={selectedCategory}
-                          onSelectCategory={handleSelectCategory}
-                        />
-                      } 
-                    />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/contact" element={<ContactPage />} />
-                    <Route path="/product/:id" element={<ProductDetailPage />} />
-                  </Routes>
+                  <HomePage 
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={handleSelectCategory}
+                  />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+              </>
+            } 
+          />
+          <Route 
+            path="/collections" 
+            element={
+              <>
+                <Header onSelectCategory={handleSelectCategory} />
+                <main>
+                  <CollectionsPage 
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={handleSelectCategory}
+                  />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+              </>
+            } 
+          />
+          <Route 
+            path="/about" 
+            element={
+              <>
+                <Header onSelectCategory={handleSelectCategory} />
+                <main>
+                  <AboutPage />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+              </>
+            } 
+          />
+          <Route 
+            path="/contact" 
+            element={
+              <>
+                <Header onSelectCategory={handleSelectCategory} />
+                <main>
+                  <ContactPage />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+              </>
+            } 
+          />
+          <Route 
+            path="/product/:id" 
+            element={
+              <>
+                <Header onSelectCategory={handleSelectCategory} />
+                <main>
+                  <ProductDetailPage />
                 </main>
                 <Footer />
                 <WhatsAppButton />

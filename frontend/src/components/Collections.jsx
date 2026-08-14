@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { CATEGORIES as FALLBACK_CATEGORIES } from '../data/categories';
 import { fetchApiCategories } from '../utils/api';
 import './Collections.css';
 
 export default function Collections({ onSelectCategory, selectedCategory }) {
   const [categoriesList, setCategoriesList] = useState(FALLBACK_CATEGORIES);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     fetchApiCategories().then(cats => {
@@ -15,12 +18,16 @@ export default function Collections({ onSelectCategory, selectedCategory }) {
   }, []);
 
   const handleCategoryClick = (categoryName) => {
-    if (onSelectCategory) {
-      onSelectCategory(categoryName);
-    }
-    const targetSection = document.getElementById('collections-catalogue') || document.getElementById('featured-jewellery');
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      navigate(`/collections?category=${categoryName.toLowerCase()}`);
+    } else {
+      if (onSelectCategory) {
+        onSelectCategory(categoryName);
+      }
+      const targetSection = document.getElementById('collections-catalogue') || document.getElementById('featured-jewellery');
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 

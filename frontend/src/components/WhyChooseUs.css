@@ -51,12 +51,18 @@
 
 .why-choose-title-text {
   font-family: var(--font-brand), serif;
-  font-size: 2.2rem;
+  font-size: 1.2rem;
   color: #F5D061;
   letter-spacing: 3px;
   margin: 0;
   font-weight: 500;
   white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .why-choose-title-text {
+    font-size: 1.65rem;
+  }
 }
 
 .why-choose-divider-side {
@@ -178,10 +184,6 @@
 @media (max-width: 991px) {
   .why-choose-image-col {
     min-height: 380px;
-  }
-
-  .why-choose-title-text {
-    font-size: 1.75rem;
   }
 }
 

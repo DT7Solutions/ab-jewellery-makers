@@ -28,12 +28,18 @@
 
 .vm-v2-title {
   font-family: var(--font-brand), serif;
-  font-size: 2.3rem;
+  font-size: 1.2rem;
   color: #F5D061;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
   font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .vm-v2-title {
+    font-size: 1.65rem;
+  }
 }
 
 .vm-v2-divider {
@@ -268,10 +274,6 @@
 
   .vm-v2-header {
     margin-bottom: 2rem;
-  }
-
-  .vm-v2-title {
-    font-size: 1.75rem;
   }
 
   .vm-v2-card {

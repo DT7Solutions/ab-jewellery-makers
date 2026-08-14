@@ -7,6 +7,12 @@ import { openGeneralWhatsApp } from '../utils/whatsapp';
 import './Footer.css';
 
 export default function Footer() {
+  const handleFooterCollectionsLink = () => {
+    if (window.location.pathname === '/collections') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer id="footer" className="footer-section">
       {/* Clean Gold Top Border Bar */}
@@ -21,7 +27,7 @@ export default function Footer() {
             <Link to="/" className="footer-logo-wrapper" aria-label="Althaf Jewellery Makers Home">
               <img 
                 src="/images/logo.png" 
-                alt="Althaf Jewellery Makers - Heritage 22K Gold & Bridal Jewellery Tenali" 
+                alt="Althaf Jewellery Makers - Heritage 22K Gold & Bridal Jewellery Showroom Tenali" 
                 className="footer-logo-img"
               />
             </Link>
@@ -58,12 +64,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">COLLECTIONS</h4>
             <ul className="footer-links">
-              <li><Link to="/collections?category=necklaces">22K Gold Necklaces</Link></li>
-              <li><Link to="/collections?category=necklaces">Uncut Polki & Kundan</Link></li>
-              <li><Link to="/collections?category=earrings">Temple Jhumkas & Earrings</Link></li>
-              <li><Link to="/collections?category=bangles">Antique Nakshi Bangles</Link></li>
-              <li><Link to="/collections?category=mangalsutra">Diamond Mangalsutras</Link></li>
-              <li><Link to="/collections">Bespoke Bridal Couture</Link></li>
+              <li><Link to="/collections?category=necklaces" onClick={handleFooterCollectionsLink}>22K Gold Necklaces</Link></li>
+              <li><Link to="/collections?category=necklaces" onClick={handleFooterCollectionsLink}>Uncut Polki & Kundan</Link></li>
+              <li><Link to="/collections?category=earrings" onClick={handleFooterCollectionsLink}>Temple Jhumkas & Earrings</Link></li>
+              <li><Link to="/collections?category=bangles" onClick={handleFooterCollectionsLink}>Antique Nakshi Bangles</Link></li>
+              <li><Link to="/collections?category=mangalsutra" onClick={handleFooterCollectionsLink}>Diamond Mangalsutras</Link></li>
+              <li><Link to="/collections" onClick={handleFooterCollectionsLink}>Bespoke Bridal Couture</Link></li>
             </ul>
           </div>
 

@@ -81,7 +81,7 @@
 
 .about-title-text {
   font-family: var(--font-brand), serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 2px;
   color: #F5D061;
@@ -92,7 +92,7 @@
 
 @media (min-width: 768px) {
   .about-title-text {
-    font-size: 1.4rem;
+    font-size: 1.65rem;
     letter-spacing: 3px;
   }
 }

@@ -48,6 +48,10 @@ export default function CollectionsGrid({ selectedCategory, onSelectCategory, on
     if (onSelectCategory) {
       onSelectCategory(catName === "ALL" ? null : catName);
     }
+    const catalogueElement = document.getElementById('collections-catalogue');
+    if (catalogueElement) {
+      catalogueElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Reset to page 1 whenever any filter or search changes

@@ -153,7 +153,7 @@ export default function HomePage({ selectedCategory, onSelectCategory, onViewDet
             <span style={{ fontSize: '0.75rem', letterSpacing: '3px', color: '#E2C068', textTransform: 'uppercase', display: 'block', marginBottom: '0.5rem' }}>
               HERITAGE GOLD SHOWROOM IN TENALI, ANDHRA PRADESH
             </span>
-            <h2 style={{ fontFamily: 'var(--font-brand)', fontSize: '1.8rem', color: '#F5D061', letterSpacing: '2px', marginBottom: '1.2rem', textTransform: 'uppercase' }}>
+            <h2 style={{ fontFamily: 'var(--font-brand)', fontSize: 'clamp(1.2rem, 4vw, 1.65rem)', color: '#F5D061', letterSpacing: '2px', marginBottom: '1.2rem', textTransform: 'uppercase' }}>
               Authentic Indian Goldsmithing & Bespoke Bridal Couture
             </h2>
             <p style={{ color: '#D4C3B3', fontSize: '0.92rem', lineHeight: '1.8', marginBottom: '1.2rem', fontWeight: '300' }}>

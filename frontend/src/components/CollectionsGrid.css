@@ -26,12 +26,18 @@
 
 .cg-title {
   font-family: var(--font-brand), serif;
-  font-size: 2.2rem;
+  font-size: 1.2rem;
   color: #F5D061;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
   font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .cg-title {
+    font-size: 1.65rem;
+  }
 }
 
 .cg-divider {
@@ -465,10 +471,6 @@
 @media (max-width: 540px) {
   .cg-products-grid {
     grid-template-columns: 1fr;
-  }
-
-  .cg-title {
-    font-size: 1.75rem;
   }
 
   .cg-category-pills {
