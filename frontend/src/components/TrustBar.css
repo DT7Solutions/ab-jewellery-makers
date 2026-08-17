@@ -10,7 +10,13 @@
 .trust-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .trust-container {
+    padding: 0 1.5rem;
+  }
 }
 
 /* Boxed Card Container flush after Hero Banner */
@@ -18,20 +24,27 @@
   background-color: #1C0605;
   border: 1px solid rgba(245, 208, 97, 0.3);
   border-radius: 4px;
-  padding: 1.4rem 1.2rem;
+  padding: 1rem 0.6rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 208, 97, 0.12);
+}
+
+@media (min-width: 768px) {
+  .trust-bar-card {
+    padding: 1.4rem 1.2rem;
+  }
 }
 
 .trust-bar-flex {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 0.4rem;
   align-items: center;
 }
 
 @media (min-width: 640px) {
   .trust-bar-flex {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem 0.8rem;
   }
 }
 
@@ -47,10 +60,18 @@
 .trust-item-block {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   justify-content: center;
-  padding: 0.2rem 0.5rem;
+  padding: 0.15rem 0.2rem;
   transition: transform 0.3s ease;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .trust-item-block {
+    gap: 12px;
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 .trust-item-block:hover {
@@ -64,39 +85,77 @@
   flex-shrink: 0;
 }
 
+.trust-icon-box svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (min-width: 768px) {
+  .trust-icon-box svg {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 .trust-text-box {
   display: flex;
   flex-direction: column;
-  line-height: 1.28;
+  line-height: 1.25;
+  min-width: 0;
 }
 
 .trust-line1 {
   font-family: var(--font-heading);
   color: #FBF2E3;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
+  letter-spacing: 0.2px;
+  white-space: normal;
+  word-break: break-word;
   font-variant-numeric: proportional-nums;
+}
+
+@media (min-width: 768px) {
+  .trust-line1 {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
 }
 
 .trust-highlight-num {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.2px;
   color: #FBF2E3;
   display: inline-block;
-  margin-right: 3px;
+  margin-right: 2px;
+}
+
+@media (min-width: 768px) {
+  .trust-highlight-num {
+    font-size: 0.95rem;
+    margin-right: 3px;
+  }
 }
 
 .trust-line2 {
   font-family: var(--font-heading);
   color: #FBF2E3;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
+  letter-spacing: 0.2px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  .trust-line2 {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
 }
 
 /* Vertical Gold Dividers */

@@ -40,6 +40,18 @@ export default function Header({ onSelectCategory }) {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "ABOUT US", path: "/about" },
@@ -83,14 +95,14 @@ export default function Header({ onSelectCategory }) {
 
         {/* Desktop Header Actions (Dynamic Tenali AP Live Gold Rate Badge + WhatsApp CTA) */}
         <div className="header-actions">
-          {/* Live Dynamic Gold Price Badge for Tenali AP */}
+          {/* Live Dynamic Gold Price Badge for Tenali AP - 100% Original 22K (916 Hallmark) Pure Gold */}
           <div 
             className="live-gold-badge" 
-            title={`Live 22K Gold Rate in ${goldRates.location} (Updated ${goldRates.lastUpdated})`}
+            title={`Today's Live 22K (916 Hallmark) Original Gold Rate in ${goldRates.location}: ₹${goldRates.gold22k?.toLocaleString('en-IN')}/g (Updated Daily)`}
           >
             <span className="live-dot"></span>
-            <span className="gold-rate-label">TENALI 22K:</span>
-            <span className="gold-rate-price">₹{goldRates.gold22k.toLocaleString('en-IN')}/g</span>
+            <span className="gold-rate-label">TODAY'S 22K (916):</span>
+            <span className="gold-rate-price">₹{goldRates.gold22k?.toLocaleString('en-IN')}/g</span>
           </div>
 
           <button 
@@ -120,7 +132,32 @@ export default function Header({ onSelectCategory }) {
         <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
           <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-logo-header">
-              <img src="/images/logo.png" alt="Althaf Jewellery Makers - 22K Gold Tenali" className="mobile-logo-img" />
+              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                <img src="/images/logo.png" alt="Althaf Jewellery Makers Logo" className="mobile-logo-img" />
+              </Link>
+              <button 
+                className="mobile-close-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close navigation menu"
+              >
+                <FaTimes size={20} />
+              </button>
+            </div>
+
+            {/* Mobile Daily Gold Rate Card */}
+            <div className="mobile-gold-card">
+              <div className="mobile-gold-badge-header">
+                <span className="live-dot"></span>
+                <span className="mobile-gold-title">TODAY'S LIVE GOLD RATE (TENALI)</span>
+              </div>
+              <div className="mobile-gold-rate-row">
+                <span className="mobile-gold-purity">Original 22K (916 Hallmark):</span>
+                <span className="mobile-gold-val">₹{goldRates.gold22k?.toLocaleString('en-IN')}/g</span>
+              </div>
+              <div className="mobile-gold-rate-row sub">
+                <span>24K Pure Gold:</span>
+                <span>₹{goldRates.gold24k?.toLocaleString('en-IN')}/g</span>
+              </div>
             </div>
 
             <ul className="mobile-nav-list">
@@ -137,7 +174,7 @@ export default function Header({ onSelectCategory }) {
                     }}
                     end={link.path === '/'}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
                   </NavLink>
                 </li>
               ))}

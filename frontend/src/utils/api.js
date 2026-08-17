@@ -283,9 +283,9 @@ export async function fetchApiGoldRates() {
       return {
         id: data.id,
         location: data.location || "Tenali, AP",
-        gold22k: Math.round(parseFloat(data.gold_22k_per_gram)),
-        gold24k: Math.round(parseFloat(data.gold_24k_per_gram || 7470)),
-        silver: Math.round(parseFloat(data.silver_per_gram || 91)),
+        gold22k: Math.round(parseFloat(data.gold_22k_per_gram || 14220)),
+        gold24k: Math.round(parseFloat(data.gold_24k_per_gram || 15512)),
+        silver: Math.round(parseFloat(data.silver_per_gram || 234)),
         unit: 'gram',
         currency: 'INR',
         lastUpdated: data.updated_at ? new Date(data.updated_at).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) : "Just Now"

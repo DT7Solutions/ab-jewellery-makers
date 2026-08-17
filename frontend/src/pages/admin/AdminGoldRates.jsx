@@ -221,7 +221,7 @@ export default function AdminGoldRates() {
                       type="number" 
                       step="0.01"
                       className="admin-form-input" 
-                      placeholder="e.g. 6850"
+                      placeholder="e.g. 14220"
                       value={gold22k}
                       onChange={(e) => setGold22k(e.target.value)}
                       required
@@ -234,7 +234,7 @@ export default function AdminGoldRates() {
                       type="number" 
                       step="0.01"
                       className="admin-form-input" 
-                      placeholder="e.g. 7470"
+                      placeholder="e.g. 15512"
                       value={gold24k}
                       onChange={(e) => setGold24k(e.target.value)}
                     />
@@ -246,7 +246,7 @@ export default function AdminGoldRates() {
                       type="number" 
                       step="0.01"
                       className="admin-form-input" 
-                      placeholder="e.g. 91"
+                      placeholder="e.g. 234"
                       value={silver}
                       onChange={(e) => setSilver(e.target.value)}
                     />

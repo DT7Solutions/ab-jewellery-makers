@@ -19,13 +19,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  text-align: center;
+  max-width: 100%;
 }
 
 .faq-title-inline .title-divider-side {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   flex: none;
 }
 
@@ -39,7 +42,7 @@
 
 .faq-title-inline .title-divider-side .divider-line {
   height: 1px;
-  width: 22px;
+  width: 16px;
   flex: none;
 }
 
@@ -53,13 +56,13 @@
 
 .faq-title-inline .title-divider-side .divider-line-short {
   height: 1px;
-  width: 10px;
+  width: 8px;
   background-color: #F5D061;
 }
 
 .faq-title-inline .title-divider-diamond {
   color: #F5D061;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -68,12 +71,13 @@
 
 .faq-title-text {
   font-family: var(--font-brand), serif;
-  font-size: 1.2rem;
+  font-size: clamp(0.98rem, 3.8vw, 1.65rem);
   font-weight: 500;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: #F5D061;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
   margin: 0;
   text-shadow: 0 0 10px rgba(245, 208, 97, 0.2);
 }
@@ -81,6 +85,7 @@
 @media (min-width: 768px) {
   .faq-title-inline {
     gap: 0.8rem;
+    flex-wrap: nowrap;
   }
 
   .faq-title-inline .title-divider-side .divider-line {
@@ -92,7 +97,6 @@
   }
 
   .faq-title-text {
-    font-size: 1.65rem;
     letter-spacing: 3.5px;
   }
 }

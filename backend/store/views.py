@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from .models import Category, Product, GoldRate, Inquiry, HeroBanner
 from .serializers import CategorySerializer, ProductSerializer, GoldRateSerializer, InquirySerializer, HeroBannerSerializer
+from .gold_service import sync_daily_gold_rate
 
 class AdminLoginView(APIView):
     permission_classes = [AllowAny]
@@ -159,16 +160,20 @@ class GoldRateViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def latest(self, request):
-        latest_rate = self.queryset.first()
+        # Auto-sync daily rate to ensure rate is fresh for today
+        latest_rate = sync_daily_gold_rate()
+        if not latest_rate:
+            latest_rate = self.queryset.first()
+
         if latest_rate:
             serializer = self.get_serializer(latest_rate)
             return Response(serializer.data)
         # Default fallback
         return Response({
             'location': 'Tenali, AP',
-            'gold_22k_per_gram': '6850.00',
-            'gold_24k_per_gram': '7470.00',
-            'silver_per_gram': '91.00',
+            'gold_22k_per_gram': '14220.00',
+            'gold_24k_per_gram': '15512.00',
+            'silver_per_gram': '234.00',
             'updated_at': None
         })
 

@@ -56,9 +56,9 @@ export default function AdminDashboard() {
   }, []);
 
   const latestRate = goldRates[0] || {
-    gold_22k_per_gram: '6850.00',
-    gold_24k_per_gram: '7470.00',
-    silver_per_gram: '91.00'
+    gold_22k_per_gram: '14220.00',
+    gold_24k_per_gram: '15512.00',
+    silver_per_gram: '234.00'
   };
 
   // Group products by category to build chart data

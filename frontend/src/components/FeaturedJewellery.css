@@ -24,14 +24,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  text-align: center;
   margin-bottom: 0;
+  max-width: 100%;
 }
 
 .title-divider-side {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   flex: none;
 }
 
@@ -45,7 +48,7 @@
 
 .title-divider-side .divider-line {
   height: 1px;
-  width: 22px;
+  width: 16px;
   flex: none;
 }
 
@@ -59,13 +62,13 @@
 
 .title-divider-side .divider-line-short {
   height: 1px;
-  width: 10px;
+  width: 8px;
   background-color: #F5D061;
 }
 
 .title-divider-diamond {
   color: #F5D061;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -74,25 +77,27 @@
 
 .featured-title-text {
   font-family: var(--font-brand), serif;
-  font-size: 1.2rem;
+  font-size: clamp(0.98rem, 3.8vw, 1.65rem);
   font-weight: 500;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: #F5D061;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
   margin: 0;
   text-shadow: 0 0 10px rgba(245, 208, 97, 0.2);
 }
 
 .featured-subtitle {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: #E2C068;
   text-transform: uppercase;
   margin-top: 0.15rem;
   margin-bottom: 0;
+  text-align: center;
 }
 
 /* Header Right Actions */
@@ -111,6 +116,7 @@
 
   .featured-title-inline {
     gap: 0.8rem;
+    flex-wrap: nowrap;
   }
 
   .title-divider-side .divider-line {
@@ -122,8 +128,12 @@
   }
 
   .featured-title-text {
-    font-size: 1.65rem;
     letter-spacing: 3.5px;
+  }
+
+  .featured-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
   }
 
   .featured-header-right {

@@ -44,24 +44,30 @@
 .why-choose-title-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.6rem;
   margin-bottom: 1.2rem;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .why-choose-title-text {
   font-family: var(--font-brand), serif;
-  font-size: 1.2rem;
+  font-size: clamp(0.98rem, 3.8vw, 1.65rem);
   color: #F5D061;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   margin: 0;
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 @media (min-width: 768px) {
+  .why-choose-title-header {
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
   .why-choose-title-text {
-    font-size: 1.65rem;
+    letter-spacing: 3px;
   }
 }
 

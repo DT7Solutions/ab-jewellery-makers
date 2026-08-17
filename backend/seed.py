@@ -10,18 +10,18 @@ from store.models import Category, Product, GoldRate, HeroBanner
 gold_rate, created = GoldRate.objects.get_or_create(
     location="Tenali, AP",
     defaults={
-        "gold_22k_per_gram": 6850.00,
-        "gold_24k_per_gram": 7470.00,
-        "silver_per_gram": 91.00
+        "gold_22k_per_gram": 14220.00,
+        "gold_24k_per_gram": 15512.00,
+        "silver_per_gram": 234.00
     }
 )
 if created:
     print("[+] Initial Gold Rate created.")
 else:
     # Update rates to keep fresh
-    gold_rate.gold_22k_per_gram = 6850.00
-    gold_rate.gold_24k_per_gram = 7470.00
-    gold_rate.silver_per_gram = 91.00
+    gold_rate.gold_22k_per_gram = 14220.00
+    gold_rate.gold_24k_per_gram = 15512.00
+    gold_rate.silver_per_gram = 234.00
     gold_rate.save()
     print("[+] Live Gold Rate updated.")
 
